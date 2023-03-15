@@ -3,7 +3,8 @@ Driver close is down
 -----------------IMPORTANT--------------------
 
 !!!WARNING!!!
-Don't push gitignore or configuration.properties files
+Don't push gitignore or configuration.properties 
+Your reviewer is your pair. You should choose your pair as pull request reviewer.
 
 Git Steps
 
