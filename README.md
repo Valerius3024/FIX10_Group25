@@ -2,9 +2,12 @@ Driver close is down
 
 -----------------IMPORTANT--------------------
 
+!!!WARNING!!!
+Don't push gitignore or configuration.properties files
+
 Git Steps
 
-When you start to work on the project everyday and also when you are ready to push your code after your work is finished, please follow this flow of action:
+When you start to work on the project every day and also when you are ready to push your code after your work is finished, please follow this flow of action:
 
 1. First you must be on your local branch. (If this is your first time and if you don’t have local branch, first create your own local branch from master and checkout it.)
 2. Right click Local Master -> click Update
@@ -15,4 +18,4 @@ When you start to work on the project everyday and also when you are ready to pu
 7.  Push your commit.
 8. Create Pull Request.
 9. Add 2 people as Reviewers and inform them about your Pull Request.
-10. Last person who review merges your branch to Github master. 
+10. Last person who review merges your branch to gitHub master. 
