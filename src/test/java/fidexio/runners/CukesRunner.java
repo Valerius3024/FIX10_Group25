@@ -17,10 +17,7 @@ import org.junit.runner.RunWith;
         glue = "fidexio/step_definitions",
         dryRun = false,
         publish = false,
-
-
         tags = ""
-
 
 )
 public class CukesRunner {

@@ -4,6 +4,7 @@ import fidexio.pages.LoginPage;
 import fidexio.utilities.ConfigurationReader;
 import fidexio.utilities.Driver;
 import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -17,23 +18,21 @@ public class LoginStepDefinitions {
     public void user_is_on_the_login_page() {
         Driver.getDriver().get(ConfigurationReader.getProperty("urlLoginPage"));
     }
-    @When("User logs in as a SalesManager with valid credentials")
-    public void User_logs_in_as_a_SalesManager_with_valid_credentials() {
-        loginMethod("userSalesManager", "passwordSalesManager");
+
+
+
+    @When("User enters {string} and {string} for Pos Manager")
+    public void userEntersAndForPosManager(String usr, String password) {
+        loginPage.usernameInputField.sendKeys(usr);
+        loginPage.passwordInputField.sendKeys(password);
     }
 
-    @When("User logs in as a PosManager with valid credentials")
-    public void User_logs_in_as_a_PosManager_with_valid_credentials() {
-        loginMethod("userPosManager", "passwordPosManager");
-    }
-
-    private void loginMethod(String userSalesManager, String passwordSalesManager) {
-        loginPage.usernameInputField.sendKeys(ConfigurationReader.getProperty(userSalesManager));
-        loginPage.passwordInputField.sendKeys(ConfigurationReader.getProperty(passwordSalesManager));
+    @Then("User clicks login button")
+    public void userClicksLoginButton() {
         loginPage.loginButton.click();
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 10);
         wait.until(ExpectedConditions.titleIs("#Inbox - Odoo"));
         Assert.assertEquals("#Inbox - Odoo", Driver.getDriver().getTitle());
-    }
 
+    }
 }
