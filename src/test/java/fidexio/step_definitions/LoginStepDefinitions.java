@@ -17,13 +17,13 @@ public class LoginStepDefinitions {
     public void user_is_on_the_login_page() {
         Driver.getDriver().get(ConfigurationReader.getProperty("urlLoginPage"));
     }
-    @When("salesManager logins to the application")
-    public void salesManager_logins_to_the_application() {
+    @When("User logs in as a SalesManager with valid credentials")
+    public void User_logs_in_as_a_SalesManager_with_valid_credentials() {
         loginMethod("userSalesManager", "passwordSalesManager");
     }
 
-    @When("posManager logins to the application")
-    public void posManager_logins_to_the_application() {
+    @When("User logs in as a PosManager with valid credentials")
+    public void User_logs_in_as_a_PosManager_with_valid_credentials() {
         loginMethod("userPosManager", "passwordPosManager");
     }
 
