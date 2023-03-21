@@ -8,7 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
 
-public  class HomePage {
+public class HomePage {
 
     public HomePage() {
         PageFactory.initElements(Driver.getDriver(), this);
