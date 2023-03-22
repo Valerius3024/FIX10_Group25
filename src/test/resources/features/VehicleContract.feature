@@ -24,7 +24,7 @@ Feature: Creating a new contract feature
 
   # ------ AC1 : Verify that user can create a new Contract.(User enters only Vehicle,Type,Activation Cost,Recurring Cost Amount) --------
 
-  @KS1
+  #@wip
   Scenario: User should be able to create a new Contract (User enters only Vehicle,Type,Activation Cost,Recurring Cost Amount)
     When User clicks create button
     And user selects "Mercedes" Vehicle
@@ -34,6 +34,12 @@ Feature: Creating a new contract feature
     When user clicks Save button
     And Clicks Vehicle Contracts button
     Then the new contract should be displayed in the table
+
+
+  # ------ AC2 : User must choose at least a Vehicle to create a Vehicle Contract --------
+
+
+
 
 
 
