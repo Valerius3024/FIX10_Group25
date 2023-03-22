@@ -54,6 +54,9 @@ public class VehicleContractsPage {
     @FindBy(xpath = "//*[contains(text(),'Delete')]")
     public WebElement deleteButton;
 
+    @FindBy(xpath = "//div[@class='o_notification undefined o_error']")
+    public WebElement error;
+
 
 
 

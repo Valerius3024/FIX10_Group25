@@ -38,6 +38,15 @@ Feature: Creating a new contract feature
 
   # ------ AC2 : User must choose at least a Vehicle to create a Vehicle Contract --------
 
+  #@wip
+  Scenario: The user should select at least one vehicle to create vehicle contract
+    When User clicks create button
+    And user has not selected any vehicle
+    And user selects "Leasing" Type
+    And user enters "300" Activation Cost
+    And user enters "600" Recurring Cost Amount
+    When user clicks Save button
+    Then user should see the error message
 
 
 

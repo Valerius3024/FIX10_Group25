@@ -87,33 +87,28 @@ public class VehicleContractStepDefinitions {
         vehicleContractsPage.activationCostInputBox.sendKeys(cost);
 
 
-
-        try {
-            vehicleContractsPage.okButton.click();
-        } catch (NoSuchElementException e) {
-            Assert.assertTrue(true);
-        }
     }
     @When("user enters {string} Recurring Cost Amount")
     public void user_enters_recurring_cost_amount(String amount) {
         Select select = new Select(vehicleContractsPage.recurringCostDropdown);
         select.selectByVisibleText("Yearly");
 
-        try {
-            vehicleContractsPage.okButton.click();
-        } catch (NoSuchElementException e) {
-            Assert.assertTrue(true);
-        }
-
         vehicleContractsPage.recurringCostInputBox.clear();
         vehicleContractsPage.recurringCostInputBox.sendKeys(amount);
 
-        try {
-            vehicleContractsPage.okButton.click();
-        } catch (NoSuchElementException e) {
-            Assert.assertTrue(true);
-        }
+
     }
+
+    @When("user has not selected any vehicle")
+    public void user_has_not_selected_any_vehicle() {
+        vehicleContractsPage.vehicleInputBox.sendKeys("");
+    }
+    @Then("user should see the error message")
+    public void user_should_see_the_error_message() {
+        Assert.assertTrue(vehicleContractsPage.error.isDisplayed());
+    }
+
+
 
 
 
