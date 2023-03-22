@@ -21,7 +21,14 @@ public class VehicleContractStepDefinitions {
 
     @When("User navigates to fleet page")
     public void user_navigates_to_fleet_page() {
+        if(homePage.moreDropdown.isDisplayed()){
+            homePage.moreDropdown.click();
+            BrowserUtils.waitFor(2);
+            homePage.navigateToThisModule("fleet");
+        }
+        else{
         homePage.navigateToThisModule("fleet");
+        }
     }
     @Then("Clicks Vehicle Contracts button")
     public void clicks_vehicle_contracts_button() {
