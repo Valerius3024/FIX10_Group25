@@ -57,15 +57,15 @@ public class VehiclesServicesLogsPage {
     public WebElement dateBtn;
     public void deleteLog() throws InterruptedException {
         dateBtn.click();
-        Thread.sleep(3000);
+        Thread.sleep(1000);
         dateBtn.click();
-        Thread.sleep(3000);
+        Thread.sleep(1000);
         newLogCheckBox.click();
-        Thread.sleep(5000);
+        Thread.sleep(1000);
         actionBtn.click();
-        Thread.sleep(3000);
+        Thread.sleep(1000);
         deleteBtn.click();
-        Thread.sleep(3000);
+        Thread.sleep(1000);
         okBtn.click();
     }
 

@@ -33,6 +33,7 @@ public class VehiclesServicesLogs_StepDefs {
 
     @And("user clicks create button")
     public void userClicksCreateButton() {
+        BrowserUtils.waitForClickablility(servicesLogs.createBtn,3);
         servicesLogs.createBtn.click();
 
     }
@@ -55,11 +56,13 @@ public class VehiclesServicesLogs_StepDefs {
 
     @And("user enters {string} to total price input box")
     public void userEntersToTotalPriceInputBox(String totalPrice) {
+        servicesLogs.totalPriceBox.clear();
         servicesLogs.totalPriceBox.sendKeys(totalPrice);
     }
 
     @And("user enters {string} to odometer value inout box")
     public void userEntersToOdometerValueInoutBox(String odometerValue) {
+        servicesLogs.odometerBox.clear();
         servicesLogs.odometerBox.sendKeys(odometerValue);
     }
 
