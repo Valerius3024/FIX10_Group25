@@ -21,17 +21,20 @@ Feature: Creating a new contract feature
     And User navigates to fleet page
     Then Clicks Vehicle Contracts button
 
-  @ks1
+
+  # ------ AC1 : Verify that user can create a new Contract.(User enters only Vehicle,Type,Activation Cost,Recurring Cost Amount) --------
+
+  @KS1
   Scenario: User should be able to create a new Contract (User enters only Vehicle,Type,Activation Cost,Recurring Cost Amount)
     When User clicks create button
-    And user selects Vehicle
-    And user selects Type
-    And user enters Activation Cost
-    And user enters Recurring Cost Amount
+    And user selects "Mercedes" Vehicle
+    And user selects "Leasing" Type
+    And user enters "300" Activation Cost
+    And user enters "600" Recurring Cost Amount
     When user clicks Save button
-    And User clicks create button
     And Clicks Vehicle Contracts button
     Then the new contract should be displayed in the table
+
 
 
 
