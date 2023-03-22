@@ -8,6 +8,7 @@ import fidexio.utilities.Driver;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import org.junit.Assert;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -40,11 +41,16 @@ public class VehiclesServicesLogs_StepDefs {
     public void userEntersToVehicleInputBox(String vehicle) {
         BrowserUtils.waitFor(2);
         servicesLogs.vehicleBox.sendKeys(vehicle);
+        servicesLogs.vehicleList.click();
+
     }
 
     @And("user enters {string} to service type input box")
     public void userEntersToServiceTypeInputBox(String serviceType) {
-        servicesLogs.serviceTypeBox.sendKeys(serviceType);
+        servicesLogs.serviceTypeBox.clear();
+        servicesLogs.serviceTypeBox.click();
+        servicesLogs.taxRoll.click();
+
     }
 
     @And("user enters {string} to total price input box")
@@ -58,8 +64,10 @@ public class VehiclesServicesLogs_StepDefs {
     }
 
     @Then("the new log should be displayed in the table")
-    public void theNewLogShouldBeDisplayedInTheTable() {
+    public void theNewLogShouldBeDisplayedInTheTable() throws InterruptedException {
         fleetPage.vehiclesServicesLogs.click();
+        Assert.assertTrue(servicesLogs.newLog.isDisplayed());
+        servicesLogs.deleteLog();
     }
 
     @And("User navigates to fleet option")
