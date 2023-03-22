@@ -22,7 +22,7 @@ Feature: Creating a new contract feature
     Then Clicks Vehicle Contracts button
 
 
-  # ------ AC1 : Verify that user can create a new Contract.(User enters only Vehicle,Type,Activation Cost,Recurring Cost Amount) --------
+  # ------ AC1: Verify that user can create a new Contract.(User enters only Vehicle,Type,Activation Cost,Recurring Cost Amount) --------
 
   #@wip
   Scenario: User should be able to create a new Contract (User enters only Vehicle,Type,Activation Cost,Recurring Cost Amount)
@@ -36,7 +36,7 @@ Feature: Creating a new contract feature
     Then the new contract should be displayed in the table
 
 
-  # ------ AC2 : User must choose at least a Vehicle to create a Vehicle Contract --------
+  # ------ AC2: User must choose at least a Vehicle to create a Vehicle Contract --------
 
   #@wip
   Scenario: The user must select at least one vehicle to create vehicle contract
@@ -49,7 +49,7 @@ Feature: Creating a new contract feature
     Then user should see the error message
 
 
-   # ------ AC3 : If user tries to enter a vehicle which is not on the Vehicle list and click the save button, Create a Vehicle popup should be displayed --------
+   # ------ AC3: If user tries to enter a vehicle which is not on the Vehicle list and click the save button, Create a Vehicle popup should be displayed --------
 
   #@wip
   Scenario: When user tries to enter a vehicle which is not on the Vehicle list and click the save button, Create a Vehicle popup should be displayed
@@ -57,6 +57,30 @@ Feature: Creating a new contract feature
     And user enter a vehicle "Ferrari"
     And user clicks Save button
     Then Create a Vehicle popup should be displayed
+
+
+
+  # ------ AC4: After clicked the save button, the information of the Contract Details which user entered should be displayed --------
+
+  @wip
+  Scenario: After clicked the save button, the information of the Contract Details which user entered should be displayed
+    When User clicks create button
+    And user selects "Mercedes/Class A/1-MER-001" Vehicle
+    And user selects "Leasing" Type
+    And user enters "300" Activation Cost
+    And user enters "600" Recurring Cost Amount
+    When user clicks Save button
+    Then Contract details should be displayed
+      | vehicle                | Mercedes/Class A/1-MER-001 |
+      | type                   | Leasing                    |
+      | activationCost         | 300.00                     |
+      | recurringCostAmount    | 600.00                     |
+      | recurringCostFrequency | Yearly                     |
+
+
+
+
+
 
 
 

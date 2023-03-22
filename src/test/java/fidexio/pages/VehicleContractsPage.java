@@ -60,6 +60,33 @@ public class VehicleContractsPage {
     @FindBy(xpath = "//div[@class='modal-content']")
     public WebElement createAVehiclePopup;
 
+    @FindBy(xpath = "//a[@name='vehicle_id']")
+    public WebElement vehicleName;
+
+    @FindBy(xpath = "//a[@name='cost_subtype_id']")
+    public WebElement costType;
+
+    @FindBy(xpath = "//*[@name='amount']")
+    public WebElement activationCost;
+
+    @FindBy(xpath = "//*[@name='cost_generated']")
+    public WebElement recurringCostAmount;
+
+    @FindBy(xpath = "//*[@name='cost_frequency']")
+    public WebElement recurringCostFrequency;
+
+    @FindBy(xpath = "(//table[@class='o_group o_inner_group o_group_col_6'])[1]//td[@style='width: 100%;']")
+    public List<WebElement> contractDetailsList;
+
+    @FindBy(xpath = "(//*[.='Contract details'])[2]")
+    public WebElement contractDetails;
+
+
+
+
+
+
+
 
 
 

@@ -14,6 +14,9 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.List;
+import java.util.Map;
+
 public class VehicleContractStepDefinitions {
 
     HomePage homePage = new HomePage();
@@ -115,6 +118,19 @@ public class VehicleContractStepDefinitions {
     @Then("Create a Vehicle popup should be displayed")
     public void create_a_vehicle_popup_should_be_displayed() {
         Assert.assertTrue(vehicleContractsPage.createAVehiclePopup.isDisplayed());
+
+    }
+
+    @Then("Contract details should be displayed")
+    public void contract_details_should_be_displayed(Map<String,String> detailsList) {
+
+        Assert.assertTrue(vehicleContractsPage.contractDetails.isDisplayed());
+
+        Assert.assertEquals(vehicleContractsPage.vehicleName.getText(),detailsList.get("vehicle"));
+        Assert.assertEquals(vehicleContractsPage.costType.getText(),detailsList.get("type"));
+        Assert.assertEquals(vehicleContractsPage.activationCost.getText(),detailsList.get("activationCost"));
+        Assert.assertEquals(vehicleContractsPage.recurringCostAmount.getText(),detailsList.get("recurringCostAmount"));
+        Assert.assertEquals(vehicleContractsPage.recurringCostFrequency.getText(),detailsList.get("recurringCostFrequency"));
 
     }
 
