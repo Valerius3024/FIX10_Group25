@@ -148,6 +148,35 @@ public class VehicleContractStepDefinitions {
 
     }
 
+    @When("user should see Save and Discard button")
+    public void user_should_see_save_and_discard_button() {
+        BrowserUtils.waitFor(2);
+        Assert.assertTrue(vehicleContractsPage.saveButton.isDisplayed());
+        Assert.assertTrue(vehicleContractsPage.discardButton.isDisplayed());
+    }
+
+    @Then("user should see Edit and Create button instead of Save button and Create button")
+    public void user_should_see_edit_and_create_button_instead_of_save_button_and_create_button() {
+        BrowserUtils.waitFor(2);
+        Assert.assertTrue(vehicleContractsPage.editButton.isDisplayed());
+        Assert.assertTrue(vehicleContractsPage.createButton.isDisplayed());
+
+        // DELETING PART
+
+        vehicleContractsPage.vehiclesContractsButton.click();
+
+        BrowserUtils.waitFor(3);
+        vehicleContractsPage.checkbox.click();
+        BrowserUtils.waitFor(1);
+        vehicleContractsPage.actionButton.click();
+        BrowserUtils.waitFor(2);
+        vehicleContractsPage.deleteButton.click();
+        BrowserUtils.waitFor(1);
+        vehicleContractsPage.okButton.click();
+    }
+
+
+
 
 
 

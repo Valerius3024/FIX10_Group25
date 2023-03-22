@@ -81,6 +81,16 @@ public class VehicleContractsPage {
     @FindBy(xpath = "(//*[.='Contract details'])[2]")
     public WebElement contractDetails;
 
+    @FindBy(xpath = "//button[@accesskey='j']")
+    public WebElement discardButton;
+
+    @FindBy(xpath = "//button[@accesskey='a']")
+    public WebElement editButton;
+
+
+
+
+
 
 
 

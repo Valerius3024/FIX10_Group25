@@ -78,6 +78,24 @@ Feature: Creating a new contract feature
       | recurringCostFrequency | Yearly                     |
 
 
+    # ------ AC5: After clicked the save button, Edit button display instead of Save button and Create button display instead of Discard button --------
+
+  #@wip
+  Scenario: After clicked the save button, Edit button display instead of Save button and Create button display instead of Discard button
+    When User clicks create button
+    And user selects "Mercedes/Class A/1-MER-001" Vehicle
+    And user selects "Leasing" Type
+    And user enters "300" Activation Cost
+    And user enters "600" Recurring Cost Amount
+    And user should see Save and Discard button
+    When user clicks Save button
+    Then user should see Edit and Create button instead of Save button and Create button
+
+
+
+
+
+
 
 
 
