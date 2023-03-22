@@ -7,3 +7,8 @@ Feature: Creating a new vehicle model feature
   3. After clicked the save button, the information of the Vehicle Model which user entered should be displayed.
   4. After clicked the Save button, Edit button display instead of Save button and Create button display instead of Discard button.
   5. When user clicks the Edit button the form should open by displaying the all the information and it be ready to edit.
+
+  Background: I log in as a POSMANAGER
+    Given user is on the login page
+    When User enters "posmanager27@info.com" and "posmanager" for Pos Manager
+    Then User clicks login button
