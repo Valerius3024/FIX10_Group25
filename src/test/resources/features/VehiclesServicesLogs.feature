@@ -18,6 +18,17 @@ Feature:
     When User enters "posmanager23@info.com" and "posmanager" for Pos Manager
     And User clicks login button
     And User navigates to fleet page
-    Then Clicks Vehicle Contracts button
+    Then User clicks Vehicles Services Logs button
 
-    Scenario: User should be able to create a new Vehicles Services Logs.
+  @wip
+  Scenario: User should be able to create a new Vehicles Services Logs.
+    Given user is on the Vehicles Services Logs
+    And user clicks create button
+    And user enters "opel" to vehicle input box
+    And user enters "tax roll" to service type input box
+    And user enters "500" to total price input box
+    And user enters "75000" to odometer value inout box
+    And user clicks Save button
+    Then the new log should be displayed in the table
+
+
