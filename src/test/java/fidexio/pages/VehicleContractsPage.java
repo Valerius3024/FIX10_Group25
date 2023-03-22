@@ -57,6 +57,9 @@ public class VehicleContractsPage {
     @FindBy(xpath = "//div[@class='o_notification undefined o_error']")
     public WebElement error;
 
+    @FindBy(xpath = "//div[@class='modal-content']")
+    public WebElement createAVehiclePopup;
+
 
 
 

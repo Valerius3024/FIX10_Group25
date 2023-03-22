@@ -49,6 +49,19 @@ Feature: Creating a new contract feature
     Then user should see the error message
 
 
+   # ------ AC3 : If user tries to enter a vehicle which is not on the Vehicle list and click the save button, Create a Vehicle popup should be displayed --------
+
+  #@wip
+  Scenario: When user tries to enter a vehicle which is not on the Vehicle list and click the save button, Create a Vehicle popup should be displayed
+    When User clicks create button
+    And user enter a vehicle "Ferrari"
+    And user clicks Save button
+    Then Create a Vehicle popup should be displayed
+
+
+
+
+
 
 
 

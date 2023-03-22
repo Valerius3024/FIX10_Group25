@@ -108,6 +108,16 @@ public class VehicleContractStepDefinitions {
         Assert.assertTrue(vehicleContractsPage.error.isDisplayed());
     }
 
+    @When("user enter a vehicle {string}")
+    public void user_enter_a_vehicle(String vehicleName) {
+      vehicleContractsPage.vehicleInputBox.sendKeys(vehicleName);
+    }
+    @Then("Create a Vehicle popup should be displayed")
+    public void create_a_vehicle_popup_should_be_displayed() {
+        Assert.assertTrue(vehicleContractsPage.createAVehiclePopup.isDisplayed());
+
+    }
+
 
 
 
