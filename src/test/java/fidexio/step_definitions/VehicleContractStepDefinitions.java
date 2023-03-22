@@ -43,7 +43,6 @@ public class VehicleContractStepDefinitions {
 
     @When("user selects {string} Vehicle")
     public void user_selects_vehicle(String vehicle) {
-
         BrowserUtils.waitFor(2);
         vehicleContractsPage.vehicleInputBox.sendKeys(vehicle);
         vehicleContractsPage.mercedes.click();
@@ -60,6 +59,7 @@ public class VehicleContractStepDefinitions {
         Assert.assertTrue(vehicleContractsPage.row.isDisplayed());
 
         // DELETING PART
+
 
         BrowserUtils.waitFor(3);
         vehicleContractsPage.checkbox.click();
