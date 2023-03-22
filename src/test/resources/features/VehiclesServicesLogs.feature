@@ -15,7 +15,7 @@ Feature:
 
   Background:User should be able to login as POSMANAGER and navigates to fleet-vehicles services logs page
     Given user is on the login page
-    When User enters "posmanager23@info.com" and "posmanager" for Pos Manager
+    When User enters "posmanager17@info.com" and "posmanager" for Pos Manager
     And User clicks login button
     And User navigates to fleet option
     Then User clicks Vehicles Services Logs button
@@ -25,7 +25,7 @@ Feature:
     Given user is on the Vehicles Services Logs
     And user clicks create button
     And user enters "opel" to vehicle input box
-    And user enters "tax roll" to service type input box
+    And user enters "Tax roll" to service type input box
     And user enters "500" to total price input box
     And user enters "75000" to odometer value inout box
     And user clicks save button
