@@ -115,7 +115,7 @@ Feature: Creating a new contract feature
       | 500.00 |
 
 
-  @wip
+  #@wip
   Scenario: User enter any value other than number and error message display
     When user selects "Mercedes/Class A/1-MER-001" Vehicle
     And user enters "ipsum" Activation Cost
