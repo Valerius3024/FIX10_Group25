@@ -9,6 +9,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -86,9 +87,10 @@ public class VehicleContractStepDefinitions {
         vehicleContractsPage.activationCostInputBox.sendKeys(cost);
 
 
+
         try {
             vehicleContractsPage.okButton.click();
-        } catch (Exception e) {
+        } catch (NoSuchElementException e) {
             Assert.assertTrue(true);
         }
     }
@@ -99,7 +101,7 @@ public class VehicleContractStepDefinitions {
 
         try {
             vehicleContractsPage.okButton.click();
-        } catch (Exception e) {
+        } catch (NoSuchElementException e) {
             Assert.assertTrue(true);
         }
 
@@ -108,7 +110,7 @@ public class VehicleContractStepDefinitions {
 
         try {
             vehicleContractsPage.okButton.click();
-        } catch (Exception e) {
+        } catch (NoSuchElementException e) {
             Assert.assertTrue(true);
         }
     }
