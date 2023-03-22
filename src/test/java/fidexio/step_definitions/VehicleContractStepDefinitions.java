@@ -132,6 +132,20 @@ public class VehicleContractStepDefinitions {
         Assert.assertEquals(vehicleContractsPage.recurringCostAmount.getText(),detailsList.get("recurringCostAmount"));
         Assert.assertEquals(vehicleContractsPage.recurringCostFrequency.getText(),detailsList.get("recurringCostFrequency"));
 
+        // DELETING PART
+
+        vehicleContractsPage.vehiclesContractsButton.click();
+
+        BrowserUtils.waitFor(3);
+        vehicleContractsPage.checkbox.click();
+        BrowserUtils.waitFor(1);
+        vehicleContractsPage.actionButton.click();
+        BrowserUtils.waitFor(2);
+        vehicleContractsPage.deleteButton.click();
+        BrowserUtils.waitFor(1);
+        vehicleContractsPage.okButton.click();
+
+
     }
 
 
