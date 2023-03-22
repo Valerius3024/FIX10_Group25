@@ -39,7 +39,7 @@ Feature: Creating a new contract feature
   # ------ AC2 : User must choose at least a Vehicle to create a Vehicle Contract --------
 
   #@wip
-  Scenario: The user should select at least one vehicle to create vehicle contract
+  Scenario: The user must select at least one vehicle to create vehicle contract
     When User clicks create button
     And user has not selected any vehicle
     And user selects "Leasing" Type
