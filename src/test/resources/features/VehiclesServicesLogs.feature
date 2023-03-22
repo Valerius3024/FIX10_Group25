@@ -17,7 +17,7 @@ Feature:
     Given user is on the login page
     When User enters "posmanager23@info.com" and "posmanager" for Pos Manager
     And User clicks login button
-    And User navigates to fleet page
+    And User navigates to fleet option
     Then User clicks Vehicles Services Logs button
 
   @wip
@@ -28,7 +28,7 @@ Feature:
     And user enters "tax roll" to service type input box
     And user enters "500" to total price input box
     And user enters "75000" to odometer value inout box
-    And user clicks Save button
+    And user clicks save button
     Then the new log should be displayed in the table
 
 

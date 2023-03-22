@@ -10,6 +10,6 @@ public class FleetPage {
     public FleetPage() {
         PageFactory.initElements(Driver.getDriver(),this);
     }
-    @FindBy(xpath = "//a[@data-menu='147']")
-    public WebElement vehiclesFuelLogs;
+    @FindBy(xpath = "//a[@data-menu='148']")
+    public WebElement vehiclesServicesLogs;
 }
