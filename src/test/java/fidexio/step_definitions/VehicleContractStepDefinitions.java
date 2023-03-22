@@ -56,6 +56,7 @@ public class VehicleContractStepDefinitions {
     public void user_clicks_save_button() {
         BrowserUtils.waitFor(2);
         vehicleContractsPage.saveButton.click();
+        BrowserUtils.waitFor(2);
     }
   
     @Then("the new contract should be displayed in the table")
@@ -207,6 +208,37 @@ public class VehicleContractStepDefinitions {
 
 
     }
+
+    @Then("number should be displayed as float number")
+    public void number_should_be_displayed_as_float_number() {
+
+        String activationCost = vehicleContractsPage.activationCost.getText();
+
+        try {
+            Float.parseFloat(activationCost);
+            Assert.assertTrue(true);
+        } catch (NumberFormatException e) {
+            throw new NumberFormatException();
+        }
+
+        // DELETING PART
+
+        vehicleContractsPage.vehiclesContractsButton.click();
+
+        BrowserUtils.waitFor(3);
+        vehicleContractsPage.checkbox.click();
+        BrowserUtils.waitFor(1);
+        vehicleContractsPage.actionButton.click();
+        BrowserUtils.waitFor(2);
+        vehicleContractsPage.deleteButton.click();
+        BrowserUtils.waitFor(1);
+        vehicleContractsPage.okButton.click();
+
+
+
+    }
+
+
 
 
 

@@ -1,4 +1,4 @@
-@VehicleContracts
+@VehicleContracts @
 Feature: Creating a new contract feature
 
   User story: As a Posmanager, I should be able to create a new Vehicle Contract
@@ -99,6 +99,28 @@ Feature: Creating a new contract feature
     And user clicks Save button
     When user clicks the Edit button
     Then the form should be display and ready to edit
+
+
+   # ------ AC7: User should be able to enter only number in the Activation Cost input box. And it should be displayed as float number --------
+
+  #@wip
+  Scenario Outline: User should be able to enter number. And it should be displayed as float number
+    When user selects "Mercedes/Class A/1-MER-001" Vehicle
+    And user enters "<number>" Activation Cost
+    And user clicks Save button
+    Then number should be displayed as float number
+    Examples:
+      | number |
+      | 300    |
+      | 500.00 |
+
+
+  @wip
+  Scenario: User enter any value other than number and error message display
+    When user selects "Mercedes/Class A/1-MER-001" Vehicle
+    And user enters "ipsum" Activation Cost
+    And user clicks Save button
+    Then user should see the error message
 
 
 
