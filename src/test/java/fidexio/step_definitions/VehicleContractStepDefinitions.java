@@ -54,6 +54,7 @@ public class VehicleContractStepDefinitions {
 
     @When("user clicks Save button")
     public void user_clicks_save_button() {
+        BrowserUtils.waitFor(2);
         vehicleContractsPage.saveButton.click();
     }
   
@@ -173,6 +174,38 @@ public class VehicleContractStepDefinitions {
         vehicleContractsPage.deleteButton.click();
         BrowserUtils.waitFor(1);
         vehicleContractsPage.okButton.click();
+    }
+
+    @When("user clicks the Edit button")
+    public void user_clicks_the_edit_button() {
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(),10);
+        wait.until(ExpectedConditions.visibilityOf(vehicleContractsPage.editButton));
+        vehicleContractsPage.editButton.click();
+    }
+    @Then("the form should be display and ready to edit")
+    public void the_form_should_be_display_and_ready_to_edit() {
+        Assert.assertTrue(vehicleContractsPage.contractDetails.isDisplayed());
+
+        Assert.assertTrue(vehicleContractsPage.vehicleInputBox.isEnabled());
+        Assert.assertTrue(vehicleContractsPage.typeInputBox.isEnabled());
+        Assert.assertTrue(vehicleContractsPage.activationCostInputBox.isEnabled());
+        Assert.assertTrue(vehicleContractsPage.recurringCostInputBox.isEnabled());
+
+
+        // DELETING PART
+
+        vehicleContractsPage.vehiclesContractsButton.click();
+
+        BrowserUtils.waitFor(3);
+        vehicleContractsPage.checkbox.click();
+        BrowserUtils.waitFor(1);
+        vehicleContractsPage.actionButton.click();
+        BrowserUtils.waitFor(2);
+        vehicleContractsPage.deleteButton.click();
+        BrowserUtils.waitFor(1);
+        vehicleContractsPage.okButton.click();
+
+
     }
 
 
