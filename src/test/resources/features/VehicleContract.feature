@@ -62,7 +62,7 @@ Feature: Creating a new contract feature
 
   # ------ AC4: After clicked the save button, the information of the Contract Details which user entered should be displayed --------
 
-  @wip
+   #@wip
   Scenario: After clicked the save button, the information of the Contract Details which user entered should be displayed
     When User clicks create button
     And user selects "Mercedes/Class A/1-MER-001" Vehicle
