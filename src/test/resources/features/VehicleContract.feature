@@ -19,8 +19,8 @@ Feature: Creating a new contract feature
     When User enters "posmanager23@info.com" and "posmanager" for Pos Manager
     And User clicks login button
     And User navigates to fleet page
-    Then Clicks Vehicle Contracts button
-    When User clicks create button
+    And Clicks Vehicle Contracts button
+    And User clicks create button
 
 
   # ------ AC1: Verify that user can create a new Contract.(User enters only Vehicle,Type,Activation Cost,Recurring Cost Amount) --------
@@ -123,7 +123,11 @@ Feature: Creating a new contract feature
     Then user should see the error message
 
 
+  # ------ AC8: Service type should display as Leasing by default  --------
 
+  #@wip
+  Scenario: When user tries to create a contract user should see Service type as Leasing by default
+   Then user should see service type as "Leasing" by default
 
 
 
