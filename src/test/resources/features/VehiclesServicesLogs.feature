@@ -20,7 +20,7 @@ Feature:
     And User navigates to fleet option
     Then User clicks Vehicles Services Logs button
 
-  @wip
+
   Scenario: User should be able to create a new Vehicles Services Logs.
     Given user is on the Vehicles Services Logs
     And user clicks create button
