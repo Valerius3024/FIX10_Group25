@@ -25,6 +25,7 @@ public class VehicleContractStepDefinitions {
 
     @When("User navigates to fleet page")
     public void user_navigates_to_fleet_page() {
+
         if (homePage.moreDropdown.isDisplayed()) {
             BrowserUtils.waitForClickablility(homePage.moreDropdown, 5);
             homePage.moreDropdown.click();
