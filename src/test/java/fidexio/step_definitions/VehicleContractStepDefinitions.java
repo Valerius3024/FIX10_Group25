@@ -14,6 +14,9 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.List;
+import java.util.Map;
+
 public class VehicleContractStepDefinitions {
 
     HomePage homePage = new HomePage();
@@ -51,7 +54,9 @@ public class VehicleContractStepDefinitions {
 
     @When("user clicks Save button")
     public void user_clicks_save_button() {
+        BrowserUtils.waitFor(2);
         vehicleContractsPage.saveButton.click();
+        BrowserUtils.waitFor(2);
     }
   
     @Then("the new contract should be displayed in the table")
@@ -117,6 +122,127 @@ public class VehicleContractStepDefinitions {
         Assert.assertTrue(vehicleContractsPage.createAVehiclePopup.isDisplayed());
 
     }
+
+    @Then("Contract details should be displayed")
+    public void contract_details_should_be_displayed(Map<String,String> detailsList) {
+
+        Assert.assertTrue(vehicleContractsPage.contractDetails.isDisplayed());
+
+        Assert.assertEquals(vehicleContractsPage.vehicleName.getText(),detailsList.get("vehicle"));
+        Assert.assertEquals(vehicleContractsPage.costType.getText(),detailsList.get("type"));
+        Assert.assertEquals(vehicleContractsPage.activationCost.getText(),detailsList.get("activationCost"));
+        Assert.assertEquals(vehicleContractsPage.recurringCostAmount.getText(),detailsList.get("recurringCostAmount"));
+        Assert.assertEquals(vehicleContractsPage.recurringCostFrequency.getText(),detailsList.get("recurringCostFrequency"));
+
+        // DELETING PART
+
+        vehicleContractsPage.vehiclesContractsButton.click();
+
+        BrowserUtils.waitFor(3);
+        vehicleContractsPage.checkbox.click();
+        BrowserUtils.waitFor(1);
+        vehicleContractsPage.actionButton.click();
+        BrowserUtils.waitFor(2);
+        vehicleContractsPage.deleteButton.click();
+        BrowserUtils.waitFor(1);
+        vehicleContractsPage.okButton.click();
+
+
+    }
+
+    @When("user should see Save and Discard button")
+    public void user_should_see_save_and_discard_button() {
+        BrowserUtils.waitFor(2);
+        Assert.assertTrue(vehicleContractsPage.saveButton.isDisplayed());
+        Assert.assertTrue(vehicleContractsPage.discardButton.isDisplayed());
+    }
+
+    @Then("user should see Edit and Create button instead of Save button and Create button")
+    public void user_should_see_edit_and_create_button_instead_of_save_button_and_create_button() {
+        BrowserUtils.waitFor(2);
+        Assert.assertTrue(vehicleContractsPage.editButton.isDisplayed());
+        Assert.assertTrue(vehicleContractsPage.createButton.isDisplayed());
+
+        // DELETING PART
+
+        vehicleContractsPage.vehiclesContractsButton.click();
+
+        BrowserUtils.waitFor(3);
+        vehicleContractsPage.checkbox.click();
+        BrowserUtils.waitFor(1);
+        vehicleContractsPage.actionButton.click();
+        BrowserUtils.waitFor(2);
+        vehicleContractsPage.deleteButton.click();
+        BrowserUtils.waitFor(1);
+        vehicleContractsPage.okButton.click();
+    }
+
+    @When("user clicks the Edit button")
+    public void user_clicks_the_edit_button() {
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(),10);
+        wait.until(ExpectedConditions.visibilityOf(vehicleContractsPage.editButton));
+        vehicleContractsPage.editButton.click();
+    }
+    @Then("the form should be display and ready to edit")
+    public void the_form_should_be_display_and_ready_to_edit() {
+        Assert.assertTrue(vehicleContractsPage.contractDetails.isDisplayed());
+
+        Assert.assertTrue(vehicleContractsPage.vehicleInputBox.isEnabled());
+        Assert.assertTrue(vehicleContractsPage.typeInputBox.isEnabled());
+        Assert.assertTrue(vehicleContractsPage.activationCostInputBox.isEnabled());
+        Assert.assertTrue(vehicleContractsPage.recurringCostInputBox.isEnabled());
+
+
+        // DELETING PART
+
+        vehicleContractsPage.vehiclesContractsButton.click();
+
+        BrowserUtils.waitFor(3);
+        vehicleContractsPage.checkbox.click();
+        BrowserUtils.waitFor(1);
+        vehicleContractsPage.actionButton.click();
+        BrowserUtils.waitFor(2);
+        vehicleContractsPage.deleteButton.click();
+        BrowserUtils.waitFor(1);
+        vehicleContractsPage.okButton.click();
+
+
+    }
+
+    @Then("number should be displayed as float number")
+    public void number_should_be_displayed_as_float_number() {
+
+        String activationCost = vehicleContractsPage.activationCost.getText();
+
+        try {
+            Float.parseFloat(activationCost);
+            Assert.assertTrue(true);
+        } catch (NumberFormatException e) {
+            throw new NumberFormatException();
+        }
+
+        // DELETING PART
+
+        vehicleContractsPage.vehiclesContractsButton.click();
+
+        BrowserUtils.waitFor(3);
+        vehicleContractsPage.checkbox.click();
+        BrowserUtils.waitFor(1);
+        vehicleContractsPage.actionButton.click();
+        BrowserUtils.waitFor(2);
+        vehicleContractsPage.deleteButton.click();
+        BrowserUtils.waitFor(1);
+        vehicleContractsPage.okButton.click();
+
+
+
+
+
+    }
+
+
+
+
 
 
 

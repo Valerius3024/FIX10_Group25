@@ -121,6 +121,11 @@ public class HomePage {
     public  void navigateToThisModule(String moduleName){
         moduleName = moduleName.substring(0,1).toUpperCase() + moduleName.substring(1).toLowerCase();
         WebElement module = Driver.getDriver().findElement(By.xpath("//*[contains(text(),'"+moduleName+"')]"));
+
+        if(moreDropdown.isDisplayed()){
+            moreDropdown.click();
+            module.click();
+        }else
         module.click();
     }
 
