@@ -50,7 +50,7 @@ public class VehiclesServicesLogs_StepDefs {
     public void userEntersToServiceTypeInputBox(String serviceType) {
         servicesLogs.serviceTypeBox.clear();
         servicesLogs.serviceTypeBox.click();
-        servicesLogs.taxRoll.click();
+       servicesLogs.serviceType(serviceType);
 
     }
 
@@ -60,7 +60,7 @@ public class VehiclesServicesLogs_StepDefs {
         servicesLogs.totalPriceBox.sendKeys(totalPrice);
     }
 
-    @And("user enters {string} to odometer value inout box")
+    @And("user enters {string} to odometer value input box")
     public void userEntersToOdometerValueInoutBox(String odometerValue) {
         servicesLogs.odometerBox.clear();
         servicesLogs.odometerBox.sendKeys(odometerValue);
@@ -91,5 +91,11 @@ public class VehiclesServicesLogs_StepDefs {
     public void userClicksSaveButton() {
         servicesLogs.notesField.sendKeys("delete");
         servicesLogs.saveBtn.click();
+    }
+
+    @Then("{string} pop up message should be displayed")
+    public void theFollowingFeildsAreInvalidVehiclePopUpMessageShouldBeDisplayed() {
+
+       Assert.assertTrue(servicesLogs.warningMessage.isDisplayed());
     }
 }

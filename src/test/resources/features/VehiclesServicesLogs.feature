@@ -27,8 +27,17 @@ Feature:
     And user enters "opel" to vehicle input box
     And user enters "Tax roll" to service type input box
     And user enters "500" to total price input box
-    And user enters "75000" to odometer value inout box
+    And user enters "75000" to odometer value input box
     And user clicks save button
     Then the new log should be displayed in the table
 
+@wip
+    Scenario: User must choose at least a vehicle to create a Vehicles Services Log.
+      Given user is on the Vehicles Services Logs
+      And user clicks create button
+      And user enters "Summer tires" to service type input box
+      And user enters "5000" to total price input box
+      And user enters "100000" to odometer value input box
+      And user clicks save button
+      Then 'The following feilds are invalid-vehicle' pop up message should be displayed
 
