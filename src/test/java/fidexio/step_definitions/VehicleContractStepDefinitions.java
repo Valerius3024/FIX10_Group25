@@ -136,16 +136,7 @@ public class VehicleContractStepDefinitions {
 
         // DELETING PART
 
-        vehicleContractsPage.vehiclesContractsButton.click();
-
-        BrowserUtils.waitFor(3);
-        vehicleContractsPage.checkbox.click();
-        BrowserUtils.waitFor(1);
-        vehicleContractsPage.actionButton.click();
-        BrowserUtils.waitFor(2);
-        vehicleContractsPage.deleteButton.click();
-        BrowserUtils.waitFor(1);
-        vehicleContractsPage.okButton.click();
+        vehicleContractsPage.deleteContract();
 
 
     }
@@ -165,16 +156,7 @@ public class VehicleContractStepDefinitions {
 
         // DELETING PART
 
-        vehicleContractsPage.vehiclesContractsButton.click();
-
-        BrowserUtils.waitFor(3);
-        vehicleContractsPage.checkbox.click();
-        BrowserUtils.waitFor(1);
-        vehicleContractsPage.actionButton.click();
-        BrowserUtils.waitFor(2);
-        vehicleContractsPage.deleteButton.click();
-        BrowserUtils.waitFor(1);
-        vehicleContractsPage.okButton.click();
+        vehicleContractsPage.deleteContract();
     }
 
     @When("user clicks the Edit button")
@@ -195,16 +177,7 @@ public class VehicleContractStepDefinitions {
 
         // DELETING PART
 
-        vehicleContractsPage.vehiclesContractsButton.click();
-
-        BrowserUtils.waitFor(3);
-        vehicleContractsPage.checkbox.click();
-        BrowserUtils.waitFor(1);
-        vehicleContractsPage.actionButton.click();
-        BrowserUtils.waitFor(2);
-        vehicleContractsPage.deleteButton.click();
-        BrowserUtils.waitFor(1);
-        vehicleContractsPage.okButton.click();
+        vehicleContractsPage.deleteContract();
 
 
     }
@@ -223,22 +196,14 @@ public class VehicleContractStepDefinitions {
 
         // DELETING PART
 
-        vehicleContractsPage.vehiclesContractsButton.click();
-
-        BrowserUtils.waitFor(3);
-        vehicleContractsPage.checkbox.click();
-        BrowserUtils.waitFor(1);
-        vehicleContractsPage.actionButton.click();
-        BrowserUtils.waitFor(2);
-        vehicleContractsPage.deleteButton.click();
-        BrowserUtils.waitFor(1);
-        vehicleContractsPage.okButton.click();
+        vehicleContractsPage.deleteContract();
+    }
 
 
+    @Then("user should see service type as {string} by default")
+    public void user_should_see_service_type_as_by_default(String expectedDefaultText) {
 
-
-
-
+        Assert.assertEquals(expectedDefaultText,vehicleContractsPage.typeInputBox.getAttribute("value"));
 
     }
 
