@@ -1,4 +1,4 @@
-@VehicleContracts
+@VehicleContracts @smoke
 Feature: Creating a new contract feature
 
   User story: As a Posmanager, I should be able to create a new Vehicle Contract
