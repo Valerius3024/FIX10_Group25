@@ -2,6 +2,7 @@ package fidexio.pages;
 
 import fidexio.utilities.BrowserUtils;
 import fidexio.utilities.Driver;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -55,6 +56,11 @@ public class VehiclesServicesLogsPage {
 
     @FindBy(xpath = "//th[.='Date']")
     public WebElement dateBtn;
+
+    @FindBy(xpath = "//div[@class='o_notification undefined o_error']")
+    public WebElement errorMessage;
+
+
     public void deleteLog() throws InterruptedException {
         dateBtn.click();
         Thread.sleep(1000);
@@ -67,6 +73,11 @@ public class VehiclesServicesLogsPage {
         deleteBtn.click();
         Thread.sleep(1000);
         okBtn.click();
+    }
+
+    public void serviceType(String type){
+        String locator="//li[.='"+type+"']";
+        Driver.getDriver().findElement(By.xpath(locator)).click();
     }
 
 
