@@ -38,7 +38,7 @@ Feature: Fidexio Application Sales Functionality
     Then user should see "Edit" and "Create" text button
     Then user delete the card
 
-  @wip
+
   Scenario Outline: Verify after clicked the save button, the information of the customer which user entered should be displayed.
     When user go to new customer page
     And user enters name "<CustomerName>" to name input
