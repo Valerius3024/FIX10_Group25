@@ -42,7 +42,6 @@ public class VehiclesServicesLogs_StepDefs {
     public void userEntersToVehicleInputBox(String vehicle) {
         BrowserUtils.waitFor(2);
         servicesLogs.vehicleBox.sendKeys(vehicle);
-        servicesLogs.vehicleList.click();
 
     }
 
@@ -50,7 +49,7 @@ public class VehiclesServicesLogs_StepDefs {
     public void userEntersToServiceTypeInputBox(String serviceType) {
         servicesLogs.serviceTypeBox.clear();
         servicesLogs.serviceTypeBox.click();
-        servicesLogs.taxRoll.click();
+       servicesLogs.serviceType(serviceType);
 
     }
 
@@ -60,10 +59,11 @@ public class VehiclesServicesLogs_StepDefs {
         servicesLogs.totalPriceBox.sendKeys(totalPrice);
     }
 
-    @And("user enters {string} to odometer value inout box")
+    @And("user enters {string} to odometer value input box")
     public void userEntersToOdometerValueInoutBox(String odometerValue) {
         servicesLogs.odometerBox.clear();
         servicesLogs.odometerBox.sendKeys(odometerValue);
+        servicesLogs.notesField.sendKeys("delete");
     }
 
     @Then("the new log should be displayed in the table")
@@ -89,7 +89,13 @@ public class VehiclesServicesLogs_StepDefs {
 
     @And("user clicks save button")
     public void userClicksSaveButton() {
-        servicesLogs.notesField.sendKeys("delete");
         servicesLogs.saveBtn.click();
+    }
+
+
+    @And("user select a vehicle from list")
+    public void userSelectAVehicleFromList() {
+        servicesLogs.vehicleList.click();
+
     }
 }
