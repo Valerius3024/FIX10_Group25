@@ -57,8 +57,8 @@ public class VehiclesServicesLogsPage {
     @FindBy(xpath = "//th[.='Date']")
     public WebElement dateBtn;
 
-    @FindBy(xpath = "//div[@class='o_notification_manager']")
-    public WebElement warningMessage;
+    @FindBy(xpath = "//div[@class='o_notification undefined o_error']")
+    public WebElement errorMessage;
 
 
     public void deleteLog() throws InterruptedException {

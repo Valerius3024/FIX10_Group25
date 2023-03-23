@@ -42,7 +42,6 @@ public class VehiclesServicesLogs_StepDefs {
     public void userEntersToVehicleInputBox(String vehicle) {
         BrowserUtils.waitFor(2);
         servicesLogs.vehicleBox.sendKeys(vehicle);
-        servicesLogs.vehicleList.click();
 
     }
 
@@ -93,9 +92,10 @@ public class VehiclesServicesLogs_StepDefs {
         servicesLogs.saveBtn.click();
     }
 
-    @Then("{string} pop up message should be displayed")
-    public void theFollowingFeildsAreInvalidVehiclePopUpMessageShouldBeDisplayed() {
 
-       Assert.assertTrue(servicesLogs.warningMessage.isDisplayed());
+    @And("user select a vehicle from list")
+    public void userSelectAVehicleFromList() {
+        servicesLogs.vehicleList.click();
+
     }
 }
