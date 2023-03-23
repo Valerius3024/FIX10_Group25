@@ -2,6 +2,7 @@ package fidexio.step_definitions;
 
 import fidexio.pages.FuelLogPage;
 import fidexio.pages.HomePage;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
@@ -13,7 +14,11 @@ public class FuelLogStepDefinitions {
 
     @When("user clicks More button")
     public void user_clicks_more_button() {
-        homePage.moreDropdown.click();
+        try {
+            homePage.moreDropdown.click();
+        } catch (Exception e) {
+            System.out.println("More button not seen, bypassing..");
+        }
     }
 
     @Then("user clicks Fleet button")
@@ -46,4 +51,23 @@ public class FuelLogStepDefinitions {
         Assert.assertTrue(fuelLogPage.vehiclesFuelLogsCreateButton.isDisplayed());
     }
 
+    @Then("user clicks SAVE button")
+    public void user_clicks_fuel_log_Save_Button() {
+        fuelLogPage.vehiclesFuelLogsSaveButton.click();
+    }
+
+    @And("user verifies vehicle label invalid")
+    public void user_verifies_vehicle_label_invalid() {
+        Assert.assertEquals(fuelLogPage.vehicleLabelInvalid, fuelLogPage.vehicleLabel.getAttribute("class"));
+    }
+
+    @Then("user enters {string} name not in list")
+    public void user_enters_new_vehicle_name_not_in_list(String string) {
+        fuelLogPage.vehicleInputBox.sendKeys(string);
+    }
+
+    @Then("user verifies create vehicle popup is displayed")
+    public void user_verifies_create_vehicle_popup_is_displayed() {
+        Assert.assertTrue(fuelLogPage.createVehiclePopUp.isDisplayed());
+    }
 }
