@@ -1,3 +1,4 @@
+
 Feature: Vehicles Services Logs
   User story:
   As a POSMANAGER, I should be able to create a new Vehicles Services Logs.
@@ -42,7 +43,7 @@ Feature: Vehicles Services Logs
       And user clicks save button
       Then user should see the error message
 
-  @wip
+
   Scenario:  If user tries to enter a vehicle which is not on the Vehicle list and click the save button,
   Create a Vehicle popup should be displayed
 

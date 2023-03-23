@@ -63,6 +63,7 @@ public class VehiclesServicesLogs_StepDefs {
     public void userEntersToOdometerValueInoutBox(String odometerValue) {
         servicesLogs.odometerBox.clear();
         servicesLogs.odometerBox.sendKeys(odometerValue);
+        servicesLogs.notesField.sendKeys("delete");
     }
 
     @Then("the new log should be displayed in the table")
@@ -88,7 +89,6 @@ public class VehiclesServicesLogs_StepDefs {
 
     @And("user clicks save button")
     public void userClicksSaveButton() {
-        servicesLogs.notesField.sendKeys("delete");
         servicesLogs.saveBtn.click();
     }
 
