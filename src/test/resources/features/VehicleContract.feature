@@ -25,7 +25,7 @@ Feature: Creating a new contract feature
 
   # ------ AC1: Verify that user can create a new Contract.(User enters only Vehicle,Type,Activation Cost,Recurring Cost Amount) --------
 
-  #@wip
+  @FIX10-378  #@wip
   Scenario: User should be able to create a new Contract (User enters only Vehicle,Type,Activation Cost,Recurring Cost Amount)
     When user selects "Mercedes" Vehicle
     And user selects "Leasing" Type
@@ -60,7 +60,7 @@ Feature: Creating a new contract feature
 
   # ------ AC4: After clicked the save button, the information of the Contract Details which user entered should be displayed --------
 
-   #@wip
+   @wip
   Scenario: After clicked the save button, the information of the Contract Details which user entered should be displayed
     When user selects "Mercedes/Class A/1-MER-001" Vehicle
     And user selects "Leasing" Type
