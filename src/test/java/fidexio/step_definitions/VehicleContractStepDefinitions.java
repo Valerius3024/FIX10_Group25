@@ -209,7 +209,10 @@ public class VehicleContractStepDefinitions {
     @Then("number should be displayed as float number")
     public void number_should_be_displayed_as_float_number() {
 
+
+        BrowserUtils.waitFor(1);
         String activationCost = vehicleContractsPage.activationCost.getText();
+
 
         try {
             Float.parseFloat(activationCost);
