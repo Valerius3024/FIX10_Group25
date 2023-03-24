@@ -23,5 +23,17 @@ public class FuelLogPage {
     @FindBy(css = "button.btn.btn-default.btn-sm.o_form_button_cancel")
     public WebElement vehiclesFuelLogsDiscardButton;
 
+    @FindBy(xpath = "(//table[1]/tbody/tr[2]/td[1]/label)[1]")
+    public WebElement vehicleLabel;
+
+    public String vehicleLabelValid = "o_form_label o_required_modifier";
+    public String vehicleLabelInvalid = "o_form_label o_required_modifier o_field_invalid";
+
+    @FindBy(css = "input#o_field_input_399")
+    public WebElement vehicleInputBox;
+
+    @FindBy(css = "h4.modal-title")
+    public WebElement createVehiclePopUp;
+
 
 }

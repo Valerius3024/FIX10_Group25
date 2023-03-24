@@ -1,3 +1,4 @@
+
 Feature: As a POSMANAGER, I should be able to enter a new Fuel Log for the vehicle
   US 27 - Fleet / Vehicles / Create A New Vehicles Fuel Logs Function [S3 - MC]
 
@@ -13,12 +14,22 @@ Feature: As a POSMANAGER, I should be able to enter a new Fuel Log for the vehic
     Given user is on the login page
     When User enters "posmanager34@info.com" and "posmanager" for Pos Manager
     Then User clicks login button
-
-  Scenario: 1.Verify that USER can create new Vehicles Fuel Logs.
     When user clicks More button
     Then user clicks Fleet button
     And user clicks Vehicles Fuel Logs button
     And user clicks Create button
+
+  Scenario: 1.Verify that USER can create new Vehicles Fuel Logs.
     Then user verifies Discard button visible
     Then users clicks Discard button
     And user verifies Create button visible
+
+  Scenario: 2. User must choose at least a Vehicle to create a Vehicles Fuel Log.
+    Then user clicks SAVE button
+    And user verifies vehicle label invalid
+
+  Scenario: 3. If user tries to enter a vehicle which is not on the Vehicle list and click the save button, Create a Vehicle popup should be displayed.
+    Then user enters "TOGG YOGG" name not in list
+    Then user clicks SAVE button
+    And user verifies create vehicle popup is displayed
+
