@@ -1,5 +1,6 @@
 package fidexio.pages;
 
+import fidexio.utilities.BrowserUtils;
 import fidexio.utilities.Driver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -86,6 +87,21 @@ public class VehicleContractsPage {
 
     @FindBy(xpath = "//button[@accesskey='a']")
     public WebElement editButton;
+
+
+
+
+    public void deleteContract(){
+        vehiclesContractsButton.click();
+        BrowserUtils.waitFor(3);
+        checkbox.click();
+        BrowserUtils.waitFor(1);
+        actionButton.click();
+        BrowserUtils.waitFor(2);
+        deleteButton.click();
+        BrowserUtils.waitFor(1);
+        okButton.click();
+    }
 
 
 
