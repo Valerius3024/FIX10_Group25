@@ -5,16 +5,42 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import javax.xml.xpath.XPath;
+import java.util.List;
+
 public class SalesPage {
 
-    public SalesPage(){
-        PageFactory.initElements(Driver.getDriver(),this);
+    public SalesPage() {
+        PageFactory.initElements(Driver.getDriver(), this);
     }
+
+    @FindBy(xpath = "//div[@class='o_address_format']")
+    public List<WebElement> addressCard;
+
+
+    @FindBy(css = "button[accesskey='a']")
+    public WebElement editButton;
+
+
+    @FindBy(xpath = "//button[@class='btn btn-sm btn-primary']")
+    public WebElement deleteCustomerConfirmationButton;
+
+    @FindBy(xpath = "//button[contains(text(),'Action')]")
+    public WebElement actionDropdown;
+
+    @FindBy(xpath = "//a[contains(text(),'Delete')]")
+    public WebElement deleteCustomerButton;
+
+    @FindBy(xpath ="//h1/span[@name='name']")
+    public WebElement customerNameText;
+
+    @FindBy(xpath = "//input[@name='name']")
+    public WebElement nameInput;
 
     @FindBy(xpath = "//a[@data-menu='447']")
     public WebElement CustomersLink;
 
-@FindBy(css = "button[accesskey='c']")
+    @FindBy(css = "button[accesskey='c']")
     public WebElement createButton;
 
     @FindBy(css = "button[accesskey='s']")
@@ -28,7 +54,7 @@ public class SalesPage {
 
     @FindBy(css = "input[id$='person']")
     public WebElement individualRadio;
-    
+
 
     @FindBy(css = "input[id$='company']")
     public WebElement companyRadio;
@@ -53,11 +79,6 @@ public class SalesPage {
 
     @FindBy(xpath = "//button[contains(@class, 'o-kanban-button-new')]")
     public WebElement contactCreateButton;
-
-
-    
-    
-
 
 
 }
