@@ -47,6 +47,14 @@ Feature: As a POSMANAGER, I should be able to enter a new Fuel Log for the vehic
     Then user verifies saved details are seen
     And user delete last saved record
 
+#FIX10-420
+  Scenario: 5. After clicked the Save button, Edit button display instead of Save button and Create button display instead of Discard button.
+    Then user verifies Discard button visible
+    Then user select first vehicle from dropdown
+    And user clicks SAVE button
+    Then user verifies Edit button is seen
+    And user verifies Create button is seen
+
 
 
 

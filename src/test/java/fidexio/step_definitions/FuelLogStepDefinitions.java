@@ -100,10 +100,14 @@ public class FuelLogStepDefinitions {
         Assert.assertEquals(fuelLogPage.vehicleNameSaved, fuelLogPage.detailInfoLabel.getText());
     }
 
+    @And("user verifies Create button is seen")
+    public void user_Verifies_Create_Button_Is_Seen() {
+        Assert.assertTrue(fuelLogPage.afterSaveCreateButton.isDisplayed());
+    }
+
     public static void click(WebElement we) {
         ((JavascriptExecutor) Driver.getDriver())
                 .executeScript("arguments[0].click()", we);
     }
-
 
 }

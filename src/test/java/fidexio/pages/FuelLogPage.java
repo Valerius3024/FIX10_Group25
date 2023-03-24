@@ -17,6 +17,9 @@ public class FuelLogPage {
     @FindBy(css = "button.btn.btn-primary.btn-sm.o_list_button_add")
     public WebElement vehiclesFuelLogsCreateButton;
 
+    @FindBy(css = "button.btn.btn-default.btn-sm.o_form_button_create")
+    public WebElement afterSaveCreateButton;
+
     @FindBy(css = "button.btn.btn-primary.btn-sm.o_form_button_save")
     public WebElement vehiclesFuelLogsSaveButton;
 
@@ -28,8 +31,6 @@ public class FuelLogPage {
 
     @FindBy(xpath = "(//table[1]/tbody/tr[2]/td[1]/label)[1]")
     public WebElement vehicleLabel;
-
-    public String vehicleLabelInvalid = "o_form_label o_required_modifier o_field_invalid";
 
     @FindBy(css = "input.o_input.ui-autocomplete-input")
     public WebElement vehicleInputBox;
@@ -51,6 +52,8 @@ public class FuelLogPage {
 
     @FindBy(xpath = "//table[1]/tbody/tr[2]/td[2]//a")
     public WebElement detailInfoLabel;
+
+    public String vehicleLabelInvalid = "o_form_label o_required_modifier o_field_invalid";
 
     public String vehicleNameSaved;
 
