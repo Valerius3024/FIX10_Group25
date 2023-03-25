@@ -159,8 +159,18 @@ public class Us37_SalesStepDefinitions {
     @When("user find the customer by email {string}")
     public void user_find_the_customer_by_email(String email) {
         BrowserUtils.waitFor(4);
-        Assert.assertTrue(salesPage.locatingElementByEmail(email).isDisplayed());
-        salesPage.locatingElementByEmail(email).click();
+        Assert.assertTrue(salesPage.locatingElementByText(email).isDisplayed());
+        salesPage.locatingElementByText(email).click();
+
+    }
+
+    @When("user sees the {string} text at the buttom")
+    public void user_sees_the_text_at_the_buttom(String contactCreatedText) {
+       Assert.assertTrue(salesPage.locatingElementByText(contactCreatedText).isDisplayed());
+    }
+    @When("user display the name {string} on the title")
+    public void user_display_the_name_on_the_title(String name) {
+        Assert.assertTrue(Driver.getDriver().getTitle().contains(name));
 
     }
 
