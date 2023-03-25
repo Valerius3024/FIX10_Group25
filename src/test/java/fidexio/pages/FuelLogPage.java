@@ -17,11 +17,44 @@ public class FuelLogPage {
     @FindBy(css = "button.btn.btn-primary.btn-sm.o_list_button_add")
     public WebElement vehiclesFuelLogsCreateButton;
 
+    @FindBy(css = "button.btn.btn-default.btn-sm.o_form_button_create")
+    public WebElement afterSaveCreateButton;
+
     @FindBy(css = "button.btn.btn-primary.btn-sm.o_form_button_save")
     public WebElement vehiclesFuelLogsSaveButton;
 
     @FindBy(css = "button.btn.btn-default.btn-sm.o_form_button_cancel")
     public WebElement vehiclesFuelLogsDiscardButton;
 
+    @FindBy(css = "button.btn.btn-primary.btn-sm.o_form_button_edit")
+    public WebElement vehiclesFuelLogsEditButton;
+
+    @FindBy(xpath = "(//table[1]/tbody/tr[2]/td[1]/label)[1]")
+    public WebElement vehicleLabel;
+
+    @FindBy(css = "input.o_input.ui-autocomplete-input")
+    public WebElement vehicleInputBox;
+
+    @FindBy(xpath = "//ul[@id='ui-id-3']//li//a")
+    public WebElement vehicleSelectFirst;
+
+    @FindBy(css = "h4.modal-title")
+    public WebElement createVehiclePopUp;
+
+    @FindBy(xpath = "//button[normalize-space(text())='Action']")
+    public WebElement actionDropDown;
+
+    @FindBy(xpath = "//a[normalize-space(text())='Delete']")
+    public WebElement actionDropDownDeleteButton;
+
+    @FindBy(xpath = "//button[.='Ok']")
+    public WebElement deleteOkButton;
+
+    @FindBy(xpath = "//table[1]/tbody/tr[2]/td[2]//a")
+    public WebElement detailInfoLabel;
+
+    public String vehicleLabelInvalid = "o_form_label o_required_modifier o_field_invalid";
+
+    public String vehicleNameSaved;
 
 }
