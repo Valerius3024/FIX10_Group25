@@ -94,8 +94,8 @@ public class SalesPage {
     @FindBy(xpath = "//button[contains(@class, 'o-kanban-button-new')]")
     public WebElement contactCreateButton;
 
-    public WebElement locatingElementByEmail(String email){
-        String xpathLocator="//*[contains(text(),'"+email+"')]";
+    public WebElement locatingElementByText(String text){
+        String xpathLocator="//*[contains(text(),'"+text+"')]";
 
         return Driver.getDriver().findElement(By.xpath(xpathLocator));
     }
