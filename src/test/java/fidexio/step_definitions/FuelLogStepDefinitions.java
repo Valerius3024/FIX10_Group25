@@ -126,5 +126,26 @@ public class FuelLogStepDefinitions {
         ((JavascriptExecutor) Driver.getDriver()).executeScript("arguments[0].click()", we);
     }
 
+    @And("user sends text value to odometer")
+    public void user_sends_text_value_to_odometer() {
+        fp.odometerInputBox.clear();
+        fp.odometerInputBox.sendKeys("text");
+    }
 
+    @Then("user checks odometer label turns red")
+    public void user_checks_odometer_value() {
+        BrowserUtils.waitForVisibility(fp.odometerLabelInvalid, 5);
+        Assert.assertTrue(fp.odometerLabelInvalid.isDisplayed());
+    }
+
+    @And("user sends {int} value to odometer")
+    public void user_sends_value_to_odometer(int arg0) {
+        fp.odometerInputBox.clear();
+        fp.odometerInputBox.sendKeys("" + arg0);
+    }
+
+    @Then("user checks odometer input shows float")
+    public void user_checks_odometer_input_Shows_float() {
+        Assert.assertTrue(fp.odometerSavedInput.getText().contains(".00"));
+    }
 }
