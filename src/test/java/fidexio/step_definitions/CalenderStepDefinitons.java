@@ -2,10 +2,12 @@ package fidexio.step_definitions;
 
 import fidexio.pages.CalenderPage;
 import fidexio.pages.HomePage;
+import fidexio.utilities.Driver;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class CalenderStepDefinitons {
     HomePage homePage = new HomePage();
@@ -39,5 +41,25 @@ public class CalenderStepDefinitons {
     @Then("the month name should be displayed under the calender button")
     public void theMonthNameShouldBeDisplayedUnderTheCalenderButton() {
         Assert.assertTrue(calenderPage.monthText.getText().contains("March"));
+    }
+
+    @When("User can click the time box")
+    public void userCanClickTheTimeBox() {
+        calenderPage.timeBoxButton.click();
+    }
+
+    @And("User can writes {string} on the summary box")
+    public void userCanWritesOnTheSummaryBox(String string) {
+        calenderPage.summaryBox.sendKeys(string);
+    }
+
+    @Then("User can click the create button.")
+    public void userCanClickTheCreateButton() {
+        calenderPage.createButton.click();
+    }
+
+    @When("User can click the event button")
+    public void userCanClickTheEventButton(){
+        calenderPage.eventButton.click();
     }
 }

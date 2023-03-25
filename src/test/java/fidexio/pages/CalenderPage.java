@@ -20,6 +20,23 @@ public class CalenderPage {
     public WebElement weekButton;
     @FindBy(xpath= "//button[.='Month']")
     public WebElement monthButton;
+    @FindBy(xpath= "//tr[@data-time='01:30:00']")
+    public WebElement timeBoxButton;
+    @FindBy(xpath= "//input[@class='o_input']")
+    public WebElement summaryBox;
+    @FindBy(xpath= "//button[@class='btn btn-sm btn-primary']")
+    public WebElement createButton;
+    @FindBy(xpath= "//div[@class='fc-content']")
+    public WebElement eventButton;
+
+
+
+
+
+
+
+
+
 
 
 
