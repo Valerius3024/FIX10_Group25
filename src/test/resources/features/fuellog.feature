@@ -67,7 +67,14 @@ Feature: As a POSMANAGER, I should be able to enter a new Fuel Log for the vehic
     Then user clicks ok button
     Then user delete last saved record
 
-
-
-
+   #FIX10-422
+  Scenario: 7. User should be able to enter only number in the Odometer Value input box. And it should be displayed as a float number
+    Then user verifies Discard button visible
+    Then user select first vehicle from dropdown
+    And user sends text value to odometer
+    And user clicks SAVE button
+    Then user checks odometer label turns red
+    And user sends 99 value to odometer
+    And user clicks SAVE button
+    Then user checks odometer input shows float
 
