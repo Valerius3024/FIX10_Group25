@@ -10,6 +10,10 @@ public class CalenderPage {
 
     @FindBy(xpath= "//li[.='Meetings (Week 12)']")
     public WebElement weekText;
+    @FindBy(xpath= "//li[.='Meetings (March 25, 2023)']")
+    public WebElement dayText;
+    @FindBy(xpath= "//li[.='Meetings (March 2023)']")
+    public WebElement monthText;
     @FindBy(xpath= "//button[.='Day']")
     public WebElement dayButton;
     @FindBy(xpath= "//button[.='Week']")
