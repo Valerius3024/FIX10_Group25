@@ -55,6 +55,19 @@ Feature: As a POSMANAGER, I should be able to enter a new Fuel Log for the vehic
     Then user verifies Edit button is seen
     And user verifies Create button is seen
 
+#FIX10-421
+  Scenario: 6. When user clicks the Edit button the form should open by displaying the all the information and it be ready to edit.
+    Then user verifies Discard button visible
+    Then user select first vehicle from dropdown
+    And user clicks SAVE button
+    Then user verifies Edit button is seen
+    And user clicks Edit button
+    Then user verifies details are seen and editable
+    And users clicks Discard button
+    Then user clicks ok button
+    Then user delete last saved record
+
+
 
 
 

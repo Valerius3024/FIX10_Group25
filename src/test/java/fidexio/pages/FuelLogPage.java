@@ -53,6 +53,10 @@ public class FuelLogPage {
     @FindBy(xpath = "//table[1]/tbody/tr[2]/td[2]//a")
     public WebElement detailInfoLabel;
 
+    @FindBy(css = "input.o_field_float.o_field_number.o_field_widget.o_input")
+    public WebElement literFieldBox;
+
+
     public String vehicleLabelInvalid = "o_form_label o_required_modifier o_field_invalid";
 
     public String vehicleNameSaved;
