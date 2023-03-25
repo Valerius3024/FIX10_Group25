@@ -75,3 +75,12 @@ Feature: Fidexio Application Sales Functionality
       | CustomerName | email           |
       | Ahmet        | ahmet@ahmet.com |
       | Hasan        | hasan@hasan.com |
+
+    @wip
+    Scenario: Verify that the "Contact created" message appears under full profile and customer's name is displayed on the page title.
+      When user go to new customer page
+      And user enters name "Cydeo" to name input
+      And user click to save button
+      And user sees the "Contact created" text at the buttom
+      And user display the name "Cydeo" on the title
+      Then user delete the card
