@@ -26,3 +26,13 @@ Feature:
   Scenario: User first lands on weekly display
     When User clicks calender button
     Then the week number should be displayed under the calender button
+
+  @calender2
+  Scenario: User can change display between Day-Week-Month
+    When User clicks calender button
+    And User clicks day button
+    Then the day number should be displayed under the calender button
+    And User clicks week button
+    Then the week number should be displayed under the calender button
+    And User clicks month button
+    Then the month name should be displayed under the calender button

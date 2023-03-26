@@ -23,12 +23,13 @@ Feature: Fidexio Application Sales Functionality
       | Mahmut       |
 
 
-    #Scenario: Verify user can upload the customer's picture and delete it
-     # When user go to new customer page
-     # Then user add new picture "C:\Users\xxx\Desktop\Fidexio\landscape-1192669__340.jpg"
-      #And user enters name "Murat" to name input
-      #And user sees the "Murat" card
-      #Then user delete the card
+  Scenario: Verify user can upload the customer's picture and delete it
+    When user go to new customer page
+    Then user add new picture "C:\Users\xxx\Desktop\Fidexio\landscape-1192669__340.jpg"
+    And user enters name "Murat" to name input
+    And user click to save button
+    And user display profile image
+    Then user delete the card
 
 
   Scenario: Verify Edit button display instead of Save button and Create button display instead of Discard after saving
@@ -58,3 +59,28 @@ Feature: Fidexio Application Sales Functionality
       | CustomerName | StreetName    | CityName | StateName | zipCode |
       | Ahmet        | Keystone Lane | Fairfax  | Virginia  | 19700   |
       | Hasan        | Fatih sokak   | Gebze    | Maryland  | 21000   |
+
+
+  Scenario Outline: Verify that the user should be able to see created customer in the list of the customers after clicking the Customers module
+    When user go to new customer page
+    And user enters name "<CustomerName>" to name input
+    And user enters email "<email>" to email input
+    And user click to save button
+    And user go to customer list page
+    And user search "<CustomerName>" in search bar
+    And user find the customer by email "<email>"
+   Then user delete the card
+
+    Examples:
+      | CustomerName | email           |
+      | Ahmet        | ahmet@ahmet.com |
+      | Hasan        | hasan@hasan.com |
+
+    @wip
+    Scenario: Verify that the "Contact created" message appears under full profile and customer's name is displayed on the page title.
+      When user go to new customer page
+      And user enters name "Cydeo" to name input
+      And user click to save button
+      And user sees the "Contact created" text at the buttom
+      And user display the name "Cydeo" on the title
+      Then user delete the card

@@ -1,6 +1,7 @@
 package fidexio.pages;
 
 import fidexio.utilities.Driver;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -13,6 +14,19 @@ public class SalesPage {
     public SalesPage() {
         PageFactory.initElements(Driver.getDriver(), this);
     }
+
+    @FindBy(xpath = "//a[@name='email']")
+    public WebElement emailInputPrint;
+
+    @FindBy(xpath = "//input[@class='o_searchview_input']")
+    public WebElement searchBarInput;
+
+    @FindBy(xpath = "//input[@name='email']")
+    public WebElement emailInput;
+
+
+    @FindBy(xpath = "//img[@name='image']")
+    public WebElement profilImage;
 
     @FindBy(xpath = "//div[@class='o_address_format']")
     public List<WebElement> addressCard;
@@ -46,7 +60,7 @@ public class SalesPage {
     @FindBy(css = "button[accesskey='s']")
     public WebElement saveButton;
 
-    @FindBy(css = "span[class*='select']")
+    @FindBy(xpath = "(//input[@type='file'])[2]")
     public WebElement imageLoad;
 
     @FindBy(css = "span[class*='pull-right']")
@@ -79,6 +93,12 @@ public class SalesPage {
 
     @FindBy(xpath = "//button[contains(@class, 'o-kanban-button-new')]")
     public WebElement contactCreateButton;
+
+    public WebElement locatingElementByText(String text){
+        String xpathLocator="//*[contains(text(),'"+text+"')]";
+
+        return Driver.getDriver().findElement(By.xpath(xpathLocator));
+    }
 
 
 }
