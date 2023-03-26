@@ -21,9 +21,6 @@ Feature: Creating a new contract feature
 
 
    Scenario: Verify that USER can create a new Odometer
-     When user clicks More button
-     Then user clicks Fleet button
-     And user clicks Odometer button
 
 
 
