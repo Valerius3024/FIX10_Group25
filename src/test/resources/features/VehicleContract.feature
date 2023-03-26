@@ -1,4 +1,4 @@
-@VehicleContracts @smoke
+@VehicleContracts
 Feature: Creating a new contract feature
 
   User story: As a Posmanager, I should be able to create a new Vehicle Contract
@@ -25,7 +25,7 @@ Feature: Creating a new contract feature
 
   # ------ AC1: Verify that user can create a new Contract.(User enters only Vehicle,Type,Activation Cost,Recurring Cost Amount) --------
 
-  #@wip
+  @FIX10-377  #@wip
   Scenario: User should be able to create a new Contract (User enters only Vehicle,Type,Activation Cost,Recurring Cost Amount)
     When user selects "Mercedes" Vehicle
     And user selects "Leasing" Type
@@ -38,7 +38,7 @@ Feature: Creating a new contract feature
 
   # ------ AC2: User must choose at least a Vehicle to create a Vehicle Contract --------
 
-  #@wip
+  @FIX10-378 #@wip
   Scenario: The user must select at least one vehicle to create vehicle contract
     When user has not selected any vehicle
     And user selects "Leasing" Type
@@ -50,7 +50,7 @@ Feature: Creating a new contract feature
 
    # ------ AC3: If user tries to enter a vehicle which is not on the Vehicle list and click the save button, Create a Vehicle popup should be displayed --------
 
-  #@wip
+  @FIX10-406 #@wip
   Scenario: When user tries to enter a vehicle which is not on the Vehicle list and click the save button, Create a Vehicle popup should be displayed
     When user enter a vehicle "Ferrari"
     And user clicks Save button
@@ -60,7 +60,7 @@ Feature: Creating a new contract feature
 
   # ------ AC4: After clicked the save button, the information of the Contract Details which user entered should be displayed --------
 
-   #@wip
+  @FIX10-407 #@wip
   Scenario: After clicked the save button, the information of the Contract Details which user entered should be displayed
     When user selects "Mercedes/Class A/1-MER-001" Vehicle
     And user selects "Leasing" Type
@@ -77,7 +77,7 @@ Feature: Creating a new contract feature
 
   # ------ AC5: After clicked the save button, Edit button display instead of Save button and Create button display instead of Discard button --------
 
-  #@wip
+   @FIX10-408 #@wip
   Scenario: After clicked the save button, Edit button display instead of Save button and Create button display instead of Discard button
     When user selects "Mercedes/Class A/1-MER-001" Vehicle
     And user selects "Leasing" Type
@@ -90,7 +90,7 @@ Feature: Creating a new contract feature
 
   # ------ AC6: When user clicks the Edit button the form should be open by displaying the all the information and it be ready to edit --------
 
-  #@wip
+  @FIX10-409 #@wip
   Scenario: When user clicks the Edit button the form should be open by displaying the all the information and it be ready to edit
     When user selects "Mercedes/Class A/1-MER-001" Vehicle
     And user selects "Leasing" Type
@@ -103,7 +103,7 @@ Feature: Creating a new contract feature
 
    # ------ AC7: User should be able to enter only number in the Activation Cost input box. And it should be displayed as float number --------
 
-  #@wip
+  @FIX10-410 #@wip
   Scenario Outline: User should be able to enter number. And it should be displayed as float number
     When user selects "Mercedes/Class A/1-MER-001" Vehicle
     And user enters "<number>" Activation Cost
@@ -115,7 +115,7 @@ Feature: Creating a new contract feature
       | 500.00 |
 
 
-  #@wip
+  @FIX10-411 #@wip
   Scenario: User enter any value other than number and error message display
     When user selects "Mercedes/Class A/1-MER-001" Vehicle
     And user enters "ipsum" Activation Cost
@@ -125,7 +125,7 @@ Feature: Creating a new contract feature
 
   # ------ AC8: Service type should display as Leasing by default  --------
 
-  #@wip
+  @FIX10-412 #@wip
   Scenario: When user tries to create a contract user should see Service type as Leasing by default
    Then user should see service type as "Leasing" by default
 

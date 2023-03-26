@@ -49,48 +49,64 @@ public class VehicleContractStepDefinitions {
 
     @When("user selects {string} Vehicle")
     public void user_selects_vehicle(String vehicle) {
-        BrowserUtils.waitFor(2);
+        BrowserUtils.waitForVisibility(vehicleContractsPage.vehicleInputBox,7);
         vehicleContractsPage.vehicleInputBox.sendKeys(vehicle);
+        BrowserUtils.waitForVisibility(vehicleContractsPage.mercedes,7);
         vehicleContractsPage.mercedes.click();
     }
 
     @When("user clicks Save button")
     public void user_clicks_save_button() {
-        BrowserUtils.waitFor(2);
+        BrowserUtils.waitForClickablility(vehicleContractsPage.saveButton,7);
         vehicleContractsPage.saveButton.click();
-        BrowserUtils.waitFor(2);
+
     }
   
     @Then("the new contract should be displayed in the table")
     public void the_new_contract_should_be_displayed_in_the_table() {
+        BrowserUtils.waitForVisibility(vehicleContractsPage.vehiclesContractsButton,7);
+        BrowserUtils.waitForClickablility(vehicleContractsPage.vehiclesContractsButton,7);
         vehicleContractsPage.vehiclesContractsButton.click();
         Assert.assertTrue(vehicleContractsPage.row.isDisplayed());
 
         // DELETING PART
 
 
+
         BrowserUtils.waitFor(3);
         vehicleContractsPage.checkbox.click();
-        BrowserUtils.waitFor(1);
+
+        BrowserUtils.waitForVisibility(vehicleContractsPage.actionButton,7);
+        BrowserUtils.waitForClickablility(vehicleContractsPage.actionButton,7);
         vehicleContractsPage.actionButton.click();
-        BrowserUtils.waitFor(2);
+
+
+        BrowserUtils.waitForVisibility(vehicleContractsPage.deleteButton,7);
+        BrowserUtils.waitForClickablility(vehicleContractsPage.deleteButton,7);
         vehicleContractsPage.deleteButton.click();
-        BrowserUtils.waitFor(1);
+
+        BrowserUtils.waitForVisibility(vehicleContractsPage.okButton,7);
+        BrowserUtils.waitForClickablility(vehicleContractsPage.okButton,7);
         vehicleContractsPage.okButton.click();
+
+
+
+
 
     }
 
 
     @When("user selects {string} Type")
     public void user_selects_type(String type) {
-        BrowserUtils.waitFor(2);
+        BrowserUtils.waitForVisibility(vehicleContractsPage.typeInputBox,7);
         vehicleContractsPage.typeInputBox.clear();
         vehicleContractsPage.typeInputBox.sendKeys(type);
     }
     @When("user enters {string} Activation Cost")
     public void user_enters_activation_cost(String cost) {
+        BrowserUtils.waitForVisibility(vehicleContractsPage.activationCostInputBox,7);
         vehicleContractsPage.activationCostInputBox.clear();
-        BrowserUtils.waitFor(2);
+        BrowserUtils.waitForVisibility(vehicleContractsPage.activationCostInputBox,7);
         vehicleContractsPage.activationCostInputBox.sendKeys(cost);
 
 
@@ -138,6 +154,7 @@ public class VehicleContractStepDefinitions {
 
         // DELETING PART
 
+
         vehicleContractsPage.deleteContract();
 
 
@@ -145,15 +162,20 @@ public class VehicleContractStepDefinitions {
 
     @When("user should see Save and Discard button")
     public void user_should_see_save_and_discard_button() {
-        BrowserUtils.waitFor(2);
+
+        BrowserUtils.waitForVisibility(vehicleContractsPage.saveButton,7);
         Assert.assertTrue(vehicleContractsPage.saveButton.isDisplayed());
+        BrowserUtils.waitForVisibility(vehicleContractsPage.discardButton,7);
         Assert.assertTrue(vehicleContractsPage.discardButton.isDisplayed());
     }
 
     @Then("user should see Edit and Create button instead of Save button and Create button")
     public void user_should_see_edit_and_create_button_instead_of_save_button_and_create_button() {
-        BrowserUtils.waitFor(2);
+
+        BrowserUtils.waitForVisibility(vehicleContractsPage.editButton,7);
         Assert.assertTrue(vehicleContractsPage.editButton.isDisplayed());
+
+        BrowserUtils.waitForVisibility(vehicleContractsPage.createButton,7);
         Assert.assertTrue(vehicleContractsPage.createButton.isDisplayed());
 
         // DELETING PART
@@ -187,7 +209,10 @@ public class VehicleContractStepDefinitions {
     @Then("number should be displayed as float number")
     public void number_should_be_displayed_as_float_number() {
 
+
+        BrowserUtils.waitFor(1);
         String activationCost = vehicleContractsPage.activationCost.getText();
+
 
         try {
             Float.parseFloat(activationCost);

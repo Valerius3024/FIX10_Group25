@@ -92,14 +92,25 @@ public class VehicleContractsPage {
 
 
     public void deleteContract(){
+        BrowserUtils.waitForVisibility(vehiclesContractsButton,5);
+        BrowserUtils.waitForClickablility(vehiclesContractsButton,5);
         vehiclesContractsButton.click();
+
+
         BrowserUtils.waitFor(3);
         checkbox.click();
-        BrowserUtils.waitFor(1);
+
+        BrowserUtils.waitForVisibility(actionButton,7);
+        BrowserUtils.waitForClickablility(actionButton,7);
         actionButton.click();
-        BrowserUtils.waitFor(2);
+
+
+        BrowserUtils.waitForVisibility(deleteButton,7);
+        BrowserUtils.waitForClickablility(deleteButton,7);
         deleteButton.click();
-        BrowserUtils.waitFor(1);
+
+        BrowserUtils.waitForVisibility(okButton,7);
+        BrowserUtils.waitForClickablility(okButton,7);
         okButton.click();
     }
 
