@@ -61,17 +61,17 @@ public class VehiclesServicesLogsPage {
     public WebElement errorMessage;
 
 
-    public void deleteLog() throws InterruptedException {
+    public void deleteLog() {
         dateBtn.click();
-        Thread.sleep(1000);
+        BrowserUtils.waitFor(2);
         dateBtn.click();
-        Thread.sleep(1000);
+        BrowserUtils.waitFor(2);
         newLogCheckBox.click();
-        Thread.sleep(1000);
+        BrowserUtils.waitFor(2);
         actionBtn.click();
-        Thread.sleep(1000);
+        BrowserUtils.waitFor(2);
         deleteBtn.click();
-        Thread.sleep(1000);
+        BrowserUtils.waitFor(2);
         okBtn.click();
     }
 
