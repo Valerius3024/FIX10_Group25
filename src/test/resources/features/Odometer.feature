@@ -1,5 +1,5 @@
 
-Feature: Creating a new contract feature
+Feature: Creating a new Odometer feature
 
   User story: As a POSMANAGER, I should be able to create a new Odemeter
 
@@ -19,7 +19,7 @@ Feature: Creating a new contract feature
     When User enters "posmanager20@info.com" and "posmanager" for Pos Manager
     Then User clicks login button
 
-  @smoke
+ @wip @smoke
   Scenario: 1.Verify that USER can create a new Odometer
     When user clicks More Odometer button
     And User clicks Fleet Button
@@ -28,6 +28,17 @@ Feature: Creating a new contract feature
     And user enters  vehicle select input box
     And user select first from dropdown
     And user click save button
+
+
+
+@wip
+    Scenario:2.User must choose at least a Vehicle to create a Vehicles Odometer.
+    When user clicks More Odometer button
+    And User clicks Fleet Button
+    Then User clicks Vehicles Odometer button
+    And user clicks create odometer button
+      And user click save button
+      Then user should see it is invalid
 
 
 

@@ -68,4 +68,11 @@ public class OdometerStepDefinitions {
     public void userClickSaveButton() {
         odometerPage.userClickSaveButton.click();
     }
+
+
+    @Then("user should see it is invalid")
+    public void userShouldSeeItIsInvalid() {
+        Assert.assertEquals(odometerPage.userShouldSeeItIsInvalidInputBox, odometerPage.userShouldSeeItIsInvalidInputBox.getAttribute("class"));
+
+    }
 }
