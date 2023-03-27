@@ -2,16 +2,20 @@ package fidexio.step_definitions;
 
 import fidexio.pages.FleetPage;
 import fidexio.pages.HomePage;
+import fidexio.pages.ServiceLogDetailsPage;
 import fidexio.pages.VehiclesServicesLogsPage;
 import fidexio.utilities.BrowserUtils;
 import fidexio.utilities.Driver;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-import org.junit.Assert;
+import org.junit.Assert.*;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class VehiclesServicesLogs_StepDefs {
     FleetPage fleetPage = new FleetPage();
@@ -26,14 +30,14 @@ public class VehiclesServicesLogs_StepDefs {
 
     @Given("user is on the Vehicles Services Logs")
     public void userIsOnTheVehiclesServicesLogs() {
-        WebDriverWait wait = new WebDriverWait(Driver.getDriver(),15);
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 15);
         wait.until(ExpectedConditions.titleIs("Vehicles Services Logs - Odoo"));
         BrowserUtils.verifyTitle("Vehicles Services Logs - Odoo");
     }
 
     @And("user clicks create button")
     public void userClicksCreateButton() {
-        BrowserUtils.waitForClickablility(servicesLogs.createBtn,3);
+        BrowserUtils.waitForClickablility(servicesLogs.createBtn, 3);
         servicesLogs.createBtn.click();
 
     }
@@ -49,7 +53,7 @@ public class VehiclesServicesLogs_StepDefs {
     public void userEntersToServiceTypeInputBox(String serviceType) {
         servicesLogs.serviceTypeBox.clear();
         servicesLogs.serviceTypeBox.click();
-       servicesLogs.serviceType(serviceType);
+        servicesLogs.serviceType(serviceType);
 
     }
 
@@ -69,7 +73,7 @@ public class VehiclesServicesLogs_StepDefs {
     @Then("the new log should be displayed in the table")
     public void theNewLogShouldBeDisplayedInTheTable() throws InterruptedException {
         fleetPage.vehiclesServicesLogs.click();
-        Assert.assertTrue(servicesLogs.newLog.isDisplayed());
+        assertTrue(servicesLogs.newLog.isDisplayed());
         servicesLogs.deleteLog();
     }
 
@@ -97,5 +101,16 @@ public class VehiclesServicesLogs_StepDefs {
     public void userSelectAVehicleFromList() {
         servicesLogs.vehicleList.click();
 
+    }
+
+    @Then("new service log details should be displayed")
+    public void newServicesServiceLogDetailsShouldBeDisplayed() {
+        ServiceLogDetailsPage serviceLogDetails = new ServiceLogDetailsPage();
+        assertEquals("FORD/FOCUS/S", serviceLogDetails.vehicleField.getText());
+        assertEquals("Tax roll", serviceLogDetails.serviceTypeField.getText());
+        assertEquals("75,000.00", serviceLogDetails.odometerField.getText());
+        assertEquals("500.00", serviceLogDetails.totalPriceField.getText());
+
+        servicesLogs.deleteLog();
     }
 }

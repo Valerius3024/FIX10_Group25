@@ -25,7 +25,9 @@ public class Us37_SalesStepDefinitions {
     public void user_go_to_new_customer_page() {
         homePage.salesButton.click();
         salesPage.CustomersLink.click();
-        BrowserUtils.waitFor(10);
+        WebDriverWait wait=new WebDriverWait(Driver.getDriver(),10);
+        wait.until(ExpectedConditions.titleContains("Customers"));
+        BrowserUtils.waitFor(5);
         salesPage.createButton.click();
 
     }
@@ -82,8 +84,6 @@ public class Us37_SalesStepDefinitions {
         BrowserUtils.waitFor(2);
         String actualEditText = salesPage.editButton.getText();
         String actualCreateText = salesPage.createButton.getText();
-        System.out.println("actualEditText = " + actualEditText);
-        System.out.println("actualCreateText = " + actualCreateText);
         Assert.assertEquals(expectedEditText, actualEditText);
         Assert.assertEquals(expectedCreateText, actualCreateText);
 
