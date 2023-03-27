@@ -118,6 +118,9 @@ public class HomePage {
     @FindBy(css = "a[data-menu='134']")
     public WebElement fleetButton;
 
+    @FindBy(css = "a[data-menu='475']")
+    public WebElement surveysButton;
+
     public  void navigateToThisModule(String moduleName){
         moduleName = moduleName.substring(0,1).toUpperCase() + moduleName.substring(1).toLowerCase();
         WebElement module = Driver.getDriver().findElement(By.xpath("//*[contains(text(),'"+moduleName+"')]"));
