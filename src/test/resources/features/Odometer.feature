@@ -20,8 +20,12 @@ Feature: Creating a new contract feature
     Then User clicks login button
 
 
-   Scenario: Verify that USER can create a new Odometer
-
+  Scenario: 1.Verify that USER can create a new Odometer
+    When user clicks More button
+    And User clicks Fleet Button
+    Then User clicks Vehicles Odometer button
+    When User clicks  odometer Create button
+    And user enters  vehicle select input box
 
 
 
