@@ -59,7 +59,7 @@ Feature: Fidexio Application Sales Functionality
       | Ahmet        | Keystone Lane | Fairfax  | 19700   |
       | Hasan        | Fatih sokak   | Gebze    | 21000   |
 
-@FIX10-435
+@FIX10-435 @smoke
   Scenario Outline: Verify that the user should be able to see created customer
   in the list of the customers after clicking the Customers module
     When user go to new customer page

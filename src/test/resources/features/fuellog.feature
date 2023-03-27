@@ -28,7 +28,7 @@ Feature: As a POSMANAGER, I should be able to enter a new Fuel Log for the vehic
     Then user verifies Edit button is seen
     And user delete last saved record
 
-  @FIX10-376
+  @FIX10-376 @smoke
   Scenario: 2. User must choose at least a Vehicle to create a Vehicles Fuel Log.
     Then user clicks SAVE button
     And user verifies vehicle label invalid

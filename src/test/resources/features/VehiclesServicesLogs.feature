@@ -64,7 +64,10 @@ Feature: Vehicles Services Logs
     And user clicks save button
     Then new service log details should be displayed
 
-  @FIX10-446
+
+
+  @smoke
+
   Scenario: After clicked the Save button, Edit button display instead of Save button and Create button display instead of Discard button.
     Given user is on the Vehicles Services Logs
     And user clicks create button
