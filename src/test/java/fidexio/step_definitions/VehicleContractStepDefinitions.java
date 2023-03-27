@@ -64,6 +64,7 @@ public class VehicleContractStepDefinitions {
   
     @Then("the new contract should be displayed in the table")
     public void the_new_contract_should_be_displayed_in_the_table() {
+        BrowserUtils.waitFor(2);
         BrowserUtils.waitForVisibility(vehicleContractsPage.vehiclesContractsButton,7);
         BrowserUtils.waitForClickablility(vehicleContractsPage.vehiclesContractsButton,7);
         vehicleContractsPage.vehiclesContractsButton.click();
