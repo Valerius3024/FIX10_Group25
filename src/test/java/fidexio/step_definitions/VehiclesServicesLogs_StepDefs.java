@@ -136,4 +136,13 @@ public class VehiclesServicesLogs_StepDefs {
     public void serviceTypeDefaultValueShouldBeRepairAndMaintenance() {
         assertEquals("Repair and maintenance",servicesLogs.serviceTypeBox.getAttribute("value"));
     }
+
+    @Then("user should see Edit and Create button instead of Save and Create button")
+    public void userShouldSeeEditAndCreateButtonInsteadOfSaveAndCreateButton() {
+        BrowserUtils.waitForVisibility(servicesLogs.saveBtn,5);
+        Assert.assertTrue(servicesLogs.saveBtn.isDisplayed());
+        BrowserUtils.waitForVisibility(servicesLogs.createBtn,5);
+        Assert.assertTrue(servicesLogs.createBtn.isDisplayed());
+
+    }
 }
