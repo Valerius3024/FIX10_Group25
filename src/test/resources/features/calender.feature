@@ -1,5 +1,5 @@
 @CalendarFunctionality
-Feature:
+Feature: Calender Functionality
 
   User Story:
 
@@ -20,7 +20,7 @@ Feature:
 
   Background: User should access Discuss page and click the Calender button
     Given user is on the login page
-    When User enters "posmanager10@info.com" and "posmanager" for Pos Manager
+    When User enters "posmanager25@info.com" and "posmanager" for Pos Manager
     And User clicks login button
     Then User clicks calender button
 
