@@ -22,16 +22,11 @@ public class OdometerStepDefinitions {
         odometerPage.userClicksVehiclesOdometerButton.click();
     }
 
-    @When("user clicks More button")
+    @When("user clicks More Odometer button")
     public void userClicksMoreButton() {
         homePage.moreDropdown.click();
     }
 
-
-    @And("User clicks Fleet Button")
-    public void userClicksFleetButton() {
-        homePage.userClicksFleetButton.click();
-    }
 
 
     @Then("User clicks Vehicles Odometer button")
@@ -39,13 +34,6 @@ public class OdometerStepDefinitions {
         odometerPage.userClicksVehiclesOdometerButton.click();
     }
 
-
-
-    @And("User enters {string} to vehicle input box")
-    public void userEntersToVehicleInputBox(String vehicle) {
-        BrowserUtils.waitFor(2);
-        odometerPage.vehicleBox.sendKeys(vehicle);
-    }
 
 
     @When("User clicks  odometer Create button")
@@ -57,5 +45,27 @@ public class OdometerStepDefinitions {
     @And("user enters  vehicle select input box")
     public void userEntersVehicleSelectInputBox() {
         odometerPage.userEnterVehicleSelectInputBox.click();
+    }
+
+    @And("User clicks Fleet Button")
+    public void userClicksFleetButton() {
+        homePage.fleetButton.click();
+    }
+
+    @And("user clicks create odometer button")
+    public void userClicksCreateOdometerButton() {
+        BrowserUtils.waitFor(3);
+    odometerPage.createOdometerButton.click();
+
+    }
+
+    @And("user select first from dropdown")
+    public void userSelectFirstFromDropdown() {
+        odometerPage.userSelectFirstFromDropdown.click();
+    }
+
+    @And("user click save button")
+    public void userClickSaveButton() {
+        odometerPage.userClickSaveButton.click();
     }
 }
