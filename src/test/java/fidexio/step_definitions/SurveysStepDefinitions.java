@@ -21,7 +21,15 @@ public class SurveysStepDefinitions {
 
     @Then("user clicks Surveys button")
     public void user_clicks_surveys_button() {
-        homePage.surveysButton.click();
+        if (homePage.moreDropdown.isDisplayed()) {
+            BrowserUtils.waitForClickablility(homePage.moreDropdown, 5);
+            homePage.moreDropdown.click();
+            BrowserUtils.waitForClickablility(homePage.surveysButton, 5);
+            homePage.surveysButton.click();
+        } else {
+            BrowserUtils.waitForClickablility(homePage.surveysButton, 5);
+            homePage.surveysButton.click();
+        }
     }
 
     @Given("user is on the Surveys page")
