@@ -19,7 +19,7 @@ Feature: Vehicles Services Logs
     And User navigates to fleet option
     Then User clicks Vehicles Services Logs button
 
-
+  @FIX10-425
   Scenario: User should be able to create a new Vehicles Services Logs.
     Given user is on the Vehicles Services Logs
     And user clicks create button
@@ -31,7 +31,7 @@ Feature: Vehicles Services Logs
     And user clicks save button
     Then the new log should be displayed in the table
 
-
+  @FIX10-427
   Scenario: User must choose at least a vehicle to create a Vehicles Services Log.
     Given user is on the Vehicles Services Logs
     And user clicks create button
@@ -42,7 +42,7 @@ Feature: Vehicles Services Logs
     And user clicks save button
     Then user should see the error message
 
-
+  @FIX10-428
   Scenario:  If user tries to enter a vehicle which is not on the Vehicle list and click the save button,
   Create a Vehicle popup should be displayed
     Given user is on the Vehicles Services Logs
@@ -51,7 +51,7 @@ Feature: Vehicles Services Logs
     And user clicks save button
     Then Create a Vehicle popup should be displayed
 
-
+  @FIX10-445
   Scenario:  After clicked the save button, the information of the Service Details which user entered should be displayed.
     Given user is on the Vehicles Services Logs
     And user clicks create button
@@ -63,7 +63,7 @@ Feature: Vehicles Services Logs
     And user clicks save button
     Then new service log details should be displayed
 
-  @wip
+  @FIX10-446
   Scenario: After clicked the Save button, Edit button display instead of Save button and Create button display instead of Discard button.
     Given user is on the Vehicles Services Logs
     And user clicks create button
@@ -74,4 +74,18 @@ Feature: Vehicles Services Logs
     And user enters "75000" to odometer value input box
     And user clicks save button
     Then user should see Edit and Create button instead of Save button and Create button
+
+  @wip
+    Scenario: When user clicks the Edit button the form should open by displaying the all the information and it be ready to edit.
+      Given user is on the Vehicles Services Logs
+      And user clicks create button
+      And user enters "ford" to vehicle input box
+      And user select a vehicle from list
+      And user enters "Tax roll" to service type input box
+      And user enters "500" to total price input box
+      And user enters "75000" to odometer value input box
+      And user clicks save button
+      And user clicks Edit button
+      Then the form should be display and enabled
+
 

@@ -9,6 +9,7 @@ import fidexio.utilities.Driver;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import io.cucumber.java.eo.Se;
 import org.junit.Assert.*;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -20,6 +21,7 @@ import static org.junit.Assert.assertTrue;
 public class VehiclesServicesLogs_StepDefs {
     FleetPage fleetPage = new FleetPage();
     VehiclesServicesLogsPage servicesLogs = new VehiclesServicesLogsPage();
+    ServiceLogDetailsPage serviceLogDetails = new ServiceLogDetailsPage();
 
     @Then("User clicks Vehicles Services Logs button")
     public void userClicksVehiclesServicesLogsButton() {
@@ -58,13 +60,14 @@ public class VehiclesServicesLogs_StepDefs {
     }
 
     @And("user enters {string} to total price input box")
-    public void userEntersToTotalPriceInputBox(String totalPrice) {
+    public void userEntersToTotalPriceInputBox(String totalPrice) {;
         servicesLogs.totalPriceBox.clear();
         servicesLogs.totalPriceBox.sendKeys(totalPrice);
     }
 
     @And("user enters {string} to odometer value input box")
     public void userEntersToOdometerValueInoutBox(String odometerValue) {
+        BrowserUtils.waitFor(3);
         servicesLogs.odometerBox.clear();
         servicesLogs.odometerBox.sendKeys(odometerValue);
         servicesLogs.notesField.sendKeys("delete");
@@ -105,12 +108,22 @@ public class VehiclesServicesLogs_StepDefs {
 
     @Then("new service log details should be displayed")
     public void newServicesServiceLogDetailsShouldBeDisplayed() {
-        ServiceLogDetailsPage serviceLogDetails = new ServiceLogDetailsPage();
         assertEquals("FORD/FOCUS/S", serviceLogDetails.vehicleField.getText());
         assertEquals("Tax roll", serviceLogDetails.serviceTypeField.getText());
         assertEquals("75,000.00", serviceLogDetails.odometerField.getText());
         assertEquals("500.00", serviceLogDetails.totalPriceField.getText());
 
         servicesLogs.deleteLog();
+    }
+
+    @Then("the form should be display and enabled")
+    public void theFormShouldBeDisplayAndEnabled() {
+
+        servicesLogs.odometerBox.isEnabled();
+        servicesLogs.totalPriceBox.isEnabled();
+        servicesLogs.vehicleBox.isEnabled();
+        servicesLogs.serviceTypeBox.isEnabled();
+
+
     }
 }
