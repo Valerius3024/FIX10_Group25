@@ -37,7 +37,7 @@ Feature: Creating a new cost feature
   # ------ AC2: User must choose at least a Vehicle to create a Vehicle Cost. --------
 
   #@wip
-  Scenario: The user must select at least one vehicle to create vehicle contract
+  Scenario: The user must select at least one vehicle to create vehicle cost
     When user has not selected any vehicle
     And user selects "Summer tires" cost detail Type
     And user enters "700" for Total Price
