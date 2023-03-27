@@ -1,4 +1,3 @@
-
 Feature: Vehicles Services Logs
   User story:
   As a POSMANAGER, I should be able to create a new Vehicles Services Logs.
@@ -33,23 +32,46 @@ Feature: Vehicles Services Logs
     Then the new log should be displayed in the table
 
 
-    Scenario: User must choose at least a vehicle to create a Vehicles Services Log.
-      Given user is on the Vehicles Services Logs
-      And user clicks create button
-      And user has not selected any vehicle
-      And user enters "Summer tires" to service type input box
-      And user enters "5000" to total price input box
-      And user enters "100000" to odometer value input box
-      And user clicks save button
-      Then user should see the error message
+  Scenario: User must choose at least a vehicle to create a Vehicles Services Log.
+    Given user is on the Vehicles Services Logs
+    And user clicks create button
+    And user has not selected any vehicle
+    And user enters "Summer tires" to service type input box
+    And user enters "5000" to total price input box
+    And user enters "100000" to odometer value input box
+    And user clicks save button
+    Then user should see the error message
 
 
   Scenario:  If user tries to enter a vehicle which is not on the Vehicle list and click the save button,
   Create a Vehicle popup should be displayed
-
     Given user is on the Vehicles Services Logs
     And user clicks create button
     And user enters "mazda" to vehicle input box
     And user clicks save button
     Then Create a Vehicle popup should be displayed
+
+
+  Scenario:  After clicked the save button, the information of the Service Details which user entered should be displayed.
+    Given user is on the Vehicles Services Logs
+    And user clicks create button
+    And user enters "ford" to vehicle input box
+    And user select a vehicle from list
+    And user enters "Tax roll" to service type input box
+    And user enters "500" to total price input box
+    And user enters "75000" to odometer value input box
+    And user clicks save button
+    Then new service log details should be displayed
+
+  @smoke
+  Scenario: After clicked the Save button, Edit button display instead of Save button and Create button display instead of Discard button.
+    Given user is on the Vehicles Services Logs
+    And user clicks create button
+    And user enters "ford" to vehicle input box
+    And user select a vehicle from list
+    And user enters "Tax roll" to service type input box
+    And user enters "500" to total price input box
+    And user enters "75000" to odometer value input box
+    And user clicks save button
+    Then user should see Edit and Create button instead of Save button and Create button
 

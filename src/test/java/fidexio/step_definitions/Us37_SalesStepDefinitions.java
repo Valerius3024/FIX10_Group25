@@ -25,7 +25,9 @@ public class Us37_SalesStepDefinitions {
     public void user_go_to_new_customer_page() {
         homePage.salesButton.click();
         salesPage.CustomersLink.click();
-        BrowserUtils.waitFor(10);
+        WebDriverWait wait=new WebDriverWait(Driver.getDriver(),10);
+        wait.until(ExpectedConditions.titleContains("Customers"));
+        BrowserUtils.waitFor(5);
         salesPage.createButton.click();
 
     }
@@ -39,6 +41,14 @@ public class Us37_SalesStepDefinitions {
 
     }
 
+    @Then("user add new picture {string}")
+    public void user_add_new_picture(String imagePath) {
+        BrowserUtils.waitFor(3);
+        System.out.println(imagePath);
+        salesPage.imageLoad.sendKeys(imagePath);
+
+    }
+
     @When("user enters name {string} to name input")
     public void user_enters_name_to_name_input(String customerName) {
         BrowserUtils.waitFor(4);
@@ -48,6 +58,11 @@ public class Us37_SalesStepDefinitions {
     @When("user click to save button")
     public void user_click_to_save_button() {
         salesPage.saveButton.click();
+    }
+
+    @Then("user display profile image")
+    public void user_display_profile_image() {
+        Assert.assertTrue(salesPage.profilImage.isDisplayed());
     }
 
     @When("user sees the {string} card")
@@ -63,22 +78,14 @@ public class Us37_SalesStepDefinitions {
         salesPage.deleteCustomerConfirmationButton.click();
     }
 
-//    @Then("user add new picture {string}")
-//    public void user_add_new_picture(String imagePath) {
-//        BrowserUtils.waitFor(3);
-//        salesPage.imageLoad.sendKeys(imagePath);
-//        BrowserUtils.waitFor(3);
-    //}
 
     @Then("user should see {string} and {string} text button")
     public void user_should_see_and_text_button(String expectedEditText, String expectedCreateText) {
         BrowserUtils.waitFor(2);
-        String actualEditText=salesPage.editButton.getText();
-        String actualCreateText=salesPage.createButton.getText();
-        System.out.println("actualEditText = " + actualEditText);
-        System.out.println("actualCreateText = " + actualCreateText);
-        Assert.assertEquals(expectedEditText,actualEditText);
-        Assert.assertEquals(expectedCreateText,actualCreateText);
+        String actualEditText = salesPage.editButton.getText();
+        String actualCreateText = salesPage.createButton.getText();
+        Assert.assertEquals(expectedEditText, actualEditText);
+        Assert.assertEquals(expectedCreateText, actualCreateText);
 
     }
 
@@ -97,7 +104,7 @@ public class Us37_SalesStepDefinitions {
     @And("user enter state{string} to state input")
     public void userEnterCityToStateInput(String stateName) {
 
-        salesPage.stateInput.sendKeys(stateName,Keys.ENTER,Keys.ENTER);
+        salesPage.stateInput.sendKeys(stateName, Keys.ENTER, Keys.ENTER);
         BrowserUtils.waitFor(3);
     }
 
@@ -108,22 +115,64 @@ public class Us37_SalesStepDefinitions {
 
     @Then("check every input print on the customer card")
     public void check_every_input_print_on_the_customer_card(List<String> inputValues) {
-        String actualText="";
+        String actualText = "";
         BrowserUtils.waitFor(5);
 
 
         for (WebElement eachElement : salesPage.addressCard) {
-            actualText+=eachElement.getText()+" ";
+            actualText += eachElement.getText() + " ";
         }
 
 
         for (String eachValue : inputValues) {
-            if (actualText.contains(eachValue)){
+            if (actualText.contains(eachValue)) {
                 Assert.assertTrue(true);
-            }else {
+            } else {
                 Assert.assertTrue(false);
             }
         }
 
     }
+
+    @When("user enters email {string} to email input")
+    public void user_enters_email_to_email_input(String emailAdress) {
+        salesPage.emailInput.sendKeys(emailAdress);
+
+    }
+
+    @When("user go to customer list page")
+    public void user_go_to_customer_list_page() {
+        BrowserUtils.waitFor(4);
+        salesPage.CustomersLink.click();
+
+    }
+
+    @When("user search {string} in search bar")
+    public void user_search_in_search_bar(String name) {
+        WebDriverWait wait=new WebDriverWait(Driver.getDriver(),10);
+        wait.until(ExpectedConditions.titleContains("Customers"));
+        salesPage.searchBarInput.click();
+        salesPage.searchBarInput.sendKeys(name,Keys.ENTER);
+
+    }
+
+    @When("user find the customer by email {string}")
+    public void user_find_the_customer_by_email(String email) {
+        BrowserUtils.waitFor(4);
+        Assert.assertTrue(salesPage.locatingElementByText(email).isDisplayed());
+        salesPage.locatingElementByText(email).click();
+
+    }
+
+    @When("user sees the {string} text at the buttom")
+    public void user_sees_the_text_at_the_buttom(String contactCreatedText) {
+       Assert.assertTrue(salesPage.locatingElementByText(contactCreatedText).isDisplayed());
+    }
+    @When("user display the name {string} on the title")
+    public void user_display_the_name_on_the_title(String name) {
+        Assert.assertTrue(Driver.getDriver().getTitle().contains(name));
+
+    }
+
+
 }
