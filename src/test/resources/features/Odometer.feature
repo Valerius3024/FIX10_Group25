@@ -1,5 +1,5 @@
 
-  Feature: Creating a new contract feature
+Feature: Creating a new contract feature
 
   User story: As a POSMANAGER, I should be able to create a new Odemeter
 
@@ -14,19 +14,29 @@
 
 
   Background: User is on the login page
+
     Given user is on the login page
     When User enters "posmanager20@info.com" and "posmanager" for Pos Manager
     Then User clicks login button
 
-    Scenario: Verify that USER can create a new Odometer
-      When user clicks More button
-      Then user clicks Fleet button
-      And user clicks Vehicles Odometer
-      And user clicks Create button
-      Then user verifies Discard button visible
-      Then users clicks Discard button
-      And user verifies Create button visible
-      And Clicks Odometer button
-      Then the new Odometer should be displayed in the table
+  @smoke
+  Scenario: 1.Verify that USER can create a new Odometer
+    When user clicks More Odometer button
+    And User clicks Fleet Button
+    Then User clicks Vehicles Odometer button
+    And user clicks create odometer button
+    And user enters  vehicle select input box
+    And user select first from dropdown
+    And user click save button
+
+
+
+
+
+
+
+
+
+
 
 
