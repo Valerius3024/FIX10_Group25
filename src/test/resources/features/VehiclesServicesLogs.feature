@@ -64,7 +64,7 @@ Feature: Vehicles Services Logs
     And user clicks save button
     Then new service log details should be displayed
 
-  @FIX10-446
+  @FIX10-446 @smoke
   Scenario: After clicked the Save button, Edit button display instead of Save button and Create button display instead of Discard button.
     Given user is on the Vehicles Services Logs
     And user clicks create button
@@ -74,7 +74,7 @@ Feature: Vehicles Services Logs
     And user enters "500" to total price input box
     And user enters "75000" to odometer value input box
     And user clicks save button
-    Then user should see Edit and Create button instead of Save button and Create button
+    Then user should see Edit and Create button instead of Save and Create button
 
 
   Scenario: When user clicks the Edit button the form should open by displaying the all the information and it be ready to edit.

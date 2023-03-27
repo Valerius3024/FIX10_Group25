@@ -61,7 +61,8 @@ public class VehiclesServicesLogs_StepDefs {
     }
 
     @And("user enters {string} to total price input box")
-    public void userEntersToTotalPriceInputBox(String totalPrice) {;
+    public void userEntersToTotalPriceInputBox(String totalPrice) {
+        ;
         servicesLogs.totalPriceBox.clear();
         servicesLogs.totalPriceBox.sendKeys(totalPrice);
     }
@@ -109,13 +110,13 @@ public class VehiclesServicesLogs_StepDefs {
 
     @Then("new service log details should be displayed")
     public void newServicesServiceLogDetailsShouldBeDisplayed() {
-        BrowserUtils.waitForVisibility(serviceLogDetails.vehicleField,5);
+        BrowserUtils.waitForVisibility(serviceLogDetails.vehicleField, 5);
         assertEquals("FORD/FOCUS/S", serviceLogDetails.vehicleField.getText());
         assertEquals("Tax roll", serviceLogDetails.serviceTypeField.getText());
         assertEquals("75,000.00", serviceLogDetails.odometerField.getText());
         assertEquals("500.00", serviceLogDetails.totalPriceField.getText());
 
-        servicesLogs.deleteLog();
+
     }
 
     @Then("the form should be display and enabled")
@@ -134,6 +135,15 @@ public class VehiclesServicesLogs_StepDefs {
 
     @Then("Service Type default value should be Repair and Maintenance")
     public void serviceTypeDefaultValueShouldBeRepairAndMaintenance() {
-        assertEquals("Repair and maintenance",servicesLogs.serviceTypeBox.getAttribute("value"));
+        assertEquals("Repair and maintenance", servicesLogs.serviceTypeBox.getAttribute("value"));
+    }
+
+    @Then("user should see Edit and Create button instead of Save and Create button")
+    public void userShouldSeeEditAndCreateButtonInsteadOfSaveAndCreateButton() {
+        BrowserUtils.waitForVisibility(servicesLogs.saveBtn, 5);
+        Assert.assertTrue(servicesLogs.saveBtn.isDisplayed());
+        BrowserUtils.waitForVisibility(servicesLogs.createBtn, 5);
+        Assert.assertTrue(servicesLogs.createBtn.isDisplayed());
+
     }
 }
