@@ -122,10 +122,6 @@ public class FuelLogStepDefinitions {
         fp.deleteOkButton.click();
     }
 
-    public static void click(WebElement we) {
-        ((JavascriptExecutor) Driver.getDriver()).executeScript("arguments[0].click()", we);
-    }
-
     @And("user sends text value to odometer")
     public void user_sends_text_value_to_odometer() {
         fp.odometerInputBox.clear();
@@ -147,5 +143,9 @@ public class FuelLogStepDefinitions {
     @Then("user checks odometer input shows float")
     public void user_checks_odometer_input_Shows_float() {
         Assert.assertTrue(fp.odometerSavedInput.getText().contains(".00"));
+    }
+
+    public static void click(WebElement we) {
+        ((JavascriptExecutor) Driver.getDriver()).executeScript("arguments[0].click()", we);
     }
 }

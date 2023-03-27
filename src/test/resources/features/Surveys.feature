@@ -18,9 +18,9 @@ Feature: As a POSMANAGER, I should be able to design survey from Surveys module
     And User clicks login button
     Then user clicks Surveys button
 
-    @wip
-  @FIX10-379
-    Scenario: 2. User must enter a survey title to create a survey.
+
+  @FIX10-379 @smoke
+  Scenario: 2. User must enter a survey title to create a survey.
     Given user is on the Surveys page
     And user clicks create survey button
     And user doesn't enter title
