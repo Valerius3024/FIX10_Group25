@@ -10,6 +10,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.eo.Se;
+import org.junit.Assert;
 import org.junit.Assert.*;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -108,6 +109,7 @@ public class VehiclesServicesLogs_StepDefs {
 
     @Then("new service log details should be displayed")
     public void newServicesServiceLogDetailsShouldBeDisplayed() {
+        BrowserUtils.waitForVisibility(serviceLogDetails.vehicleField,5);
         assertEquals("FORD/FOCUS/S", serviceLogDetails.vehicleField.getText());
         assertEquals("Tax roll", serviceLogDetails.serviceTypeField.getText());
         assertEquals("75,000.00", serviceLogDetails.odometerField.getText());
@@ -123,7 +125,15 @@ public class VehiclesServicesLogs_StepDefs {
         servicesLogs.totalPriceBox.isEnabled();
         servicesLogs.vehicleBox.isEnabled();
         servicesLogs.serviceTypeBox.isEnabled();
+    }
 
+    @Then("odometer value should be displayed as a float number")
+    public void numberShouldBeDisplayedAsAFloatNumber() {
+        Assert.assertTrue(serviceLogDetails.odometerField.getText().contains("."));
+    }
 
+    @Then("Service Type default value should be Repair and Maintenance")
+    public void serviceTypeDefaultValueShouldBeRepairAndMaintenance() {
+        assertEquals("Repair and maintenance",servicesLogs.serviceTypeBox.getAttribute("value"));
     }
 }

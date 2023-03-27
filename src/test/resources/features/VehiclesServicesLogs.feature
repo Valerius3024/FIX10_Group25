@@ -1,3 +1,4 @@
+@FIX10-386
 Feature: Vehicles Services Logs
   User story:
   As a POSMANAGER, I should be able to create a new Vehicles Services Logs.
@@ -75,17 +76,32 @@ Feature: Vehicles Services Logs
     And user clicks save button
     Then user should see Edit and Create button instead of Save button and Create button
 
-  @wip
-    Scenario: When user clicks the Edit button the form should open by displaying the all the information and it be ready to edit.
-      Given user is on the Vehicles Services Logs
-      And user clicks create button
-      And user enters "ford" to vehicle input box
-      And user select a vehicle from list
-      And user enters "Tax roll" to service type input box
-      And user enters "500" to total price input box
-      And user enters "75000" to odometer value input box
-      And user clicks save button
-      And user clicks Edit button
-      Then the form should be display and enabled
 
+  Scenario: When user clicks the Edit button the form should open by displaying the all the information and it be ready to edit.
+    Given user is on the Vehicles Services Logs
+    And user clicks create button
+    And user enters "ford" to vehicle input box
+    And user select a vehicle from list
+    And user enters "Tax roll" to service type input box
+    And user enters "500" to total price input box
+    And user enters "75000" to odometer value input box
+    And user clicks save button
+    And user clicks Edit button
+    Then the form should be display and enabled
+
+  Scenario: User should be able to enter only number in the Total Price input box. And it should be displayed as a float number.
+    Given user is on the Vehicles Services Logs
+    And user clicks create button
+    And user enters "ford" to vehicle input box
+    And user select a vehicle from list
+    And user enters "Tax roll" to service type input box
+    And user enters "500" to total price input box
+    And user enters "75000" to odometer value input box
+    And user clicks save button
+    Then odometer value should be displayed as a float number
+
+  Scenario: Service Type should display as "Repair and Maintenance" by default
+    Given user is on the Vehicles Services Logs
+    And user clicks create button
+    Then Service Type default value should be Repair and Maintenance
 

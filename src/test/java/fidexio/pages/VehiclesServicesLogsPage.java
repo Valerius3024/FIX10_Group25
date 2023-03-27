@@ -39,7 +39,7 @@ public class VehiclesServicesLogsPage {
     @FindBy(xpath = "//input[@name='amount']")
     public WebElement totalPriceBox;
 
-    @FindBy(xpath = "//input[@name='odometer']")
+    @FindBy(name="odometer")
     public WebElement odometerBox;
 
     @FindBy(name = "notes")
