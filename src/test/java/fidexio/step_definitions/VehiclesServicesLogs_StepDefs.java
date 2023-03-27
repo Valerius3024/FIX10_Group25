@@ -126,6 +126,7 @@ public class VehiclesServicesLogs_StepDefs {
         servicesLogs.totalPriceBox.isEnabled();
         servicesLogs.vehicleBox.isEnabled();
         servicesLogs.serviceTypeBox.isEnabled();
+
     }
 
     @Then("odometer value should be displayed as a float number")
