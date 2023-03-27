@@ -12,7 +12,7 @@ Feature: Creating a new cost feature
   6. When user clicks the Edit button the form should open by displaying the all the information and it be ready to edit.
   7. User should be able to enter only number in the Total Price input box. And it should be displayed as a float number.
 
-  Background: User should access to fleet page and click the Vehicle Contracts button
+  Background: User should access to fleet page and click the Vehicle Costs button
     Given user is on the login page
     When User enters "posmanager23@info.com" and "posmanager" for Pos Manager
     And User clicks login button
@@ -37,7 +37,7 @@ Feature: Creating a new cost feature
   # ------ AC2: User must choose at least a Vehicle to create a Vehicle Cost. --------
 
   #@wip
-  Scenario: User should be able to create a new Vehicle Costs
+  Scenario: The user must select at least one vehicle to create vehicle cost
     When user has not selected any vehicle
     And user selects "Summer tires" cost detail Type
     And user enters "700" for Total Price
