@@ -143,6 +143,7 @@ public class VehiclesServicesLogs_StepDefs {
         BrowserUtils.waitForVisibility(servicesLogs.saveBtn, 5);
         Assert.assertTrue(servicesLogs.saveBtn.isDisplayed());
         BrowserUtils.waitForVisibility(servicesLogs.createBtn, 5);
+
         Assert.assertTrue(servicesLogs.createBtn.isDisplayed());
 
     }
