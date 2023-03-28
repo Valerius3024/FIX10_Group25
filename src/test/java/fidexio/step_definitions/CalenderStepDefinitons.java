@@ -147,16 +147,4 @@ public class CalenderStepDefinitons {
     public void userCanSaveTheChanges() {
         calenderPage.saveButton.click();
     }
-
-    @And("User can delete the event.")
-    public void userCanDeleteTheEvent() throws InterruptedException {
-        calenderPage.deleteButton.click();
-        calenderPage.okButton.click();
-    }
-
-    @Then("User can see empty box on the event time box.")
-    public void userCanSeeEmptyBoxOnTheEventTimeBox() throws InterruptedException {
-        calenderPage.timeBoxButton.click();
-        Assert.assertTrue(calenderPage.createButton.getText().contains("Create"));
-    }
 }

@@ -32,12 +32,6 @@ public class CalenderPage {
     public WebElement editButton;
     @FindBy(xpath= "//input[@class='o_field_char o_field_widget o_input o_required_modifier']")
     public WebElement meetingSubjectBox;
-    @FindBy(xpath= "(//input[@class='o_input ui-autocomplete-input'])[2]")
-    public WebElement attendeesBox;
-    @FindBy(xpath= "//li[.='POSManager10']")
-    public WebElement posManager10;
-    @FindBy(xpath= "(//ul[@class='ui-autocomplete ui-front ui-menu ui-widget ui-widget-content'])[3]//li")
-    public WebElement tagline;
     @FindBy(xpath= "//li[.='Feedback Meeting']")
     public WebElement feedback;
     @FindBy(xpath= "//span[.='Feedback Meeting']")
@@ -58,10 +52,7 @@ public class CalenderPage {
     public WebElement privacyButton;
     @FindBy(xpath= "//span[.='Save']")
     public WebElement saveButton;
-    @FindBy(xpath= "//span[.='Delete']")
-    public WebElement deleteButton;
-    @FindBy(xpath= "//span[.='Ok']")
-    public WebElement okButton;
+
 
 
 
