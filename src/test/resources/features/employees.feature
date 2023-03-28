@@ -57,7 +57,7 @@ Background: For the scenarios in the feature file, user is expected to be on the
     And user clicks Save button to register the employee
     Then employee information should be displayed
 
-  @FIX10-400
+  @FIX10-400 @smoke
   Scenario: Verify an employee can be found in the search
     When user clicks on Create button
     And user enters Employee's Name input
@@ -86,5 +86,5 @@ Background: For the scenarios in the feature file, user is expected to be on the
     And user clicks Save button to register the employee
     Then employee information should be displayed
     When user navigates to Employees page
-    Then user finds the employee and clicks on it
-    And employee information should be displayed
+    And user finds the employee and clicks on it
+    Then employee information should be displayed
