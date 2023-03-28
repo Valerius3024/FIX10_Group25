@@ -22,6 +22,12 @@ public class VehiclesPage {
     @FindBy(css = "button.btn.btn-primary.btn-sm.o_form_button_save")
     public WebElement saveButton;
 
+    @FindBy(css = "button.btn.btn-default.btn-sm.o_form_button_cancel")
+    public WebElement discardButton;
+
+    @FindBy(css = "button.btn.btn-primary.btn-sm.o_form_button_edit")
+    public WebElement editButton;
+
     @FindBy(xpath = "(//div[@class='o_input_dropdown']/input)[1]")
     public WebElement modelInputBox;
 
@@ -45,7 +51,7 @@ public class VehiclesPage {
     @FindBy(xpath = "(//a[contains(text(),'Plaines')])[1]")
     public WebElement driverOption;
 
-    @FindBy(xpath = "(//a[contains(text(),'Create')])[2]")
+    @FindBy(xpath = "//span[.='Create']")
     public WebElement createNewDriver;
 
     @FindBy(css = "input[name='name']")
@@ -134,6 +140,65 @@ public class VehiclesPage {
     @FindBy(css = "a[name='model_id']")
     public WebElement registeredModelId;
 
+    @FindBy(css = "span[name='license_plate']")
+    public WebElement registeredLicense;
+
+    @FindBy(className = "o_badge_text")
+    public WebElement registeredTag;
+
+    @FindBy(css = "a[name='driver_id']")
+    public WebElement registeredDriver;
+
+    @FindBy(css = "span[name='location']")
+    public WebElement registeredLocation;
+
+    @FindBy(css = "span[name='vin_sn']")
+    public WebElement registeredChassis;
+
+    @FindBy(css = "span[name='model_year']")
+    public WebElement registeredModelYear;
+
+    @FindBy(css = "span[name='odometer']")
+    public WebElement registeredOdometer;
+
+    @FindBy(css = "span[name='acquisition_date']")
+    public WebElement registeredDate;
+
+    @FindBy(css = "span[name='car_value']")
+    public WebElement registeredCarValue;
+
+    @FindBy(css = "span[name='residual_value']")
+    public WebElement registeredResidualValue;
+
+    @FindBy(css = "span[name='seats']")
+    public WebElement registeredSeats;
+
+    @FindBy(css = "span[name='doors']")
+    public WebElement registeredDoors;
+
+    @FindBy(css = "span[name='color']")
+    public WebElement registeredColor;
+
+    @FindBy(css = "span[name='transmission']")
+    public WebElement registeredTransmission;
+
+    @FindBy(css = "span[name='fuel_type']")
+    public WebElement registeredFuelType;
+
+    @FindBy(css = "span[name='co2']")
+    public WebElement registeredCo2;
+
+    @FindBy(css = "span[name='horsepower']")
+    public WebElement registeredHorsePower;
+
+    @FindBy(css = "span[name='horsepower_tax']")
+    public WebElement registeredHorsePowerTax;
+
+    @FindBy(css = "span[name='power']")
+    public WebElement registeredPower;
+
+//////////////////////////////////////////////////////////////////////////////////
+
     @FindBy(xpath = "//div[@class='o_notification_title']/span")
     public WebElement notificationTitle;
 
@@ -154,6 +219,18 @@ public class VehiclesPage {
 
     @FindBy(css = "div.o_loading")
     public WebElement loadingIndicator;
+
+    @FindBy(xpath = "//li[.='Seats Number']")
+    public WebElement seatsNumberError;
+
+    @FindBy(xpath = "//li[.='Doors Number']")
+    public WebElement doorsNumberError;
+
+    @FindBy(xpath = "//li[.='Model']")
+    public WebElement modelError;
+
+    @FindBy(xpath = "//li[.='License Plate']")
+    public WebElement plateError;
 
 
 }

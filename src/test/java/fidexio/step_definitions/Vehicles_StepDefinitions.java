@@ -48,10 +48,15 @@ public class Vehicles_StepDefinitions {
     public void user_chooses_the_car_type_from_tags() {
         vehiclesPage.carTypeInputBox.click();
         vehiclesPage.carTypeOption.click();
+        BrowserUtils.waitForInvisibilityOfElement(vehiclesPage.loadingIndicator, 10);
     }
     @When("user fills all the fields in general properties")
     public void user_fills_all_the_fields_in_general_properties() {
         BrowserUtils.waitForClickablility(vehiclesPage.locationInputBox, 10);
+        vehiclesPage.driverInputBox.sendKeys(faker.name().fullName());
+        vehiclesPage.locationInputBox.click();
+        vehiclesPage.createNewDriver.click();
+        BrowserUtils.waitForInvisibilityOfElement(vehiclesPage.loadingIndicator, 10);
         vehiclesPage.locationInputBox.sendKeys(faker.address().cityName());
         vehiclesPage.chassisInputBox.sendKeys(faker.bothify("??##-#######"));
         vehiclesPage.modelYearInputBox.sendKeys(""+faker.number().numberBetween(1908, 2023));
@@ -86,9 +91,11 @@ public class Vehicles_StepDefinitions {
         Assert.assertTrue(vehiclesPage.addedToFleet.isDisplayed());
     }
 
-    @Then("user should see The following fields are invalid notification")
-    public void user_should_see_the_following_fields_are_invalid_notification() {
+    @Then("user should see The following fields are invalid notification for model and plate")
+    public void user_should_see_the_following_fields_are_invalid_notification_for_model_and_plate() {
         Assert.assertTrue(vehiclesPage.notificationTitle.isDisplayed());
+        Assert.assertTrue(vehiclesPage.modelError.isDisplayed());
+        Assert.assertTrue(vehiclesPage.plateError.isDisplayed());
     }
 
     @When("user enters a new model for the vehicle")
@@ -128,8 +135,77 @@ public class Vehicles_StepDefinitions {
 
     }
 
+    @Then("Edit and Create buttons should be displayed instead of Save and Discard in Vehicles page")
+    public void edit_and_create_buttons_should_be_displayed_instead_of_save_and_discard_in_vehicles_page() {
+        BrowserUtils.waitForVisibility(vehiclesPage.editButton, 10);
+        Assert.assertTrue(vehiclesPage.editButton.isDisplayed());
+        Assert.assertTrue(vehiclesPage.createButton.isDisplayed());
+        Assert.assertFalse(vehiclesPage.saveButton.isDisplayed());
+        Assert.assertFalse(vehiclesPage.discardButton.isDisplayed());
 
+    }
 
+    @Then("all the information should be displayed")
+    public void all_the_information_should_be_displayed() {
+        Assert.assertTrue(vehiclesPage.registeredModelId.isDisplayed());
+        Assert.assertTrue(vehiclesPage.registeredLicense.isDisplayed());
+        Assert.assertTrue(vehiclesPage.registeredTag.isDisplayed());
+        Assert.assertTrue(vehiclesPage.registeredDriver.isDisplayed());
+        Assert.assertTrue(vehiclesPage.registeredLocation.isDisplayed());
+        Assert.assertTrue(vehiclesPage.registeredChassis.isDisplayed());
+        Assert.assertTrue(vehiclesPage.registeredModelYear.isDisplayed());
+        Assert.assertTrue(vehiclesPage.registeredOdometer.isDisplayed());
+        Assert.assertTrue(vehiclesPage.registeredDate.isDisplayed());
+        Assert.assertTrue(vehiclesPage.registeredCarValue.isDisplayed());
+        Assert.assertTrue(vehiclesPage.registeredResidualValue.isDisplayed());
+        Assert.assertTrue(vehiclesPage.registeredSeats.isDisplayed());
+        Assert.assertTrue(vehiclesPage.registeredDoors.isDisplayed());
+        Assert.assertTrue(vehiclesPage.registeredColor.isDisplayed());
+        Assert.assertTrue(vehiclesPage.registeredTransmission.isDisplayed());
+        Assert.assertTrue(vehiclesPage.registeredFuelType.isDisplayed());
+        Assert.assertTrue(vehiclesPage.registeredCo2.isDisplayed());
+        Assert.assertTrue(vehiclesPage.registeredHorsePower.isDisplayed());
+        Assert.assertTrue(vehiclesPage.registeredHorsePowerTax.isDisplayed());
+        Assert.assertTrue(vehiclesPage.registeredPower.isDisplayed());
+    }
+    @Then("form should be ready to be edited when user clicks Edit")
+    public void form_should_be_ready_to_be_edited_when_user_clicks_edit() {
+        vehiclesPage.editButton.click();
+        BrowserUtils.waitForVisibility(vehiclesPage.modelInputBox, 10);
+        Assert.assertTrue(vehiclesPage.modelInputBox.isDisplayed());
+        Assert.assertTrue(vehiclesPage.licensePlateInputBox.isDisplayed());
+        Assert.assertTrue(vehiclesPage.carTypeInputBox.isDisplayed());
+        Assert.assertTrue(vehiclesPage.driverInputBox.isDisplayed());
+        Assert.assertTrue(vehiclesPage.locationInputBox.isDisplayed());
+        Assert.assertTrue(vehiclesPage.chassisInputBox.isDisplayed());
+        Assert.assertTrue(vehiclesPage.modelYearInputBox.isDisplayed());
+        Assert.assertTrue(vehiclesPage.odometerInputBox.isDisplayed());
+        Assert.assertTrue(vehiclesPage.immatriculationInputBox.isDisplayed());
+        Assert.assertTrue(vehiclesPage.carValueInputBox.isDisplayed());
+        Assert.assertTrue(vehiclesPage.residualValueInputBox.isDisplayed());
+        Assert.assertTrue(vehiclesPage.seatsInputBox.isDisplayed());
+        Assert.assertTrue(vehiclesPage.doorsInputBox.isDisplayed());
+        Assert.assertTrue(vehiclesPage.colorInputBox.isDisplayed());
+        Assert.assertTrue(vehiclesPage.transmissionSelect.isDisplayed());
+        Assert.assertTrue(vehiclesPage.fuelTypeSelect.isDisplayed());
+        Assert.assertTrue(vehiclesPage.co2InputBox.isDisplayed());
+        Assert.assertTrue(vehiclesPage.horsePowerInputBox.isDisplayed());
+        Assert.assertTrue(vehiclesPage.horsePowerTaxInputBox.isDisplayed());
+        Assert.assertTrue(vehiclesPage.powerInputBox.isDisplayed());
+    }
+
+    @When("user enters string for number of seats and doors")
+    public void user_enters_string_for_number_of_seats_and_doors() {
+        vehiclesPage.seatsInputBox.sendKeys(faker.bothify("????#"));
+        vehiclesPage.doorsInputBox.sendKeys(faker.bothify("????#"));
+        vehiclesPage.colorInputBox.sendKeys(faker.color().name());
+    }
+    @Then("user should see The following fields are invalid notification for seats and doors")
+    public void user_should_see_the_following_fields_are_invalid_notification_for_seats_and_doors() {
+        Assert.assertTrue(vehiclesPage.notificationTitle.isDisplayed());
+        Assert.assertTrue(vehiclesPage.seatsNumberError.isDisplayed());
+        Assert.assertTrue(vehiclesPage.doorsNumberError.isDisplayed());
+    }
 
 
 
