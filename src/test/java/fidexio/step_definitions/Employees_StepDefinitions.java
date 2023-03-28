@@ -16,8 +16,11 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.remote.LocalFileDetector;
+import org.openqa.selenium.remote.RemoteWebElement;
 
 import java.awt.*;
+import java.nio.file.FileSystems;
 import java.util.Locale;
 
 public class Employees_StepDefinitions {
@@ -116,6 +119,7 @@ public class Employees_StepDefinitions {
     }
     @When("user clicks Save button to register the employee")
     public void user_clicks_save_button_to_register_the_employee() {
+        BrowserUtils.waitForInvisibilityOfElement(employeesPage.loadingIndicator,10);
         employeesPage.employeeSaveButton.click();
     }
     @Then("employee information should be displayed")
@@ -126,7 +130,8 @@ public class Employees_StepDefinitions {
 
     @When("user uploads a picture using the edit button in the image field")
     public void user_uploads_a_picture_using_the_edit_button_in_the_image_field() {
-        employeesPage.employeeUploadPicture.sendKeys("C:/Users/simge/Desktop/baris/homer.jpg");
+        String absolutePath = FileSystems.getDefault().getPath("src/test/employeeImage.jpg").normalize().toAbsolutePath().toString();
+        employeesPage.employeeUploadPicture.sendKeys(absolutePath);
     }
     @Then("uploaded picture should be deletable")
     public void uploaded_picture_should_be_deletable() {
