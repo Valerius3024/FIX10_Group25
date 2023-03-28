@@ -68,7 +68,7 @@ public class VehiclesServicesLogs_StepDefs {
 
     @And("user enters {string} to odometer value input box")
     public void userEntersToOdometerValueInoutBox(String odometerValue) {
-        BrowserUtils.waitFor(3);
+        BrowserUtils.waitFor(1);
         servicesLogs.odometerBox.clear();
         servicesLogs.odometerBox.sendKeys(odometerValue);
         servicesLogs.notesField.sendKeys("delete");
@@ -110,6 +110,7 @@ public class VehiclesServicesLogs_StepDefs {
     @Then("new service log details should be displayed")
     public void newServicesServiceLogDetailsShouldBeDisplayed() {
         BrowserUtils.waitForVisibility(serviceLogDetails.vehicleField,5);
+        BrowserUtils.waitFor(3);
         assertEquals("FORD/FOCUS/S", serviceLogDetails.vehicleField.getText());
         assertEquals("Tax roll", serviceLogDetails.serviceTypeField.getText());
         assertEquals("75,000.00", serviceLogDetails.odometerField.getText());
@@ -127,9 +128,10 @@ public class VehiclesServicesLogs_StepDefs {
         servicesLogs.serviceTypeBox.isEnabled();
     }
 
-    @Then("odometer value should be displayed as a float number")
+    @Then("total price value should be displayed as a float number")
     public void numberShouldBeDisplayedAsAFloatNumber() {
-        Assert.assertTrue(serviceLogDetails.odometerField.getText().contains("."));
+        BrowserUtils.waitFor(3);
+        Assert.assertTrue(serviceLogDetails.totalPriceField.getText().contains("."));
     }
 
     @Then("Service Type default value should be Repair and Maintenance")
