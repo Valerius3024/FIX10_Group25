@@ -77,7 +77,9 @@ public class VehiclesServicesLogs_StepDefs {
     @Then("the new log should be displayed in the table")
     public void theNewLogShouldBeDisplayedInTheTable() throws InterruptedException {
         fleetPage.vehiclesServicesLogs.click();
+        BrowserUtils.waitFor(3);
         assertTrue(servicesLogs.newLog.isDisplayed());
+        BrowserUtils.waitFor(3);
         servicesLogs.deleteLog();
     }
 
@@ -126,12 +128,16 @@ public class VehiclesServicesLogs_StepDefs {
         servicesLogs.totalPriceBox.isEnabled();
         servicesLogs.vehicleBox.isEnabled();
         servicesLogs.serviceTypeBox.isEnabled();
+
+        servicesLogs.deleteLog();
     }
 
     @Then("total price value should be displayed as a float number")
     public void numberShouldBeDisplayedAsAFloatNumber() {
         BrowserUtils.waitFor(3);
         Assert.assertTrue(serviceLogDetails.totalPriceField.getText().contains("."));
+
+        servicesLogs.deleteLog();
     }
 
     @Then("Service Type default value should be Repair and Maintenance")
@@ -145,6 +151,7 @@ public class VehiclesServicesLogs_StepDefs {
         Assert.assertTrue(servicesLogs.saveBtn.isDisplayed());
         BrowserUtils.waitForVisibility(servicesLogs.createBtn,5);
         Assert.assertTrue(servicesLogs.createBtn.isDisplayed());
+        servicesLogs.deleteLog();
 
     }
 }
