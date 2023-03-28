@@ -65,9 +65,7 @@ Feature: Vehicles Services Logs
     Then new service log details should be displayed
 
 
-
-  @smoke @US-28
-
+   @FIX10-446 @smoke
   Scenario: After clicked the Save button, Edit button display instead of Save button and Create button display instead of Discard button.
     Given user is on the Vehicles Services Logs
     And user clicks create button
@@ -79,7 +77,7 @@ Feature: Vehicles Services Logs
     And user clicks save button
     Then user should see Edit and Create button instead of Save and Create button
 
-
+  @FIX10-465
   Scenario: When user clicks the Edit button the form should open by displaying the all the information and it be ready to edit.
     Given user is on the Vehicles Services Logs
     And user clicks create button
@@ -92,6 +90,7 @@ Feature: Vehicles Services Logs
     And user clicks Edit button
     Then the form should be display and enabled
 
+  @FIX10-466
   Scenario: User should be able to enter only number in the Total Price input box. And it should be displayed as a float number.
     Given user is on the Vehicles Services Logs
     And user clicks create button
@@ -101,8 +100,9 @@ Feature: Vehicles Services Logs
     And user enters "500" to total price input box
     And user enters "75000" to odometer value input box
     And user clicks save button
-    Then odometer value should be displayed as a float number
+    Then total price value should be displayed as a float number
 
+  @FIX10-467
   Scenario: Service Type should display as "Repair and Maintenance" by default
     Given user is on the Vehicles Services Logs
     And user clicks create button

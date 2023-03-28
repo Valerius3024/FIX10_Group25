@@ -62,6 +62,8 @@ public class VehiclesServicesLogsPage {
 
 
     public void deleteLog() {
+        FleetPage fleetPage = new FleetPage();
+        fleetPage.vehiclesServicesLogs.click();
         dateBtn.click();
         BrowserUtils.waitFor(2);
         dateBtn.click();
