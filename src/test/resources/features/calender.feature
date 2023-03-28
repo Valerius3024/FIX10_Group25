@@ -1,4 +1,4 @@
-@CalendarFunctionality
+@FIX10-389
 Feature: Calender Functionality
 
   User Story:
@@ -16,19 +16,19 @@ Feature: Calender Functionality
   3- User can create event by clicking on time box
   4- User can see event details when click the event on the calander.
   5- User can edit a created event.
-  6- User can delete the created event.
 
+#@FIX10-457
   Background: User should access Discuss page and click the Calender button
     Given user is on the login page
     When User enters "posmanager25@info.com" and "posmanager" for Pos Manager
     And User clicks login button
     Then User clicks calender button
 
-  @calender1
+  @FIX10-458
   Scenario: User first lands on weekly display
     Then The title should contain week under the calender button
 
-  @calender2
+  @FIX10-459
   Scenario: User can change display between Day-Week-Month
     When User clicks day button
     Then the day number should be displayed under the calender button
@@ -37,18 +37,18 @@ Feature: Calender Functionality
     And User clicks month button
     Then the month name should be displayed under the calender button
 
-  @calender3
+  @FIX10-460
   Scenario: User can create event by clicking on time box
     When User can click the time box
     And User can writes "something" on the summary box
     Then User can click the create button.
 
-  @calender4
+  @FIX10-461
   Scenario: User can see event details when click the event on the calander.
-    When User can click the event icon on the tme box.
+    Then User can click the event icon on the tme box.
 
 
-  @calender5
+  @FIX10-462 @smoke
   Scenario: User can edit a created event
     When User can click the event icon on the tme box.
     And User can click the edit button.
@@ -61,13 +61,8 @@ Feature: Calender Functionality
     And User can click location box.
     And User can write "Meeting Room 15".
     And User can click description box.
-    And User can write  the "please be prepared".
+    And User can write  the "Please be prepared".
     And Options dropdown can be clickable
     And User can select the only internal users.
     Then User can save the changes.
 
-  @calender6
-  Scenario: User can delete the created event.
-    When User can click the event icon on the tme box.
-    And User can delete the event.
-    Then User can see empty box on the event time box.

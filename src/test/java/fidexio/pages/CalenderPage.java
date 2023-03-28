@@ -20,7 +20,7 @@ public class CalenderPage {
     public WebElement weekButton;
     @FindBy(xpath= "//button[.='Month']")
     public WebElement monthButton;
-    @FindBy(xpath= "//tr[@data-time='02:30:00']")
+    @FindBy(xpath= "//tr[@data-time='01:00:00']")
     public WebElement timeBoxButton;
     @FindBy(xpath= "//input[@class='o_input']")
     public WebElement summaryBox;
@@ -40,6 +40,8 @@ public class CalenderPage {
     public WebElement tagline;
     @FindBy(xpath= "//li[.='Feedback Meeting']")
     public WebElement feedback;
+    @FindBy(xpath= "//span[.='Feedback Meeting']")
+    public WebElement feedbackSelect;
     @FindBy(xpath= "(//input[@class='o_input ui-autocomplete-input'])[3]")
     public WebElement tagsBox;
     @FindBy(xpath= "(//input[@class='o_input ui-autocomplete-input'])[4]")
