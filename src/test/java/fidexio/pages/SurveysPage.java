@@ -9,12 +9,14 @@ public class SurveysPage {
 
     public SurveysPage() {PageFactory.initElements(Driver.getDriver(), this);}
 
-    @FindBy(tagName = "h1")
+    @FindBy(xpath = "//input[@class='o_field_char o_field_widget o_input o_required_modifier']")
     public WebElement surveyTitleBox;
     @FindBy(xpath = "//button[normalize-space(text())='Save']")
     public WebElement saveSurveyButton;
-    public WebElement discardButton;
-    public WebElement editButton;
+    @FindBy(xpath = "//button[normalize-space(text())='Discard']")
+    public WebElement discardSurveyButton;
+    @FindBy(xpath = "//button[normalize-space(text())='Edit']")
+    public WebElement editSurveyButton;
     @FindBy(xpath = "//button[normalize-space(text())='Create']")
     public WebElement createSurveyButton;
     public WebElement attachmentButton;

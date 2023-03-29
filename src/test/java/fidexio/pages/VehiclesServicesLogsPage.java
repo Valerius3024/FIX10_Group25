@@ -36,13 +36,13 @@ public class VehiclesServicesLogsPage {
 
     @FindBy(xpath = "//a[@data-index='1']")
     public WebElement deleteBtn;
-    @FindBy(id = "o_field_input_756")
+    @FindBy(xpath = "//input[@name='amount']")
     public WebElement totalPriceBox;
 
-    @FindBy(id = "o_field_input_757")
+    @FindBy(name="odometer")
     public WebElement odometerBox;
 
-    @FindBy(id = "o_field_input_764")
+    @FindBy(name = "notes")
     public WebElement notesField;
 
     @FindBy(xpath = "//li[@class=\"ui-menu-item\"]")
@@ -62,6 +62,8 @@ public class VehiclesServicesLogsPage {
 
 
     public void deleteLog() {
+        FleetPage fleetPage = new FleetPage();
+        fleetPage.vehiclesServicesLogs.click();
         dateBtn.click();
         BrowserUtils.waitFor(2);
         dateBtn.click();

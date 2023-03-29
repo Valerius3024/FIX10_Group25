@@ -475,5 +475,8 @@ for given duration
         new WebDriverWait(Driver.getDriver(), time).until(ExpectedConditions.presenceOfElementLocated(by));
     }
 
+    public static void waitForInvisibilityOfElement(WebElement element, long time){
+        new WebDriverWait(Driver.getDriver(),time).until(ExpectedConditions.invisibilityOf(element));
+    }
 
 }

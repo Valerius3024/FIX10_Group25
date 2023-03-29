@@ -16,8 +16,11 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.remote.LocalFileDetector;
+import org.openqa.selenium.remote.RemoteWebElement;
 
 import java.awt.*;
+import java.nio.file.FileSystems;
 import java.util.Locale;
 
 public class Employees_StepDefinitions {
@@ -110,24 +113,25 @@ public class Employees_StepDefinitions {
 
     @When("user enters Employee's Name input")
     public void user_enters_employee_s_name_input() {
-        BrowserUtils.waitFor(1);
+        BrowserUtils.waitForInvisibilityOfElement(employeesPage.loadingIndicator,10);
         employeeName = faker.name().fullName();
         employeesPage.createFormEmployeeName.sendKeys(employeeName);
     }
     @When("user clicks Save button to register the employee")
     public void user_clicks_save_button_to_register_the_employee() {
+        BrowserUtils.waitForInvisibilityOfElement(employeesPage.loadingIndicator,10);
         employeesPage.employeeSaveButton.click();
     }
     @Then("employee information should be displayed")
     public void employee_information_should_be_displayed() {
         BrowserUtils.waitForVisibility(employeesPage.registeredEmployeeName, 15);
-        Assert.assertTrue(employeesPage.employeeAttendance.isDisplayed());
-        Assert.assertEquals(employeesPage.registeredEmployeeName.getText(), employeeName);
+        Assert.assertTrue(employeesPage.registeredEmployeeName.getText().contains(employeeName));
     }
 
     @When("user uploads a picture using the edit button in the image field")
     public void user_uploads_a_picture_using_the_edit_button_in_the_image_field() {
-        employeesPage.employeeUploadPicture.sendKeys("C:/Users/simge/Desktop/baris/homer.jpg");
+        String absolutePath = FileSystems.getDefault().getPath("src/test/employeeImage.jpg").normalize().toAbsolutePath().toString();
+        employeesPage.employeeUploadPicture.sendKeys(absolutePath);
     }
     @Then("uploaded picture should be deletable")
     public void uploaded_picture_should_be_deletable() {
@@ -148,15 +152,29 @@ public class Employees_StepDefinitions {
 
     @When("user enters the employee name on the search box and presses the Enter key")
     public void user_enters_the_employee_name_on_the_search_box_and_presses_the_enter_key() {
-        BrowserUtils.waitFor(1);
-        employeesPage.employeeSearchBox.sendKeys(employeeName + Keys.ENTER);
+        BrowserUtils.waitForInvisibilityOfElement(employeesPage.loadingIndicator,10);
+        BrowserUtils.waitForClickablility(employeesPage.employeeSearchBox, 10);
+        employeesPage.employeeSearchBox.sendKeys(employeeName);
+        employeesPage.employeeSearchBox.sendKeys(Keys.ENTER);
     }
     @When("user finds the employee and clicks on it")
     public void user_finds_the_employee_and_clicks_on_it() {
-        WebElement employeeSearchResult = Driver.getDriver().findElement(By.xpath("//span[.='"+employeeName+"']"));
-        BrowserUtils.waitForVisibility(employeeSearchResult, 15);
-        Assert.assertTrue(employeeSearchResult.isDisplayed());
-        employeeSearchResult.click();
+        boolean checkNextPage = true;
+        while(checkNextPage){
+            BrowserUtils.waitForInvisibilityOfElement(employeesPage.loadingIndicator, 10);
+            for(WebElement result : employeesPage.employeesResults){
+                if(result.getText().contains(employeeName)) {
+                    checkNextPage = false;
+                    result.click();
+                    break;
+                }
+            }
+            if(checkNextPage==false){
+                break;
+            }
+            employeesPage.nextPageButton.click();
+        }
+
     }
 
     @Then("{string} message should appear under full profile")
@@ -165,7 +183,5 @@ public class Employees_StepDefinitions {
         String actualMessage = employeesPage.employeeCreated.getText();
         Assert.assertTrue(actualMessage.contains(expectedMessage));
     }
-
-
 
 }

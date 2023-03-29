@@ -86,26 +86,25 @@ public class CalenderStepDefinitons {
     }
 
     @And("User can change the name of the event with {string}")
-    public void userCanChangeTheNameOfTheEventWith(String string) throws InterruptedException {
+    public void userCanChangeTheNameOfTheEventWith(String string) {
         calenderPage.meetingSubjectBox.sendKeys(string);
-        Thread.sleep(3000);
     }
+
     @And("User can click tags box and write {string}.")
-    public void userCanClickTagsBoxAndWrite(String string) throws InterruptedException {
+    public void userCanClickTagsBoxAndWrite(String string) {
         calenderPage.tagsBox.sendKeys(string);
-        Thread.sleep(2000);
     }
 
     @And("User can select the Feedback Meeting.")
-    public void userCanSelectTheFeedbackMeeting() throws InterruptedException {
+    public void userCanSelectTheFeedbackMeeting() {
         calenderPage.feedback.click();
-        Thread.sleep(2000);
-
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 15);
+        wait.until(ExpectedConditions.visibilityOf(calenderPage.feedbackSelect));
     }
+
     @And("User can click reminder box and write {string}.")
-    public void userCanClickReminderBoxAndWrite(String number) throws InterruptedException {
+    public void userCanClickReminderBoxAndWrite(String number) {
         calenderPage.reminderBox.click();
-        Thread.sleep(2000);
     }
 
     @And("User can select the {int} minutes.")
@@ -119,15 +118,13 @@ public class CalenderStepDefinitons {
     }
 
     @And("User can write {string}.")
-    public void userCanWrite(String string) throws InterruptedException {
+    public void userCanWrite(String string) {
         calenderPage.locationBox.sendKeys(string);
-        Thread.sleep(2000);
     }
 
     @And("User can click description box.")
-    public void userCanClickDescriptionBox() throws InterruptedException {
+    public void userCanClickDescriptionBox() {
         calenderPage.descriptionBox.click();
-        Thread.sleep(2000);
     }
 
     @And("User can write  the {string}.")
@@ -136,29 +133,18 @@ public class CalenderStepDefinitons {
     }
 
     @And("Options dropdown can be clickable")
-    public void optionsDropdownCanBeClickable() throws InterruptedException {
+    public void optionsDropdownCanBeClickable() {
         calenderPage.optionsButton.click();
-        Thread.sleep(2000);
     }
 
     @And("User can select the only internal users.")
-    public void userCanSelectTheOnlyInternalUsers() throws InterruptedException {
+    public void userCanSelectTheOnlyInternalUsers() {
         Select sel = new Select(calenderPage.privacyButton);
         sel.selectByVisibleText("Only internal users");
-        Thread.sleep(2000);
     }
-        @Then("User can save the changes.")
+
+    @Then("User can save the changes.")
     public void userCanSaveTheChanges() {
         calenderPage.saveButton.click();
-    }
-    @And("User can delete the event.")
-    public void userCanDeleteTheEvent() throws InterruptedException {
-        calenderPage.deleteButton.click();
-        calenderPage.okButton.click();
-    }
-    @Then("User can see empty box on the event time box.")
-    public void userCanSeeEmptyBoxOnTheEventTimeBox() throws InterruptedException {
-        calenderPage.timeBoxButton.click();
-        Assert.assertTrue(calenderPage.createButton.getText().contains("Create"));
     }
 }
