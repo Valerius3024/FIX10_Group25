@@ -12,3 +12,13 @@ Feature: Creating a new vehicle model feature
     Given user is on the login page
     When User enters "posmanager27@info.com" and "posmanager" for Pos Manager
     Then User clicks login button
+    And User navigates to fleet page
+    And user clicks Vehicle Model button
+    And User clicks create button
+
+    Scenario: User should be able to create a new vehicle model
+      When user enters "Shelby 1967" model name
+      And user enters "Mustang" brand name
+      And user adds the vehicle model image
+      And user clicks save button
+      Then User see the new vehicle model
