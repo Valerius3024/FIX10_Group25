@@ -20,26 +20,22 @@ public class CalenderPage {
     public WebElement weekButton;
     @FindBy(xpath= "//button[.='Month']")
     public WebElement monthButton;
-    @FindBy(xpath= "//tr[@data-time='01:30:00']")
+    @FindBy(xpath= "//tr[@data-time='01:00:00']")
     public WebElement timeBoxButton;
     @FindBy(xpath= "//input[@class='o_input']")
     public WebElement summaryBox;
     @FindBy(xpath= "//button[@class='btn btn-sm btn-primary']")
     public WebElement createButton;
-    @FindBy(xpath= "//div[@class='fc-content']")
+    @FindBy(xpath= "(//div[@class='fc-event-container']//a)[2]")
     public WebElement eventButton;
     @FindBy(xpath= "//span[.='Edit']")
     public WebElement editButton;
     @FindBy(xpath= "//input[@class='o_field_char o_field_widget o_input o_required_modifier']")
     public WebElement meetingSubjectBox;
-    @FindBy(xpath= "(//input[@class='o_input ui-autocomplete-input'])[2]")
-    public WebElement attendeesBox;
-    @FindBy(xpath= "//li[.='POSManager10']")
-    public WebElement posManager10;
-    @FindBy(xpath= "(//ul[@class='ui-autocomplete ui-front ui-menu ui-widget ui-widget-content'])[3]//li")
-    public WebElement tagline;
     @FindBy(xpath= "//li[.='Feedback Meeting']")
     public WebElement feedback;
+    @FindBy(xpath= "//span[.='Feedback Meeting']")
+    public WebElement feedbackSelect;
     @FindBy(xpath= "(//input[@class='o_input ui-autocomplete-input'])[3]")
     public WebElement tagsBox;
     @FindBy(xpath= "(//input[@class='o_input ui-autocomplete-input'])[4]")
@@ -56,10 +52,7 @@ public class CalenderPage {
     public WebElement privacyButton;
     @FindBy(xpath= "//span[.='Save']")
     public WebElement saveButton;
-    @FindBy(xpath= "//span[.='Delete']")
-    public WebElement deleteButton;
-    @FindBy(xpath= "//span[.='Ok']")
-    public WebElement okButton;
+
 
 
 
