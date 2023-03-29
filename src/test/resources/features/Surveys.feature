@@ -36,7 +36,7 @@ Feature: As a POSMANAGER, I should be able to design survey from Surveys module
     Then survey save button turns into survey edit button
     Then survey discard button turns into survey create button
 
-  @FIX10-415 @wip
+  @FIX10-415
   Scenario: After clicked the Save button, "Attachment(s)", "Action", "Test Survey", "Print Survey", "Share and invite by email" and "View result" buttons should be displayed.
     Given user is on the Surveys page
     And user clicks create survey button
