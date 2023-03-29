@@ -19,14 +19,20 @@ public class SurveysPage {
     public WebElement editSurveyButton;
     @FindBy(xpath = "//button[normalize-space(text())='Create']")
     public WebElement createSurveyButton;
-    public WebElement attachmentButton;
-    public WebElement actionButton;
+    @FindBy(xpath = "//button[normalize-space(text())='Attachment(s)']")
+    public WebElement surveyAttachmentButton;
+    @FindBy(xpath = "//button[normalize-space(text())='Action']")
+    public WebElement surveyActionButton;
+    @FindBy(xpath = "//button[normalize-space(text())='Test Survey']")
     public WebElement testSurveyButton;
+    @FindBy(xpath = "//button[normalize-space(text())='Print Survey']")
     public WebElement printSurveyButton;
-    public WebElement shareAndInviteByEmailButton;
-    public WebElement viewResultButton;
-    public WebElement addAnItemButton;
-    public WebElement optionsTabButton;
+    @FindBy(xpath = "//button[normalize-space(text())='Share and invite by email']")
+    public WebElement surveyShareAndInviteByEmailButton;
+    @FindBy(xpath = "//button[normalize-space(text())='View results'][1]")
+    public WebElement surveyViewResultButton;
+    public WebElement surveyAddAnItemButton;
+    public WebElement surveyOptionsTabButton;
     public WebElement userCanComeBackInThePreviousPageCheckbox	;
     public WebElement loginRequiredCheckbox;
     public WebElement surveyCreatedMessage;
