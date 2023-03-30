@@ -67,4 +67,16 @@ public class VehicleCostsPage {
         okButton.click();
 
     }
+
+    public void deleteVehicleCostNoCheckBox(){
+
+
+        BrowserUtils.waitFor(1);
+        actionButton.click();
+        BrowserUtils.waitFor(1);
+        deleteButton.click();
+        BrowserUtils.waitFor(1);
+        okButton.click();
+
+    }
 }
