@@ -68,5 +68,37 @@ public class SurveysStepDefinitions {
         BrowserUtils.waitForVisibility(surveysPage.createSurveyButton, 10);
         Assert.assertTrue(surveysPage.createSurveyButton.isDisplayed());
     }
+    @Then("user can see survey attachments button")
+    public void user_can_see_survey_attachments_button() {
+        BrowserUtils.waitForVisibility(surveysPage.surveyAttachmentButton, 10);
+        Assert.assertTrue(surveysPage.surveyAttachmentButton.isDisplayed());
+    }
+    @Then("user can see survey action button")
+    public void user_can_see_survey_action_button() {
+        BrowserUtils.waitForVisibility(surveysPage.surveyActionButton, 10);
+        Assert.assertTrue(surveysPage.surveyActionButton.isDisplayed());
+    }
+    @Then("user can see test survey button")
+    public void user_can_see_test_survey_button() {
+        BrowserUtils.waitForVisibility(surveysPage.testSurveyButton, 10);
+        Assert.assertTrue(surveysPage.testSurveyButton.isDisplayed());
+    }
+    @Then("user can see print survey button")
+    public void user_can_see_print_survey_button() {
+        BrowserUtils.waitForVisibility(surveysPage.printSurveyButton, 10);
+        Assert.assertTrue(surveysPage.printSurveyButton.isDisplayed());
+    }
+    @Then("user can see survey share and invite by email button")
+    public void user_can_see_survey_share_and_invite_by_email_button() {
+        BrowserUtils.waitForVisibility(surveysPage.surveyShareAndInviteByEmailButton, 10);
+        Assert.assertTrue(surveysPage.surveyShareAndInviteByEmailButton.isDisplayed());
+    }
+    @Then("user can see survey view result button")
+    public void user_can_see_survey_view_result_button() {
+        BrowserUtils.waitForVisibility(surveysPage.surveyViewResultButton, 10);
+        Assert.assertTrue(surveysPage.surveyViewResultButton.isDisplayed());
+    }
+
+
 
 }
