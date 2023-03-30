@@ -1,17 +1,22 @@
 package fidexio.step_definitions;
 
+import fidexio.pages.VehicleContractsPage;
 import fidexio.pages.VehicleCostsPage;
 import fidexio.utilities.BrowserUtils;
 import fidexio.utilities.Driver;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.Map;
+
 public class VehicleCostsStepDefinitions {
 
     VehicleCostsPage vehicleCostsPage = new VehicleCostsPage();
+    VehicleContractsPage vehicleContractsPage = new VehicleContractsPage();
 
     @When("Clicks Vehicle Costs button")
     public void clicks_vehicle_costs_button() {
@@ -49,4 +54,42 @@ public class VehicleCostsStepDefinitions {
        vehicleCostsPage.deleteVehicleCost();
     }
 
+    @Then("Cost details should be displayed")
+    public void cost_details_should_be_displayed(Map<String,String> costList) {
+
+        Assert.assertEquals(vehicleContractsPage.vehicleName.getText(),costList.get("vehicle"));
+        Assert.assertEquals(vehicleContractsPage.costType.getText(),costList.get("type"));
+        Assert.assertEquals(vehicleCostsPage.totalPrice.getText(),costList.get("totalPrice"));
+        Assert.assertEquals(vehicleCostsPage.description.getText(),costList.get("costDescription"));
+
+        // deleting part
+
+
+        vehicleCostsPage.deleteVehicleCostNoCheckBox();
+
+    }
+
+
+    @Then("The form should be display and ready to edit")
+    public void theFormShouldBeDisplayAndReadyToEdit() {
+
+
+
+        BrowserUtils.waitForVisibility(vehicleCostsPage.totalPrice,7);
+        BrowserUtils.waitForVisibility(vehicleCostsPage.description,7);
+
+        Assert.assertTrue(vehicleCostsPage.totalPrice.isDisplayed());
+        Assert.assertTrue(vehicleCostsPage.description.isDisplayed());
+
+
+    }
+
+    @And("user enters {string} Total Price")
+    public void userEntersTotalPrice(String cost) {
+
+        BrowserUtils.waitForVisibility(vehicleCostsPage.totalPrice,7);
+        vehicleCostsPage.totalPrice.clear();
+        BrowserUtils.waitForVisibility(vehicleCostsPage.totalPrice,7);
+        vehicleCostsPage.totalPrice.sendKeys(cost);
+    }
 }

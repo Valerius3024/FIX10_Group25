@@ -44,3 +44,83 @@ Feature: Creating a new cost feature
     And enters "Lewis Hamilton" in cost description
     When user clicks Save button
     Then user should see the error message
+
+
+  # ------ AC3: If user tries to enter a vehicle which is not on the Vehicle list and click the save button, Create a Vehicle popup should be displayed --------
+
+  #@wip
+  Scenario: When user tries to enter a vehicle which is not on the Vehicle list and click the save button, Create a Vehicle popup should be displayed
+    When user enter a vehicle "Ferrari"
+    And user clicks Save button
+    Then Create a Vehicle popup should be displayed
+
+
+
+   # ------ AC4: After clicked the save button, the information of the Cost Details which user entered should be displayed. --------
+
+  #@wip
+  Scenario: After clicked the save button, the information of the Cost Details which user entered should be displayed
+    When user selects "Mercedes" Vehicle
+    And user selects "Summer tires" cost detail Type
+    And user enters "700" for Total Price
+    And enters "Lewis Hamilton" in cost description
+    When user clicks Save button
+    Then Cost details should be displayed
+      | vehicle         | Mercedes/Class A/1-MER-001 |
+      | type            | Summer tires               |
+      | totalPrice      | 700.00                     |
+      | costDescription | Lewis Hamilton             |
+
+
+   # ------ AC5: After clicked the Save button, Edit button display instead of Save button and Create button display instead of Discard button. --------
+
+  #@wip
+  Scenario: After clicked the save button, Edit button display instead of Save button and Create button display instead of Discard button
+    When user selects "Mercedes" Vehicle
+    And user selects "Summer tires" cost detail Type
+    And user enters "700" for Total Price
+    And enters "Lewis Hamilton" in cost description
+    And user should see Save and Discard button
+    When user clicks Save button
+    Then user should see Edit and Create button instead of Save button and Create button
+
+    # ------ AC6: When user clicks the Edit button the form should be open by displaying the all the information and it be ready to edit --------
+
+  #@wip
+  Scenario: When user clicks the Edit button the form should be open by displaying the all the information and it be ready to edit
+    When user selects "Mercedes" Vehicle
+    And user selects "Summer tires" cost detail Type
+    And user enters "700" for Total Price
+    And enters "Lewis Hamilton" in cost description
+    And user clicks Save button
+    When user clicks the Edit button
+    Then The form should be display and ready to edit
+
+     # ------ AC7: User should be able to enter only number in the Total Price input box. And it should be displayed as float number --------
+
+  #@wip
+  Scenario Outline: User should be able to enter number. And it should be displayed as float number
+    When user selects "Mercedes/Class A/1-MER-001" Vehicle
+    And user enters "<number>" Total Price
+    And user clicks Save button
+    Then number should be displayed as float number
+    Examples:
+      | number |
+      | 300    |
+      | 500.00 |
+
+
+
+  #@wip
+  Scenario: User enter any value other than number and error message display
+    When user selects "Mercedes/Class A/1-MER-001" Vehicle
+    And user enters "ipsum" Total Price
+    And user clicks Save button
+    Then user should see the error message
+
+
+
+
+
+
+
