@@ -17,26 +17,26 @@ Feature: Creating a new vehicle model feature
     And user clicks Vehicle Model button
     And User clicks the create button
     When user enters "Shelby 1967" model name
-
+    @FIX10-471
     Scenario: User should be able to create a new vehicle model
       And user enters "Mustang" brand name
       And user clicks the save button
       Then User see the new vehicle model
-
+    @FIX10-473
     Scenario: User should be able to create a new vehicle model at least one model name
       And user clicks the save button
       Then user should see the error message
-
+    @FIX10-474
     Scenario: user should be able to see new vehicle model after the model creating
       And user enters "Mustang" brand name
       And user clicks the save button
       Then User see the new vehicle model
-
+    @FIX10-475
     Scenario: user should be able to see Edit and Create button
       And user enters "Mustang" brand name
       And user clicks the save button
       Then user should see Edit and Create button
-
+    @FIX10-476
     Scenario: user should see everything as editable after clicking the edit button
       And user enters "Mustang" brand name
       And user clicks the save button
