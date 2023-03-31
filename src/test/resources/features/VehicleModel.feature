@@ -17,7 +17,7 @@ Feature: Creating a new vehicle model feature
     And user clicks Vehicle Model button
     And User clicks the create button
     When user enters "Shelby 1967" model name
-    @FIX10-471
+    @FIX10-471 @smoke
     Scenario: User should be able to create a new vehicle model
       And user enters "Mustang" brand name
       And user clicks the save button
