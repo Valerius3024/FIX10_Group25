@@ -21,9 +21,16 @@ public class SurveysStepDefinitions {
 
     @Then("user clicks Surveys button")
     public void user_clicks_surveys_button() {
-        homePage.surveysButton.click();
+        if (homePage.moreDropdown.isDisplayed()) {
+            BrowserUtils.waitForClickablility(homePage.moreDropdown, 5);
+            homePage.moreDropdown.click();
+            BrowserUtils.waitForClickablility(homePage.surveysButton, 5);
+            homePage.surveysButton.click();
+        } else {
+            BrowserUtils.waitForClickablility(homePage.surveysButton, 5);
+            homePage.surveysButton.click();
+        }
     }
-
     @Given("user is on the Surveys page")
     public void user_is_on_the_surveys_page() {
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 15);
@@ -34,7 +41,6 @@ public class SurveysStepDefinitions {
     public void user_clicks_create_survey_button() {
         surveysPage.createSurveyButton.click();
     }
-
     @Given("user doesn't enter title")
     public void user_doesn_t_enter_title() {
         Assert.assertEquals("", surveysPage.surveyTitleBox.getText());
@@ -48,5 +54,51 @@ public class SurveysStepDefinitions {
         WebElement surveyTitleBoxEmptyFieldError = Driver.getDriver().findElement(By.xpath("//div[@class='o_notification_title']"));
         Assert.assertTrue(surveyTitleBoxEmptyFieldError.isDisplayed());
     }
+    @Given("user enters survey title")
+    public void user_enters_survey_title() {
+        surveysPage.surveyTitleBox.sendKeys("test");
+    }
+    @Then("survey save button turns into survey edit button")
+    public void survey_save_button_turns_into_edit_button() {
+        BrowserUtils.waitForVisibility(surveysPage.editSurveyButton, 10);
+        Assert.assertTrue(surveysPage.editSurveyButton.isDisplayed());
+    }
+    @Then("survey discard button turns into survey create button")
+    public void survey_discard_button_turns_into_survey_create_button() {
+        BrowserUtils.waitForVisibility(surveysPage.createSurveyButton, 10);
+        Assert.assertTrue(surveysPage.createSurveyButton.isDisplayed());
+    }
+    @Then("user can see survey attachments button")
+    public void user_can_see_survey_attachments_button() {
+        BrowserUtils.waitForVisibility(surveysPage.surveyAttachmentButton, 10);
+        Assert.assertTrue(surveysPage.surveyAttachmentButton.isDisplayed());
+    }
+    @Then("user can see survey action button")
+    public void user_can_see_survey_action_button() {
+        BrowserUtils.waitForVisibility(surveysPage.surveyActionButton, 10);
+        Assert.assertTrue(surveysPage.surveyActionButton.isDisplayed());
+    }
+    @Then("user can see test survey button")
+    public void user_can_see_test_survey_button() {
+        BrowserUtils.waitForVisibility(surveysPage.testSurveyButton, 10);
+        Assert.assertTrue(surveysPage.testSurveyButton.isDisplayed());
+    }
+    @Then("user can see print survey button")
+    public void user_can_see_print_survey_button() {
+        BrowserUtils.waitForVisibility(surveysPage.printSurveyButton, 10);
+        Assert.assertTrue(surveysPage.printSurveyButton.isDisplayed());
+    }
+    @Then("user can see survey share and invite by email button")
+    public void user_can_see_survey_share_and_invite_by_email_button() {
+        BrowserUtils.waitForVisibility(surveysPage.surveyShareAndInviteByEmailButton, 10);
+        Assert.assertTrue(surveysPage.surveyShareAndInviteByEmailButton.isDisplayed());
+    }
+    @Then("user can see survey view result button")
+    public void user_can_see_survey_view_result_button() {
+        BrowserUtils.waitForVisibility(surveysPage.surveyViewResultButton, 10);
+        Assert.assertTrue(surveysPage.surveyViewResultButton.isDisplayed());
+    }
+
+
 
 }

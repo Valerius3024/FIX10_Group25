@@ -9,6 +9,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import java.util.List;
+
 public class EmployeesPage {
 
     public EmployeesPage(){
@@ -139,7 +141,7 @@ public class EmployeesPage {
     public void verifyNextPage(){
         int pageResultsEndingPoint = Integer.parseInt(Driver.getDriver().findElement(By.cssSelector("span.o_pager_value")).getText().substring(Driver.getDriver().findElement(By.cssSelector("span.o_pager_value")).getText().indexOf('-')+1));
         nextPageButton.click();
-        BrowserUtils.waitForClickablility(previousPageButton, 10);
+        BrowserUtils.waitForInvisibilityOfElement(loadingIndicator,10);
         int pageResultsStartingPoint = Integer.parseInt(Driver.getDriver().findElement(By.cssSelector("span.o_pager_value")).getText().substring(0,Driver.getDriver().findElement(By.cssSelector("span.o_pager_value")).getText().indexOf('-')));
         Assert.assertEquals(pageResultsEndingPoint, (pageResultsStartingPoint-1));
     }
@@ -147,7 +149,7 @@ public class EmployeesPage {
     public void verifyPreviousPage(){
         int pageResultsStartingPoint = Integer.parseInt(Driver.getDriver().findElement(By.cssSelector("span.o_pager_value")).getText().substring(0,Driver.getDriver().findElement(By.cssSelector("span.o_pager_value")).getText().indexOf('-')));
         previousPageButton.click();
-        BrowserUtils.waitForClickablility(previousPageButton, 10);
+        BrowserUtils.waitForInvisibilityOfElement(loadingIndicator,10);
         int pageResultsEndingPoint = Integer.parseInt(Driver.getDriver().findElement(By.cssSelector("span.o_pager_value")).getText().substring(Driver.getDriver().findElement(By.cssSelector("span.o_pager_value")).getText().indexOf('-')+1));
         Assert.assertEquals(pageResultsEndingPoint, (pageResultsStartingPoint-1));
     }
@@ -168,6 +170,11 @@ public class EmployeesPage {
 
 ////////////////////////////////////////////////////////////////
 
+    @FindBy(css = "div.o_loading")
+    public WebElement loadingIndicator;
+
+    @FindBy(xpath = "//div[@class='o_kanban_view o_hr_employee_kanban o_kanban_ungrouped']//span[text()]")
+    public List<WebElement> employeesResults;
 
 }
 

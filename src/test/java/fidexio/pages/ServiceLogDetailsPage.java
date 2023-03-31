@@ -9,13 +9,13 @@ public class ServiceLogDetailsPage {
     public ServiceLogDetailsPage() {
         PageFactory.initElements(Driver.getDriver(),this);
     }
-    @FindBy(xpath = "//a[@id='o_field_input_754']")
+    @FindBy(name = "vehicle_id")
     public WebElement vehicleField;
 
-    @FindBy(xpath = "//a[@id='o_field_input_755']")
+    @FindBy(name = "cost_subtype_id")
     public WebElement serviceTypeField;
 
-    @FindBy(xpath = "//span[@name=\"amount\"]")
+    @FindBy(name = "amount")
     public WebElement totalPriceField;
 
     @FindBy(xpath = "//span[@name=\"odometer\"]")

@@ -26,3 +26,25 @@ Feature: As a POSMANAGER, I should be able to design survey from Surveys module
     And user doesn't enter title
     And user clicks survey save button
     Then user can't create a survey
+
+  @FIX10-381
+  Scenario: 3. After clicked the Save button,Edit button display instead of Save button and Create button display instead of Discard button.
+    Given user is on the Surveys page
+    And user clicks create survey button
+    And user enters survey title
+    And user clicks survey save button
+    Then survey save button turns into survey edit button
+    Then survey discard button turns into survey create button
+
+  @FIX10-415
+  Scenario: After clicked the Save button, "Attachment(s)", "Action", "Test Survey", "Print Survey", "Share and invite by email" and "View result" buttons should be displayed.
+    Given user is on the Surveys page
+    And user clicks create survey button
+    And user enters survey title
+    And user clicks survey save button
+    Then user can see survey attachments button
+    Then user can see survey action button
+    Then user can see test survey button
+    Then user can see print survey button
+    Then user can see survey share and invite by email button
+    Then user can see survey view result button

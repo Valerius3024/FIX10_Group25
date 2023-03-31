@@ -9,22 +9,30 @@ public class SurveysPage {
 
     public SurveysPage() {PageFactory.initElements(Driver.getDriver(), this);}
 
-    @FindBy(tagName = "h1")
+    @FindBy(xpath = "//input[@class='o_field_char o_field_widget o_input o_required_modifier']")
     public WebElement surveyTitleBox;
     @FindBy(xpath = "//button[normalize-space(text())='Save']")
     public WebElement saveSurveyButton;
-    public WebElement discardButton;
-    public WebElement editButton;
+    @FindBy(xpath = "//button[normalize-space(text())='Discard']")
+    public WebElement discardSurveyButton;
+    @FindBy(xpath = "//button[normalize-space(text())='Edit']")
+    public WebElement editSurveyButton;
     @FindBy(xpath = "//button[normalize-space(text())='Create']")
     public WebElement createSurveyButton;
-    public WebElement attachmentButton;
-    public WebElement actionButton;
+    @FindBy(xpath = "//button[normalize-space(text())='Attachment(s)']")
+    public WebElement surveyAttachmentButton;
+    @FindBy(xpath = "//button[normalize-space(text())='Action']")
+    public WebElement surveyActionButton;
+    @FindBy(xpath = "//button[normalize-space(text())='Test Survey']")
     public WebElement testSurveyButton;
+    @FindBy(xpath = "//button[normalize-space(text())='Print Survey']")
     public WebElement printSurveyButton;
-    public WebElement shareAndInviteByEmailButton;
-    public WebElement viewResultButton;
-    public WebElement addAnItemButton;
-    public WebElement optionsTabButton;
+    @FindBy(xpath = "//button[normalize-space(text())='Share and invite by email']")
+    public WebElement surveyShareAndInviteByEmailButton;
+    @FindBy(xpath = "//button[normalize-space(text())='View results'][1]")
+    public WebElement surveyViewResultButton;
+    public WebElement surveyAddAnItemButton;
+    public WebElement surveyOptionsTabButton;
     public WebElement userCanComeBackInThePreviousPageCheckbox	;
     public WebElement loginRequiredCheckbox;
     public WebElement surveyCreatedMessage;
