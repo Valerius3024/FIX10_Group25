@@ -98,7 +98,11 @@ public class SurveysStepDefinitions {
         BrowserUtils.waitForVisibility(surveysPage.surveyViewResultButton, 10);
         Assert.assertTrue(surveysPage.surveyViewResultButton.isDisplayed());
     }
-
+    @Then("user can't see add an item button")
+    public void user_can_t_see_add_an_item_button() {
+        BrowserUtils.waitForVisibility(surveysPage.surveyViewResultButton, 10);
+        Assert.assertTrue(surveysPage.surveyAddAnItemButtonIsNotThere.isDisplayed());
+    }
 
 
 }

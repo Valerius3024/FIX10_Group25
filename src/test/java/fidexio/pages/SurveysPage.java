@@ -29,9 +29,10 @@ public class SurveysPage {
     public WebElement printSurveyButton;
     @FindBy(xpath = "//button[normalize-space(text())='Share and invite by email']")
     public WebElement surveyShareAndInviteByEmailButton;
-    @FindBy(xpath = "//button[normalize-space(text())='View results'][1]")
+    @FindBy(xpath = "//button[@class='btn btn-sm btn-default'][.='View results']")
     public WebElement surveyViewResultButton;
-    public WebElement surveyAddAnItemButton;
+    @FindBy(xpath = "//td[@colspan='3']")
+    public WebElement surveyAddAnItemButtonIsNotThere;
     public WebElement surveyOptionsTabButton;
     public WebElement userCanComeBackInThePreviousPageCheckbox	;
     public WebElement loginRequiredCheckbox;

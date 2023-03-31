@@ -48,3 +48,11 @@ Feature: As a POSMANAGER, I should be able to design survey from Surveys module
     Then user can see print survey button
     Then user can see survey share and invite by email button
     Then user can see survey view result button
+
+  @FIX10-416
+  Scenario: After clicked the Save button, "Add an item" should be not displayed.
+    Given user is on the Surveys page
+    And user clicks create survey button
+    And user enters survey title
+    And user clicks survey save button
+    Then user can't see add an item button
