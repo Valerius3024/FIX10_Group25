@@ -1,10 +1,6 @@
 package fidexio.step_definitions;
 
-
-import fidexio.pages.HomePage;
-import fidexio.pages.VehicleContractsPage;
 import fidexio.pages.VehicleModelPage;
-import fidexio.pages.VehiclesPage;
 import fidexio.utilities.BrowserUtils;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
@@ -12,7 +8,7 @@ import io.cucumber.java.en.When;
 
 public class VehicleModel_StepDefinitions {
     VehicleModelPage vehicleModelPage = new VehicleModelPage();
-    String path = "/Users/a.mesut.dal/Desktop/HTML Class/Used-1967-Ford-Mustang-Shelby-GT500.jpg";
+    //String path = "/Users/a.mesut.dal/Desktop/HTML Class/Used-1967-Ford-Mustang-Shelby-GT500.jpg";
     @Then("user clicks Vehicle Model button")
     public void user_clicks_vehicle_model_button() {
         vehicleModelPage.VehicleModelButton.click();
