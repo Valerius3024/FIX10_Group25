@@ -1,4 +1,4 @@
-@FIX10-385
+@FIX10-385 @wt
 Feature: As a POSMANAGER, I should be able to enter a new Fuel Log for the vehicle
   US 27 - Fleet / Vehicles / Create A New Vehicles Fuel Logs Function [S3 - MC]
 
