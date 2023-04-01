@@ -132,5 +132,28 @@ public class us38_PosStepDefinitions {
         inventoryPage.okButtonAfterDelete.click();
     }
 
+    @Then("user should see the informations")
+    public void userShouldSeeTheInformations() {
+        Assert.assertTrue(inventoryPage.information.isDisplayed());
+    }
 
+
+    @And("user enters {string} Total Price of Cost")
+    public void userEntersTotalPriceOfCost(String cost) {
+        inventoryPage.costNumber.click();
+        BrowserUtils.waitFor(2);
+        inventoryPage.costNumber.clear();
+        BrowserUtils.waitFor(2);
+        inventoryPage.costNumber.sendKeys(cost);
+    }
+
+    @Then("price should displayed as a float number")
+    public void priceShouldDisplayedAsAFloatNumber() {
+        Assert.assertTrue(inventoryPage.costNumberDisplayed.isDisplayed());
+    }
+
+    @Then("verify new product can be found")
+    public void verifyNewProductCanBeFound() {
+        Assert.assertTrue(inventoryPage.verifyProduct.isDisplayed());
+    }
 }

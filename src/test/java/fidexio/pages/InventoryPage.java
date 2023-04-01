@@ -63,6 +63,18 @@ public class InventoryPage {
     @FindBy(xpath = "(//*[@class='btn btn-sm btn-primary'])")
     public WebElement okButtonAfterDelete;
 
+    @FindBy(xpath = "(//*[@class='o_field_char o_field_widget o_required_modifier'])")
+    public WebElement information;
+
+    @FindBy(xpath = "(//*[@class='o_input'])[2]")
+    public WebElement costNumber;
+
+    @FindBy(xpath = "(//*[@class='o_field_monetary o_field_number o_field_widget'])[2]")
+    public WebElement costNumberDisplayed;
+
+    @FindBy(xpath = "(//*[@class='oe_kanban_details'])")
+    public WebElement verifyProduct;
+
 
 
 
