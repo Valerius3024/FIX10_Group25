@@ -50,7 +50,9 @@ public class FuelLogPage {
     @FindBy(css = "label.o_form_label.o_field_invalid")
     public WebElement odometerLabelInvalid;
 
-    @FindBy(css = "input#o_field_input_392")
+    // @FindBy(css = "input#o_field_input_392")
+    @FindBy(xpath = "//input[@name='odometer']")
+
     public WebElement odometerInputBox;
 
     @FindBy(xpath = "//span[@name='odometer']")
