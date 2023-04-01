@@ -1,16 +1,16 @@
 package fidexio.step_definitions;
 
+import com.github.javafaker.Faker;
 import fidexio.pages.HomePage;
 import fidexio.pages.SurveysPage;
 import fidexio.utilities.BrowserUtils;
 import fidexio.utilities.Driver;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -18,7 +18,26 @@ public class SurveysStepDefinitions {
 
     HomePage homePage = new HomePage();
     SurveysPage surveysPage = new SurveysPage();
+    String surveyRandomTitle = new Faker().letterify("?????????????????????");
 
+    @When("user clicks design survey button")
+    public void user_clicks_design_survey_button() {
+        BrowserUtils.waitForVisibility(surveysPage.designSurveyButton,10);
+        surveysPage.designSurveyButton.click();
+    }
+    @Then("user can click start survey button")
+    public void user_can_click_start_survey_button() {
+        BrowserUtils.waitForVisibility(surveysPage.startSurveyButton,10);
+        surveysPage.startSurveyButton.click();
+        Assert.assertEquals("Not ready", surveysPage.surveyNotReadyWarning.getText());
+    }
+    @Then("user can click back to survey button")
+    public void user_can_click_back_to_survey_button() {
+        BrowserUtils.waitForVisibility(surveysPage.backToSurveyButton,10);
+        surveysPage.backToSurveyButton.click();
+        BrowserUtils.waitForVisibility(homePage.surveysButton,10);
+        Assert.assertTrue(homePage.surveysButton.isDisplayed());
+    }
     @Then("user clicks Surveys button")
     public void user_clicks_surveys_button() {
         if (homePage.moreDropdown.isDisplayed()) {
@@ -56,7 +75,7 @@ public class SurveysStepDefinitions {
     }
     @Given("user enters survey title")
     public void user_enters_survey_title() {
-        surveysPage.surveyTitleBox.sendKeys("test");
+        surveysPage.surveyTitleBox.sendKeys(surveyRandomTitle);
     }
     @Then("survey save button turns into survey edit button")
     public void survey_save_button_turns_into_edit_button() {
@@ -102,6 +121,33 @@ public class SurveysStepDefinitions {
     public void user_can_t_see_add_an_item_button() {
         BrowserUtils.waitForVisibility(surveysPage.surveyAddAnItemButtonIsNotThere, 10);
         Assert.assertTrue(surveysPage.surveyAddAnItemButtonIsNotThere.isDisplayed());
+    }
+    @Given("user clicks survey options button")
+    public void user_clicks_survey_options_button() {
+        BrowserUtils.waitForVisibility(surveysPage.surveyOptionsTabButton, 10);
+        surveysPage.surveyOptionsTabButton.click();
+    }
+    @Then("user can choose user can come back in the previous page checkbox")
+    public void user_can_choose_user_can_come_back_in_the_previous_page_checkbox() {
+        BrowserUtils.waitForVisibility(surveysPage.surveyUserCanComeBackInThePreviousPageCheckbox,10);
+        surveysPage.surveyUserCanComeBackInThePreviousPageCheckbox.click();
+        Assert.assertTrue(surveysPage.surveyUserCanComeBackInThePreviousPageCheckbox.isSelected());
+    }
+    @Then("user can choose login required checkbox")
+    public void user_can_choose_login_required_checkbox() {
+        BrowserUtils.waitForVisibility(surveysPage.surveyLoginRequiredCheckbox,10);
+        surveysPage.surveyLoginRequiredCheckbox.click();
+        Assert.assertTrue(surveysPage.surveyLoginRequiredCheckbox.isSelected());
+    }
+    @Then("user can see survey created message")
+    public void user_can_see_survey_created_message() {
+        BrowserUtils.waitForVisibility(surveysPage.surveyCreatedMessage,10);
+        Assert.assertEquals("Survey created", surveysPage.surveyCreatedMessage.getText());
+    }
+    @Then("user can see recently created survey on the survey list module")
+    public void user_can_see_recently_created_survey_on_the_survey_list_module() {
+        WebElement surveyActualTitle = Driver.getDriver().findElement(By.xpath("//h4[.='" + surveyRandomTitle + "']"));
+        Assert.assertEquals(surveyActualTitle.getText(),surveyRandomTitle);
     }
 
 
