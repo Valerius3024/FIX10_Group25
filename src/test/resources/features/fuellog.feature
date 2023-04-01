@@ -1,4 +1,4 @@
-@FIX10-385 @wt
+@FIX10-385
 Feature: As a POSMANAGER, I should be able to enter a new Fuel Log for the vehicle
   US 27 - Fleet / Vehicles / Create A New Vehicles Fuel Logs Function [S3 - MC]
 
@@ -21,7 +21,7 @@ Feature: As a POSMANAGER, I should be able to enter a new Fuel Log for the vehic
     And user clicks Create button
 
   @FIX10-375
-  Scenario: 1.Verify that USER can create new Vehicles Fuel Logs.
+  Scenario: Verify that USER can create new Vehicles Fuel Logs.
     Then user verifies Discard button visible
     Then user select first vehicle from dropdown
     And user clicks SAVE button
@@ -29,18 +29,18 @@ Feature: As a POSMANAGER, I should be able to enter a new Fuel Log for the vehic
     And user delete last saved record
 
   @FIX10-376 @smoke
-  Scenario: 2. User must choose at least a Vehicle to create a Vehicles Fuel Log.
+  Scenario: User must choose at least a Vehicle to create a Vehicles Fuel Log.
     Then user clicks SAVE button
     And user verifies vehicle label invalid
 
   @FIX10-404
-  Scenario: 3. If user tries to enter a vehicle which is not on the Vehicle list and click the save button, Create a Vehicle popup should be displayed.
+  Scenario: If user tries to enter a vehicle which is not on the Vehicle list and click the save button, Create a Vehicle popup should be displayed.
     Then user enters "TOGG YOGG" as vehicle name not in list
     Then user clicks SAVE button
     And user verifies create vehicle popup is displayed
 
   @FIX10-405
-  Scenario: 4.After clicked the save button, the information of the Vehicles Fuel Log Details which user entered should be displayed.
+  Scenario: After clicked the save button, the information of the Vehicles Fuel Log Details which user entered should be displayed.
     Then user verifies Discard button visible
     Then user select first vehicle from dropdown
     And user clicks SAVE button
@@ -48,7 +48,7 @@ Feature: As a POSMANAGER, I should be able to enter a new Fuel Log for the vehic
     And user delete last saved record
 
   @FIX10-420
-  Scenario: 5. After clicked the Save button, Edit button display instead of Save button and Create button display instead of Discard button.
+  Scenario: After clicked the Save button, Edit button display instead of Save button and Create button display instead of Discard button.
     Then user verifies Discard button visible
     Then user select first vehicle from dropdown
     And user clicks SAVE button
@@ -56,7 +56,7 @@ Feature: As a POSMANAGER, I should be able to enter a new Fuel Log for the vehic
     And user verifies Create button is seen
 
   @FIX10-421
-  Scenario: 6. When user clicks the Edit button the form should open by displaying the all the information and it be ready to edit.
+  Scenario: When user clicks the Edit button the form should open by displaying the all the information and it be ready to edit.
     Then user verifies Discard button visible
     Then user select first vehicle from dropdown
     And user clicks SAVE button
@@ -68,7 +68,7 @@ Feature: As a POSMANAGER, I should be able to enter a new Fuel Log for the vehic
     Then user delete last saved record
 
   @FIX10-422
-  Scenario: 7. User should be able to enter only number in the Odometer Value input box. And it should be displayed as a float number
+  Scenario: User should be able to enter only number in the Odometer Value input box. And it should be displayed as a float number
     Then user verifies Discard button visible
     Then user select first vehicle from dropdown
     And user sends text value to odometer
