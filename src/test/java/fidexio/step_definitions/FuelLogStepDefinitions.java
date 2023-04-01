@@ -90,7 +90,9 @@ public class FuelLogStepDefinitions {
 
     @And("user delete last saved record")
     public void user_delete_last_saved_record() {
+        BrowserUtils.waitForVisibility(fp.actionDropDown, 3);
         click(fp.actionDropDown);
+        BrowserUtils.waitForVisibility(fp.actionDropDownDeleteButton, 3);
         click(fp.actionDropDownDeleteButton);
         click(fp.deleteOkButton);
     }

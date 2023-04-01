@@ -40,5 +40,5 @@ Feature: Creating a new vehicle model feature
     Scenario: user should see everything as editable after clicking the edit button
       And user enters "Mustang" brand name
       And user clicks the save button
-      Then user should see Edit and Create button
+      Then user should see Edit and Create buttons
       Then user should see everything as editable

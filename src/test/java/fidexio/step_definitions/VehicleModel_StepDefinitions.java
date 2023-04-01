@@ -42,7 +42,7 @@ public class VehicleModel_StepDefinitions {
     }
 
 
-    @Then("user should see Edit and Create button")
+    @Then("user should see Edit and Create buttons")
     public void userShouldSeeEditAndCreateButton() {
         vehicleModelPage.editButton.isDisplayed();
         vehicleModelPage.newCreateButton.isDisplayed();

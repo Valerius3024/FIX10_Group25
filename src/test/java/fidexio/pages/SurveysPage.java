@@ -9,6 +9,14 @@ public class SurveysPage {
 
     public SurveysPage() {PageFactory.initElements(Driver.getDriver(), this);}
 
+    @FindBy(xpath = "//button[.='Design Survey']")
+    public WebElement designSurveyButton;
+    @FindBy(xpath = "//a[@class='btn btn-primary btn-lg']")
+    public WebElement startSurveyButton;
+    @FindBy(tagName = "h1")
+    public WebElement surveyNotReadyWarning;
+    @FindBy(xpath = "//a[@class='btn btn-default']")
+    public WebElement backToSurveyButton;
     @FindBy(xpath = "//input[@class='o_field_char o_field_widget o_input o_required_modifier']")
     public WebElement surveyTitleBox;
     @FindBy(xpath = "//button[normalize-space(text())='Save']")
@@ -33,15 +41,13 @@ public class SurveysPage {
     public WebElement surveyViewResultButton;
     @FindBy(xpath = "//td[@colspan='3']")
     public WebElement surveyAddAnItemButtonIsNotThere;
+    @FindBy(xpath = "//a[.='Options']")
     public WebElement surveyOptionsTabButton;
-    public WebElement userCanComeBackInThePreviousPageCheckbox	;
-    public WebElement loginRequiredCheckbox;
+    @FindBy(xpath = "(//div[@class='o_field_boolean o_field_widget o_checkbox']//input)[1]")
+    public WebElement surveyUserCanComeBackInThePreviousPageCheckbox;
+    @FindBy(xpath = "(//div[@class='o_field_boolean o_field_widget o_checkbox']//input)[2]")
+    public WebElement surveyLoginRequiredCheckbox;
+    @FindBy(xpath = "//div[@class='o_thread_message_content']//p")
     public WebElement surveyCreatedMessage;
-    public WebElement surveyNameBoxUnderSurveysTab;
-
-
-
-
-
 
 }
