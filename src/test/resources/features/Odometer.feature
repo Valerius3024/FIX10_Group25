@@ -70,7 +70,7 @@ Scenario: 5. After clicked the Save button, Edit button display instead of Save 
     And user enters  vehicle select input box
     And user select first from dropdown
     And user click save button
-  And user should see Edit and Create button
+  And user a should see Edit and Create button
 
 
   Scenario:  6. When user clicks the Edit button the form should open by displaying the all the information and it be ready to edit.
@@ -82,8 +82,8 @@ Scenario: 5. After clicked the Save button, Edit button display instead of Save 
     And user select first from dropdown
     And user click save button
     And user click Edit button
-    And user click Discard button
-    Then user click ok button
+    And user should seen Odometer save button
+
 
 
    Scenario: 7. User should be able to enter only number in the Odometer Value input box. And it should

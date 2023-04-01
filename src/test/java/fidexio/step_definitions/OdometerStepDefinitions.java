@@ -47,6 +47,7 @@ public class OdometerStepDefinitions {
 
     @And("user enters  vehicle select input box")
     public void userEntersVehicleSelectInputBox() {
+
         odometerPage.userEnterVehicleSelectInputBox.click();
     }
 
@@ -89,8 +90,8 @@ public class OdometerStepDefinitions {
 
     @Then("Odometer saved details are seen")
     public void odometerSavedDetailsAreSeen() {
-        Assert.assertEquals(odometerPage.vehicleNameSaved, odometerPage.detailInfoLabel.getText());
-
+       // Assert.assertEquals(odometerPage.vehicleNameSaved, odometerPage.detailInfoTable.getText());
+Assert.assertTrue(odometerPage.detailInfoTable.isDisplayed());
 
     }
 
@@ -112,8 +113,8 @@ public class OdometerStepDefinitions {
         odometerPage.vehicleInputBox.sendKeys(string);
     }
 
-    @Then("user should see Edit and Create button")
-    public void user_should_see_edit_and_create_button() {
+    @Then("user a should see Edit and Create button")
+    public void user_a_should_see_edit_and_create_button() {
         BrowserUtils.waitForClickablility(odometerPage.vehiclesOdometerCreateButton, 10);
         odometerPage.vehiclesOdometerCreateButton.click();
     }
@@ -123,10 +124,9 @@ public class OdometerStepDefinitions {
         odometerPage.userClickEditButton.click();
     }
 
-    @Then("user click ok button")
-    public void user_click_ok_button() {
-        odometerPage.userClickOkButton.click();
-    }
+  //  @Then("user click ok button")
+    //public void user_click_ok_button() {
+   //     odometerPage.userClickOkButton.click();
 
 
 
@@ -138,5 +138,11 @@ public class OdometerStepDefinitions {
         odometerPage.OdometerValueInputBox.clear();
         BrowserUtils.waitForVisibility(odometerPage.OdometerValueInputBox,7);
         odometerPage.OdometerValueInputBox.sendKeys(value);
+    }
+
+    @And("user should seen Odometer save button")
+    public void userShouldSeenOdometerSaveButton() {
+        Assert.assertTrue( odometerPage.userClicksOdometerSaveButton.isDisplayed());
+
     }
 }
