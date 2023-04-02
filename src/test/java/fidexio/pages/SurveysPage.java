@@ -49,5 +49,8 @@ public class SurveysPage {
     public WebElement surveyLoginRequiredCheckbox;
     @FindBy(xpath = "//div[@class='o_thread_message_content']//p")
     public WebElement surveyCreatedMessage;
+    @FindBy(xpath = "//a[@class='o_column_archive']")
+    public WebElement surveyArchiveButton;
+
 
 }
