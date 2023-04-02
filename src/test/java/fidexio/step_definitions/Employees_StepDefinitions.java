@@ -33,7 +33,16 @@ public class Employees_StepDefinitions {
 
     @And("user navigates to Employees page")
     public void user_navigates_to_employees_page() {
-        homePage.employeesButton.click();
+        if (homePage.moreDropdown.isDisplayed()) {
+            BrowserUtils.waitForClickablility(homePage.moreDropdown, 5);
+            homePage.moreDropdown.click();
+            BrowserUtils.waitForClickablility(homePage.fleetButton, 5);
+            homePage.employeesButton.click();
+        } else {
+            BrowserUtils.waitForClickablility(homePage.fleetButton, 5);
+            homePage.employeesButton.click();
+        }
+        BrowserUtils.waitForInvisibilityOfElement(employeesPage.loadingIndicator,10);
     }
     @When("user clicks on Follow button")
     public void user_clicks_on_follow_button() {
