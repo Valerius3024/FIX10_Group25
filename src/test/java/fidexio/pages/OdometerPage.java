@@ -38,8 +38,8 @@ public class OdometerPage {
     @FindBy(xpath = "//button[@class='btn btn-primary btn-sm o_form_button_edit']")
     public WebElement userClickEditButton;
 
-    @FindBy(xpath = "//button[.='Ok']")
-    public WebElement userClickOkButton;
+  //  @FindBy(xpath = "//button[.='Ok']")
+  //  public WebElement userClickOkButton;
 
 @FindBy(xpath ="(//td[@style='width: 100%;'])[2]/input")
              public WebElement OdometerValueInputBox;
@@ -79,10 +79,11 @@ public class OdometerPage {
 
     @FindBy(xpath = "//a[.='Bmw/520ES/01adana01']")
     public WebElement Bmw;
-    public long vehicleNameSaved;
 
-    @FindBy(xpath = "o_group o_inner_group")
-    public WebElement detailInfoLabel;
+    public String vehicleNameSaved;
+
+    @FindBy(css = "table.o_group.o_inner_group")
+    public WebElement detailInfoTable;
 
     @FindBy(xpath = "btn btn-default btn-sm o_form_button_create")
     public WebElement userVerifiesCreateAndButtonIsSeen;
