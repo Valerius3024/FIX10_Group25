@@ -20,14 +20,16 @@ public class CalenderPage {
     public WebElement weekButton;
     @FindBy(xpath= "//button[.='Month']")
     public WebElement monthButton;
-    @FindBy(xpath= "//tr[@data-time='01:00:00']")
+    @FindBy(xpath= "//tr[@data-time='04:00:00']")
     public WebElement timeBoxButton;
     @FindBy(xpath= "//input[@class='o_input']")
     public WebElement summaryBox;
-    @FindBy(xpath= "//button[@class='btn btn-sm btn-primary']")
+
+    @FindBy(xpath= "//span[.='Create']")
     public WebElement createButton;
-    @FindBy(xpath= "(//div[@class='fc-event-container']//a)[2]")
+    @FindBy(xpath= "//a[@class='fc-time-grid-event fc-v-event fc-event fc-start fc-end fc-draggable fc-resizable o_calendar_color_6 fc-short']")
     public WebElement eventButton;
+
     @FindBy(xpath= "//span[.='Edit']")
     public WebElement editButton;
     @FindBy(xpath= "//input[@class='o_field_char o_field_widget o_input o_required_modifier']")
