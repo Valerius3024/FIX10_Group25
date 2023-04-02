@@ -111,6 +111,8 @@ public class us38_PosStepDefinitions {
     public void userShouldSeeEditAndCreateButtonInsteadOfSaveAndCreateButton() {
         BrowserUtils.waitForVisibility(inventoryPage.createButton,5);
         Assert.assertTrue(inventoryPage.createButton.isDisplayed());
+        BrowserUtils.waitForVisibility(inventoryPage.editButton,5);
+        Assert.assertTrue(inventoryPage.editButton.isDisplayed());
     }
 
     @And("user clicks action button")
