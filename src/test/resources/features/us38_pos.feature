@@ -45,7 +45,7 @@ Feature: Fidexio Application Inventory Functionality
     And user clicks delete foto button
 
       #@ensar
-  @FIX10-491
+  @FIX10-491 @smoke
       #----------AC 3. "Can be Sold" and "Can be Purchased" are checked by default.
   Scenario: Verify user "Can be Sold" and "Can be Purchased" are checked by default.
     When user clicks inventory button
