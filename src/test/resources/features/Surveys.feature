@@ -1,7 +1,6 @@
 @FIX10-390
 Feature: As a POSMANAGER, I should be able to design survey from Surveys module
   US 36 - Surveys Functionality [S3 - MS]
-
   1. Verify that all buttons work as expected at the survey design stage.
   2. User must enter a survey title to create a survey.
   3. After clicked the Save button, Edit button display instead of Save button and Create button display instead of Discard button.
@@ -11,7 +10,8 @@ Feature: As a POSMANAGER, I should be able to design survey from Surveys module
   7. "Survey created" message should be displayed under the survey form sheet, after clicked the save button.
   8. Verify that the user should be able to see created survey is listed after clicking the Surveys module.
 
-  Background: I log in as a POSMANAGER
+  #@FIX10-499
+  Background: As a user I should login and create survey.
     Given user is on the login page
     When User enters "posmanager24@info.com" and "posmanager" for Pos Manager
     And User clicks login button
@@ -54,7 +54,7 @@ Feature: As a POSMANAGER, I should be able to design survey from Surveys module
     Then user deletes recently created survey
 
   @FIX10-416
-  Scenario: Verify after clicked the Save button, "Add an item" should be not displayed.
+  Scenario: Verify  "Add an item" is NOT displayed after clicking Save button
     When user enters survey title
     And user clicks survey save button
     Then user can't see add an item button
