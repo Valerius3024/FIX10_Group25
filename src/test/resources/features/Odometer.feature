@@ -19,7 +19,7 @@ Feature: Creating a new Odometer feature
     When User enters "posmanager20@info.com" and "posmanager" for Pos Manager
     Then User clicks login button
 
- @smoke @FIX10-437
+ @smoke @FIX10-437 @wip
   Scenario: 1.Verify that USER can create a new Odometer
     When user clicks More Odometer button
     And User clicks Fleet Button
