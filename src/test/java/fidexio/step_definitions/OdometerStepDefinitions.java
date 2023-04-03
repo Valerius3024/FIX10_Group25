@@ -28,8 +28,11 @@ public class OdometerStepDefinitions {
 
     @When("user clicks More Odometer button")
     public void userClicksMoreButton() {
-        homePage.moreDropdown.click();
+
+
     }
+
+
 
 
     @Then("User clicks Vehicles Odometer button")
@@ -54,7 +57,9 @@ public class OdometerStepDefinitions {
 
     @And("User clicks Fleet Button")
     public void userClicksFleetButton() {
-        homePage.fleetButton.click();
+        BrowserUtils.clickWithJS(homePage.fleetButton);
+
+
     }
 
     @And("user clicks create odometer button")

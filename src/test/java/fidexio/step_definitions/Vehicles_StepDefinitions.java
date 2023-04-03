@@ -28,7 +28,9 @@ public class Vehicles_StepDefinitions {
     @Then("user navigates to Vehicles page")
     public void user_navigates_to_vehicles_page() {
         homePage.moreDropdown.click();
+        BrowserUtils.waitForInvisibilityOfElement(vehiclesPage.loadingIndicator,10);
         homePage.fleetButton.click();
+        BrowserUtils.waitForInvisibilityOfElement(vehiclesPage.loadingIndicator,10);
     }
     @When("user clicks on Create button in Vehicles page")
     public void user_clicks_on_create_button_in_vehicles_page() {
